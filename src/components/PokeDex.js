@@ -10,7 +10,7 @@ const PokeDex = (props) => {
       <div className="content row">
         {props.pokemons && props.pokemons.length > 0 ?
           props.pokemons.sort((a, b) => (a.id > b.id) ? 1 : -1).map(item => (
-            <Link key={item.name} className={`pokemon_item ${item.types[item.types.length - 1].type.name}`} to={`pokemon:${item.name}`}>
+            <Link key={item.name} className={`pokemon_item ${item.types[item.types.length - 1].type.name}`} to={`pokemon/${item.name}`}>
               <div className={`pokemon_item-content`}>
                 <p className="pokemon_item-id">#{item.id}</p>
                 <p className="pokemon_item-name">{item.name}</p>
