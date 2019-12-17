@@ -1,0 +1,126 @@
+.side-nav {
+  @include flexbox;
+  @include flex-basis(30%);
+  @include flex-direction(column);
+  background: rgb(58, 58, 58);
+  color: #fff;
+  margin-right: 25px;
+  padding: 50px 20px 80px;
+  height: auto;
+
+  li {
+    display: block;
+    font-size: 18px;
+    line-height: 20px;
+    padding-left: 30px;
+    position: relative;
+    border-bottom: 1px solid rgb(58, 58, 58);
+
+    &:hover {
+      border-bottom: 1px solid #fff;
+      transition: border 0.15s ease-in-out;
+      a {
+        color: #fff;
+        transition: color 0.3s ease-in-out;
+      }
+    }
+    
+    a {
+      display: block;
+      padding: 20px 10px;
+      color: rgb(228, 226, 226);
+      text-decoration: none;
+
+    }
+
+    &.active {
+      a {
+        color: #fff;
+      }
+    }
+
+    &:last-of-type {
+      border-top: 1px solid #fff;
+      border-bottom: none;
+      text-align: center;
+      @include flexbox;
+      @include justify-content(center);
+      @include flex-basis(100%);
+    }
+
+    &.pokeball {
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        width: 25px;
+        height: 25px;
+        top: 50%;
+        transform: translateY(-50%);
+        background-image: url(../images/pokeball.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+      }
+    }
+
+    &.typedex {
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        width: 25px;
+        height: 25px;
+        top: 50%;
+        transform: translateY(-50%);
+        background-image: url(../images/typedex.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+      }
+    }
+
+    &.favorites {
+      &::before {
+        content: '';
+        position: absolute;
+        left: -4px;
+        width: 35px;
+        height: 35px;
+        top: 50%;
+        transform: translateY(-50%);
+        background-image: url(../images/favorite.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+      }
+      
+      &:hover {
+        border-bottom: 1px solid rgb(58, 58, 58);
+      }
+    }
+
+    &.exit {
+      &::before {
+        content: '';
+        position: absolute;
+        left: 45%;
+        width: 30px;
+        height: 38px;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background-image: url(../images/exit.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+      }
+    }
+  }
+
+  .logo-wrapper {
+    padding-bottom: 30px;
+    border-bottom: 1px solid #fff;
+    margin-bottom: 10px;
+  }
+  .logo {
+    display: block;
+    width: 140px;
+    height: auto;
+  }
+}

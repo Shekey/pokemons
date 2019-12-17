@@ -1,0 +1,141 @@
+.page-content-wrapper {
+  @include flexbox;
+  background-color: whitesmoke;
+  min-height: 100vh;
+  font-family: 'Lato-Bold';
+
+  .content {
+    padding-top: 120px;
+    @include flex-basis(70%);
+  }
+
+  .pokemon_item {
+    @include flex-basis(calc(33% - 30px));
+    position: relative;
+    padding: 2px;
+    margin: 15px;
+    background: #fff;
+    overflow: hidden;
+    font-family: 'Lato-Regular';
+    border: 2px solid black;
+    text-align: center;
+    border-radius: 80px;
+    text-decoration: none;
+    color: #222;
+
+    p {
+      font-family: 'Lato-Bold';
+    }
+
+    &.fire {
+      background-color: orange;
+    }
+  
+    &.water {
+      background-color: lightblue;
+    }
+  
+    &.grass {
+      background-color: lightseagreen;
+    }
+
+    &:hover {
+      text-decoration: none;
+      color: #222;
+    }
+
+    .img-wrapper {
+      width: 100px;
+      height: 100px;
+      margin: 0 auto;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+
+    .pokemon_item-name {
+      text-transform: uppercase;
+      font-size: 18px;
+      line-height: 20px;
+      font-family: 'Lato-Bold';
+    }
+
+    .specific-details {
+      @include flexbox;
+      background: rgb(231, 231, 231);
+      margin: 15px -3px;
+      padding: 0 15px;
+    }
+
+    .two-columns {
+      @include flexbox;
+      @include flex-wrap(wrap);
+      
+      & > p {
+        @include flex-basis(100%);
+        @include flexbox;
+        font-size: 20px;
+        line-height: 22px;
+        font-family: 'Lato-Bold';
+      }
+
+      p {
+        &:first-of-type {
+          @include align-items(flex-end);
+        }
+      }
+
+      &.pokemon-xp {
+        @include justify-content(center);
+        padding-bottom: 15px;
+        p {
+          display: block;
+          text-align: center;
+        }
+      }
+    }
+
+    .pokemon_item-id {
+      font-size: 18px;
+      line-height: 20px;
+      font-family: 'Lato-Bold';
+      margin-bottom: 8px;
+      padding-top: 15px;
+    }
+    // padding: 60px;
+
+    // > *,
+    // iframe {
+    //   position: absolute;
+    //   top: 0;
+    //   left: 0;
+    //   width: 100%;
+    //   height: 100%;
+    //   bottom: 0;
+    //   right: 0;
+    // }
+
+    // &::after {
+    //   content: '';
+    //   display: block;
+    //   margin: 0 auto; 
+    //   transform: rotate(-45deg);
+    //   background: white;
+    //   padding-bottom: 100%;
+    //   overflow: hidden;
+    // }
+  }
+}
+
+// .pokemon_item-content {
+ 
+// }
+
+.row {
+  margin: 0 auto;
+  max-width: 1300px;
+  padding:0 25px;
+  @include flexbox;
+  @include flex-wrap(wrap);
+  @include flex-basis(100%);
+}
