@@ -1,10 +1,9 @@
 .side-nav {
   @include flexbox;
-  @include flex-basis(30%);
   @include flex-direction(column);
+  width: 300px;
   background: rgb(58, 58, 58);
   color: #fff;
-  margin-right: 25px;
   padding: 50px 20px 80px;
   height: auto;
 
@@ -44,7 +43,6 @@
       border-bottom: none;
       text-align: center;
       @include flexbox;
-      @include justify-content(center);
       @include flex-basis(100%);
     }
 
@@ -101,11 +99,11 @@
       &::before {
         content: '';
         position: absolute;
-        left: 45%;
+        left: 0;
         width: 30px;
         height: 38px;
         top: 50%;
-        transform: translate(-50%, -50%);
+        transform: translate(0%, -50%);
         background-image: url(../images/exit.png);
         background-repeat: no-repeat;
         background-size: contain;

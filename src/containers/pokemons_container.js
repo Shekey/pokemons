@@ -12,9 +12,7 @@ export class PokemonContainer extends Component {
   }
   render() {
     return (
-      <div>
-        <PokeList pokemons={this.props.pokemonContainer}/>
-      </div>
+      <PokeList pokemons={this.props.pokemonContainer}/>
     )
   }
 }

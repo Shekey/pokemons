@@ -6,7 +6,7 @@
 
   .content {
     padding-top: 120px;
-    @include flex-basis(70%);
+    @include flex-basis(calc(70% - 10px));
   }
 
   .pokemon_item {
@@ -133,7 +133,7 @@
 
 .row {
   margin: 0 auto;
-  max-width: 1300px;
+  max-width: 1440px;
   padding:0 25px;
   @include flexbox;
   @include flex-wrap(wrap);
