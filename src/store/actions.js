@@ -37,47 +37,75 @@ export function getPokemon(id) {
   return (dispatch) => {
     axios.get(GET_POKEMON_URL + id)
       .then((res) => {
-        axios.get(res.data.species.url).then((res2) => {
-          res.data.color = res2.data.color.name;
-          res.data.capture_rate = res2.data.capture_rate;
-          res.data.habitat = res2.data.habitat.name;
-          return res
-        }).then((res3) => {
-          let finishedAbilities = false;
-          let finishedMoves = false;
 
-          res3.data.abilities.map((item, index) => {
-            axios.get(item.ability.url).then((res2) => {
-              res3.data.abilities[index].desc = res2.data.effect_entries[0].effect;
-              if (index === res3.data.abilities.length - 1) {
-                finishedAbilities = true;
-              }
-            })
+        function getSpecies() {
+          return axios.get(res.data.species.url);
+        }
+
+        function getAbilities(abilities) {
+          let array = [];
+          console.log(abilities)
+          abilities.map(item => {
+            array.push(item.ability.url);
           })
 
-          let counterMoves = 0;
-          res3.data.moves.map((item, index) => {
-            axios.get(item.move.url).then((response) => {
-              if(response.data.accuracy !== null && response.data.power !== null && counterMoves <4) {
-                res3.data.moves[index].acc = response.data.accuracy;
-                res3.data.moves[index].pow = response.data.power;
-                counterMoves++;
+          return array;
+        }
+
+        function getMoves(moves) {
+          let array = [];
+          moves.map(item => {
+            array.push(item.move.url);
+          })
+
+          return array;
+        }
+
+        axios.all([getSpecies(), ...getAbilities(res.data.abilities).map((item) => axios.get(item)),
+        ...getMoves(res.data.moves).map((item) => axios.get(item))])
+          .then(axios.spread(function (...response) {
+            // Both requests are now complete
+
+            let counter = 0;
+
+            response.map(item => {
+              if (item.data.color !== undefined) {
+                res.data.color = item.data.color.name;
               }
 
-              if (counterMoves === 4) {
-                finishedMoves = true;
-                return res3;
+              if (item.data.capture_rate !== undefined) {
+                res.data.capture_rate = item.data.capture_rate;
               }
-            }).then( (res) => {
-              if (finishedMoves && finishedAbilities) {
-                return dispatch({
-                  type: 'GET_POKEMON_BY_NAME',
-                  payload: res.data
-                })
+
+              if (item.data.habitat !== undefined) {
+                res.data.habitat = item.data.habitat.name;
               }
+
+              if (item.data.effect_entries !== undefined) {
+                res.data.abilities.map(i => {
+                  if(i.ability.name === item.data.name) {
+                    i.desc = item.data.effect_entries[0].effect;
+                  }
+                });
+              }
+              
+              if (item.data.accuracy !== undefined && item.data.accuracy !== null && item.data.power !== undefined && item.data.power !== null) {
+                res.data.moves.map(i => {
+                  if(i.move.name === item.data.name && counter < 4) {
+                    i.acc = item.data.accuracy;
+                    i.pow = item.data.power;
+                    counter++;
+                  }
+                });
+              }
+            });
+
+
+            return dispatch({
+              type: 'GET_POKEMON_BY_NAME',
+              payload: res.data
             })
-          })
-        })
+          }));
       }).catch(error => dispatch({
         type: 'GET_POKEMONS_ALL_FAILED',
         payload: error

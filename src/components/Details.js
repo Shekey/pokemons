@@ -50,7 +50,6 @@ const PokemonDetails = (props) => {
               return <div key={item.slot} className="pokemon-info-h-w">
                 <p className="ability-title">{item.ability.name}</p>
                 <p className="ability-desc">{item.desc}</p>
-                {console.log(item.desc)}
               </div>
             })
             }
