@@ -91,6 +91,12 @@ const PokemonDetails = (props) => {
            <div className="pokemon-info-f-w">
               <h5>Evolution</h5>
             </div>
+
+            <div className="pokemon-info-f-w">
+            {
+              console.log(props.pokemon.evolveForms, props.pokemon.species)
+            }
+            </div>
            </div>
         </div>
         : null

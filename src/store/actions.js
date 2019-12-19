@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { func } from 'prop-types';
 const GET_POKEMONS_ALL_URL = 'https://pokeapi.co/api/v2/pokemon/?limit=8';
 const GET_POKEMON_URL = 'https://pokeapi.co/api/v2/pokemon/';
 
@@ -15,7 +16,6 @@ export function getAllPokemons() {
           axios.get(element.url).then((res) => {
             data.push(res.data);
             counter++;
-            console.log(counter);
             if (counter === length) {
               return dispatch({
                 type: 'GET_POKEMONS_ALL_SUCCESSFUL',
@@ -35,17 +35,22 @@ export function getAllPokemons() {
 
 export function getPokemon(id) {
   return (dispatch) => {
+
     axios.get(GET_POKEMON_URL + id)
       .then((res) => {
-
+        res.isFinishedAsyncCall = false;
+        res.data.evolveForms = [];
         function getSpecies() {
           return axios.get(res.data.species.url);
         }
 
+        function getEvolutionChain(id) {
+          return axios.get(`https://pokeapi.co/api/v2/evolution-chain/${id}`);
+        }
+
         function getAbilities(abilities) {
           let array = [];
-          console.log(abilities)
-          abilities.map(item => {
+          abilities.forEach(item => {
             array.push(item.ability.url);
           })
 
@@ -54,14 +59,14 @@ export function getPokemon(id) {
 
         function getMoves(moves) {
           let array = [];
-          moves.map(item => {
+          moves.forEach(item => {
             array.push(item.move.url);
           })
 
           return array;
         }
 
-        axios.all([getSpecies(), ...getAbilities(res.data.abilities).map((item) => axios.get(item)),
+        axios.all([getSpecies(), getEvolutionChain(res.data.id), ...getAbilities(res.data.abilities).map((item) => axios.get(item)),
         ...getMoves(res.data.moves).map((item) => axios.get(item))])
           .then(axios.spread(function (...response) {
             // Both requests are now complete
@@ -69,7 +74,7 @@ export function getPokemon(id) {
             let counter = 0;
             let isDataPopulated = false;
 
-            response.map(item => {
+            response.forEach(item => {
               if (!isDataPopulated) {
                 if (item.data.color !== undefined) {
                   res.data.color = item.data.color.name;
@@ -91,8 +96,45 @@ export function getPokemon(id) {
                   });
                 }
 
+                if (item.data.chain !== undefined) {
+                  let chain = true;
+                  let evolveForms = [];
+                  let startObject = item.data.chain['evolves_to'][0];
+                  while (chain) {
+                    if (startObject !== undefined) {
+                      evolveForms.push({
+                        name: startObject.species.name,
+                        url: startObject.species.url
+                      })
+                      startObject = startObject['evolves_to'][0];
+                    } else {
+                      chain = false;
+                    }
+                  }
+                  console.log('chain');
+                  let counterOfFinishedCalls = 0;
+                  evolveForms.forEach(i => {
+                    if (!res.isFinishedAsyncCall) {
+                      axios.get(`https://pokeapi.co/api/v2/pokemon/${i.name}`).then(res => {
+                        counterOfFinishedCalls++;
+                        return res.data
+                      }).then(response => {
+                        res.data.evolveForms.push({
+                          types: response.types,
+                          name: response.name,
+                          imageUrl: response.sprites.front_shiny
+                        })
+                        console.log(counterOfFinishedCalls, evolveForms.length)
+                        if (counterOfFinishedCalls === evolveForms.length) {
+                          res.isFinishedAsyncCall = true;
+                        }
+                      })
+                    }
+                  });
+                }
+
                 if (item.data.accuracy !== undefined && item.data.accuracy !== null && item.data.power !== undefined && item.data.power !== null) {
-                  res.data.moves.map(i => {
+                  res.data.moves.forEach(i => {
                     if (i.move.name === item.data.name && counter < 3) {
                       i.acc = item.data.accuracy;
                       i.pow = item.data.power;
@@ -105,7 +147,6 @@ export function getPokemon(id) {
                 }
               }
             });
-
 
             return dispatch({
               type: 'GET_POKEMON_BY_NAME',

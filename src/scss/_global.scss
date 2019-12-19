@@ -248,6 +248,8 @@
   .pokemon-third-row {
     @include flexbox;
     @include flex-wrap(wrap);
+    background-color: #fff;
+    margin-bottom: 30px;
 
     .pokemon-info-f-w {
       margin-bottom: 10px;
@@ -274,6 +276,8 @@
   .pokemon-fourth-row {
     @include flexbox;
     @include flex-wrap(wrap);
+    background-color: #fff;
+    margin-bottom: 30px;
 
     .pokemon-info-f-w {
       margin-bottom: 10px;
@@ -324,6 +328,8 @@
   .pokemon-fifth-row {
     @include flexbox;
     @include flex-wrap(wrap);
+    background-color: #fff;
+    margin-bottom: 30px;
 
     .pokemon-info-f-w {
       margin-bottom: 10px;
