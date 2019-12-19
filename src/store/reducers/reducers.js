@@ -4,6 +4,8 @@ export default function(state={}, action) {
       return {...state, allPokemons: action.payload, status: 'done'}
       case 'GET_POKEMON_BY_NAME': 
       return {...state, pokemon: action.payload, status: 'done'}
+      case 'CLEAR_POKEMON_DETAILS':
+      return {...state,pokemon: action.payload}
       case 'GET_POKEMONS_ALL_FAILED': 
       return {...state, allPokemons: action.payload, status: 'failed'}
     default:

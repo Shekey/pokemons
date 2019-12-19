@@ -5,7 +5,7 @@
   font-family: 'Lato-Bold';
 
   .content {
-    padding-top: 120px;
+    padding-top: 50px;
     @include flex-basis(calc(70% - 10px));
   }
 
@@ -138,4 +138,207 @@
   @include flexbox;
   @include flex-wrap(wrap);
   @include flex-basis(100%);
+}
+
+
+// POKEMON DETAILS 
+
+.pokemon-details-all {
+  font-family: 'Lato-Regular';
+  font-size: 24px;
+  line-height: 26px;
+
+  .pokemon-first-row {
+    @include flexbox;
+    @include align-items(center);
+    margin-bottom: 30px;
+
+    .pokemon-name {
+      text-transform: capitalize;
+      margin: 0 15px 0 5px;
+      letter-spacing: 1.1px;
+      font-size: 30px;
+      line-height: 32px;
+    }
+
+    .pokemon-type {
+      padding: 7px 15px 10px 15px;
+      color: #fff;
+      border-radius: 30px;
+      margin-left: 12px;
+      font-size: 17px;
+      line-height: 19px;
+
+      &.poison {
+        background-color: violet;
+      }
+
+      &.grass {
+        background-color: green;
+      }
+
+      &.fire {
+        background-color: orange;
+      }
+    }
+
+    .star-wrapper {
+      @include flexbox;
+      @include flex(1);
+      @include justify-content(flex-end);
+      .fa-star {
+        color: rgb(194, 195, 196);
+        font-size: 32px;
+      }
+    }
+  }
+
+  .pokemon-second-row {
+    @include flexbox;
+    margin-bottom: 40px;
+
+    .pokemon-image {
+      @include flexbox;
+      @include justify-content(flex-start);
+      width: 140px;
+      height: 140px;
+      overflow: hidden;
+
+      figure {
+        width: 100%;
+        height: auto;
+        background: #fff;
+
+        img {
+          width: 100%;
+          height: auto;
+          display: block;
+        }
+      }
+    }
+
+    .pokemon-info {
+      margin-left: 40px;
+      background-color: #fff;
+      @include flexbox;
+      @include flex(1);
+      @include flex-wrap(wrap);
+
+      .pokemon-info-h-w {
+        p {
+          @include flexbox;
+          @include flex-wrap(wrap);
+        }
+        span {
+          @include flex-basis(50%);
+          font-size: 16px;
+          line-height: 19px;
+          padding: 3px 0;
+          & + span {
+            color: green;
+            text-transform: uppercase;
+            font-size: 13px;
+            line-height: 16px;
+          }
+        }
+      }
+    }
+  }
+
+  .pokemon-third-row {
+    @include flexbox;
+    @include flex-wrap(wrap);
+
+    .pokemon-info-f-w {
+      margin-bottom: 10px;
+    }
+
+   .pokemon-info-h-w {
+     p {
+       font-size: 18px;
+       line-height: 21px;
+       text-align: center;
+       color: green;
+       text-transform: capitalize;
+       & + p {
+        font-size: 16px;
+        line-height: 19px;
+        color: black;
+        margin-top: 10px;
+        padding-bottom: 20px;
+      }
+    }
+   }
+  }
+
+  .pokemon-fourth-row {
+    @include flexbox;
+    @include flex-wrap(wrap);
+
+    .pokemon-info-f-w {
+      margin-bottom: 10px;
+    }
+
+   .pokemon-info-h-w {
+    @include flex-basis(33.33%);
+
+     p {
+       font-size: 19px;
+       line-height: 21px;
+       text-align: center;
+       color: green;
+       text-transform: capitalize;
+       & + p {
+         margin-bottom: 0;
+        font-size: 16px;
+        line-height: 19px;
+        color: black;
+        margin-top: 10px;
+        padding-bottom: 20px;
+      }
+    }
+
+    .move-title {
+      margin-bottom: 10px;
+    }
+
+    .moves-details {
+      @include flexbox;
+      @include flex-wrap(wrap);
+
+      p {
+        @include flex-basis(50%);
+      }
+
+      .accuracy-wrap,
+      .power-wrap {
+        @include flex-basis(50%);
+        p {
+          color: black;
+        }
+      }
+    }
+   }
+  }
+
+  .pokemon-fifth-row {
+    @include flexbox;
+    @include flex-wrap(wrap);
+
+    .pokemon-info-f-w {
+      margin-bottom: 10px;
+    }
+  }
+
+  .pokemon-info-f-w {
+    @include flex-basis(100%);
+    background-color: gold;
+    color: #fff;
+    padding: 10px 30px;
+  }
+
+  .pokemon-info-h-w {
+    @include flex-basis(50%);
+    padding: 10px 30px;
+  }
 }
