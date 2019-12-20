@@ -1,7 +1,6 @@
 import React from 'react';
 
 const PokemonDetails = (props) => {
-  console.log(props.pokemon)
   return (
     <div className="content row">
       {props.pokemon !== null && props.pokemon !== undefined ?
@@ -9,6 +8,7 @@ const PokemonDetails = (props) => {
           <div className='pokemon-first-row'>
             <span className={`pokemon-id`}># {props.pokemon.id}</span>
             <h5 className={`pokemon-name`}>{props.pokemon.name}</h5>
+            {console.log(props.pokemon)}
             {props.pokemon.types.map((item) => {
               return <div key={item.type.name} className={`${item.type.name} pokemon-type`}>{item.type.name}</div>
             })}
@@ -87,22 +87,67 @@ const PokemonDetails = (props) => {
             }
           </div>
 
-           <div className="pokemon-fifth-row">
-           <div className="pokemon-info-f-w">
+          <div className="pokemon-fifth-row">
+            <div className="pokemon-info-f-w">
               <h5>Evolution</h5>
             </div>
-
-            <div className="pokemon-info-f-w">
-            {
-              console.log(props.pokemon.evolveForms, props.pokemon.species)
-            }
-            </div>
-           </div>
+              {
+                showEvolve(props.pokemon.evolveForms, props.pokemon)
+              }
+          </div>
         </div>
         : null
       }
     </div>
   );
+}
+
+const showEvolve = (evolveForms, currentPokemon) => {
+  let isFirstItem = evolveForms.find( item => item.name === currentPokemon.name);
+  let evolveFormsJSX = evolveForms.map((item) => (
+    <div key={item.name} className={`pokemon-info-evolve-item`}>
+      <div className="img-wrapper">
+        <img src={item.imageUrl} />
+      </div>
+      <h5>{item.name}</h5>
+      <div className="pokemon-type-wrap">
+        {item.types.map((i) => {
+          return <div key={`type-${i.type.name}`} className={`${i.type.name} pokemon-type`}>{i.type.name}</div>
+        })}
+      </div>
+    </div>
+  ));
+
+  if(isFirstItem === undefined) {
+    return (
+    <div className="pokemon-info-evolve">
+    <div key={currentPokemon.name} className={`pokemon-info-evolve-item`}>
+      <div className="img-wrapper">
+        <img src={currentPokemon.sprites.front_shiny} />
+      </div>
+      <h5>{currentPokemon.name}</h5>
+      <div className="pokemon-type-wrap">
+        {currentPokemon.types.map((i) => {
+          return <div key={`type-${i.type.name}`} className={`${i.type.name} pokemon-type`}>{i.type.name}</div>
+        })}
+      </div>
+    </div>
+    {evolveFormsJSX}
+    </div>
+    )
+  } else if (currentPokemon.name === evolveForms[evolveForms.length -1].name){
+    return (
+      <div className="pokemon-info-evolve">
+        <h4>This is final form of evolution</h4>
+      </div>
+    )
+  } else {
+    return (
+    <div className="pokemon-info-evolve">
+    {evolveFormsJSX}
+    </div>
+    )
+  }
 }
 
 export default PokemonDetails;

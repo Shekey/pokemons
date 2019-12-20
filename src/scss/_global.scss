@@ -30,9 +30,21 @@
     &.fire {
       background-color: orange;
     }
+
+    &.bug {
+      background-color: palevioletred;
+    }
+
+    &.normal {
+      background-color: rebeccapurple;
+    }
   
     &.water {
       background-color: lightblue;
+    }
+
+    &.flying {
+      background-color: royalblue;
     }
   
     &.grass {
@@ -148,6 +160,43 @@
   font-size: 24px;
   line-height: 26px;
 
+  .pokemon-type {
+    padding: 7px 15px 10px 15px;
+    color: #fff;
+    border-radius: 30px;
+    margin-left: 12px;
+    font-size: 17px;
+    line-height: 19px;
+
+    &.poison {
+      background-color: violet;
+    }
+
+    &.grass {
+      background-color: green;
+    }
+
+    &.normal {
+      background-color: rebeccapurple;
+    }
+
+    &.water {
+      background-color: lightblue;
+    }
+
+    &.flying {
+      background-color: royalblue;
+    }
+
+    &.fire {
+      background-color: orange;
+    }
+
+    &.bug {
+      background-color: palevioletred;
+    }
+  }
+
   .pokemon-first-row {
     @include flexbox;
     @include align-items(center);
@@ -159,27 +208,6 @@
       letter-spacing: 1.1px;
       font-size: 30px;
       line-height: 32px;
-    }
-
-    .pokemon-type {
-      padding: 7px 15px 10px 15px;
-      color: #fff;
-      border-radius: 30px;
-      margin-left: 12px;
-      font-size: 17px;
-      line-height: 19px;
-
-      &.poison {
-        background-color: violet;
-      }
-
-      &.grass {
-        background-color: green;
-      }
-
-      &.fire {
-        background-color: orange;
-      }
     }
 
     .star-wrapper {
@@ -333,6 +361,54 @@
 
     .pokemon-info-f-w {
       margin-bottom: 10px;
+    }
+
+    .pokemon-info-evolve {
+      padding: 10px 30px 30px 10px;
+      @include flexbox;
+      @include justify-content(center);
+      @include flex-basis(100%);
+
+      .pokemon-info-evolve-item {
+        & + .pokemon-info-evolve-item {
+          position: relative;
+
+          &::before {
+            content: '';
+            position: absolute;
+            left: -60px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            background: url(../images/icon-right.png);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+          }
+        }
+      }
+
+      & > div {
+        margin: 0 30px;
+      }
+
+      .pokemon-type-wrap {
+        @include flexbox;
+        @include justify-content(center);
+        @include flex(1);
+        margin-top: 20px;
+      }
+
+      h5 {
+        text-align: center;
+        text-transform: capitalize;
+      }
+
+      .img-wrapper {
+        @include flexbox;
+        @include justify-content(center);
+      }
     }
   }
 
