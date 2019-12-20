@@ -12,7 +12,7 @@ const PokemonDetails = (props) => {
               return <div key={item.type.name} className={`${item.type.name} pokemon-type`}>{item.type.name}</div>
             })}
             <div className="star-wrapper">
-            <a href="#" onClick={(e) => handleClick(e)}><i className={`fas fa-star`}></i></a>
+            <a href="#" onClick={(e) => props.handleClick(e, props.pokemon.id)}><i className={`fas fa-star`}></i></a>
             </div>
           </div>
 
@@ -99,11 +99,6 @@ const PokemonDetails = (props) => {
       }
     </div>
   );
-}
-
-const handleClick = (e) => {
-  e.preventDefault();
-  console.log('clicked');
 }
 
 const showEvolve = (evolveForms, currentPokemon) => {

@@ -8,16 +8,21 @@ export class PokemonDetailsContainer extends Component {
   constructor(props) {
     super(props);
     this.props.getPokemon(this.props.match.params.id);
-    this.props.toggleFavorites(this.props.match.params.id);
   }
 
   componentWillUnmount(){
     this.props.clearPokemonDetails();
   }
 
+  handleClick = (e, id) => {
+    e.preventDefault();
+    this.props.toggleFavorites(id);
+    console.log('clicked');
+  }
+
   render() {
     return (
-      <PokeDetails pokemon={this.props.pokemon} />
+      <PokeDetails pokemon={this.props.pokemon} handleClick={(e) => this.handleClick(e, this.props.pokemon.id)} />
     )
   }
 }

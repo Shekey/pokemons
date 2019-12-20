@@ -166,9 +166,9 @@ export function clearPokemonDetails() {
 
 export function toggleFavorites(id) {
   return (dispatch) => {;
-    console.log(id);
     return dispatch({
-      type: 'TOGGLE_FAVORITES'
+      type: 'TOGGLE_FAVORITES',
+      id
     })
   }
 }

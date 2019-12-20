@@ -10,7 +10,20 @@ export default function(state=initialState, action) {
       case 'CLEAR_POKEMON_DETAILS':
       return {...state,pokemon: action.payload}
       case 'TOGGLE_FAVORITES':
-      return {...state,favorites: action.payload}
+      let isFavorite = state.favorites.find(i => i == action.id);
+      console.log(isFavorite);
+      if(isFavorite === undefined) {
+        let favorites = [...state.favorites, action.id];
+        state.favorites = favorites;
+        console.log(state.favorites);
+
+        return {...state };
+      } else {
+        const filteredItems = state.favorites.filter(item => item != action.id);
+        state.favorites = filteredItems;
+        console.log(state);
+        return {...state };
+      }
       case 'GET_POKEMONS_ALL_FAILED': 
       return {...state, allPokemons: action.payload, status: 'failed'}
     default:
