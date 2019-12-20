@@ -16,8 +16,9 @@ export class PokemonDetailsContainer extends Component {
 
   handleClick = (e, id) => {
     e.preventDefault();
+    let star = e.target.classList.toggle('fav');
     this.props.toggleFavorites(id);
-    console.log('clicked');
+    console.log(star);
   }
 
   render() {

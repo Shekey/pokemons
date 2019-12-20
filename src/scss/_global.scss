@@ -217,6 +217,10 @@
       .fa-star {
         color: rgb(194, 195, 196);
         font-size: 32px;
+
+        &.fav {
+          color: gold;
+        }
       }
     }
   }
