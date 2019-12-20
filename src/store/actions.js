@@ -133,7 +133,8 @@ export function getPokemon(id) {
                       res.data.evolveForms.push({
                         types: response.types,
                         name: response.name,
-                        imageUrl: response.sprites.front_shiny
+                        imageUrl: response.sprites.front_shiny,
+                        id: response.id
                       })
                       if (counterOfFinishedCalls === evolveForms.length) {
                         res.isFinishedAsyncCall = true;

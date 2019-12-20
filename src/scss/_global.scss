@@ -359,6 +359,15 @@
     background-color: #fff;
     margin-bottom: 30px;
 
+    a {
+      text-decoration: none;
+      color: #222;
+      &:hover {
+        text-decoration: none;
+        color: #222;
+      }
+    }
+
     .pokemon-info-f-w {
       margin-bottom: 10px;
     }
