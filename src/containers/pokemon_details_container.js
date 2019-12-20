@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { getPokemon, clearPokemonDetails } from '../store/actions';
+import { getPokemon, clearPokemonDetails, toggleFavorites } from '../store/actions';
 import PokeDetails from '../components/Details';
 
 export class PokemonDetailsContainer extends Component {
   constructor(props) {
     super(props);
     this.props.getPokemon(this.props.match.params.id);
+    this.props.toggleFavorites(this.props.match.params.id);
   }
 
   componentWillUnmount(){
@@ -28,7 +29,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({getPokemon, clearPokemonDetails},dispatch);
+  return bindActionCreators({getPokemon, clearPokemonDetails, toggleFavorites},dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(PokemonDetailsContainer)

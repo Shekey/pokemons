@@ -44,10 +44,6 @@ export function getPokemon(id) {
           return axios.get(res.data.species.url);
         }
 
-        function getEvolutionChain(id) {
-          return axios.get(`https://pokeapi.co/api/v2/evolution-chain/${id}`);
-        }
-
         function getAbilities(abilities) {
           let array = [];
           abilities.forEach(item => {
@@ -165,5 +161,14 @@ export function clearPokemonDetails() {
   return {
     type: 'CLEAR_POKEMON_DETAILS',
     payload: null
+  }
+}
+
+export function toggleFavorites(id) {
+  return (dispatch) => {;
+    console.log(id);
+    return dispatch({
+      type: 'TOGGLE_FAVORITES'
+    })
   }
 }

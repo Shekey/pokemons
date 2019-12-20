@@ -8,12 +8,11 @@ const PokemonDetails = (props) => {
           <div className='pokemon-first-row'>
             <span className={`pokemon-id`}># {props.pokemon.id}</span>
             <h5 className={`pokemon-name`}>{props.pokemon.name}</h5>
-            {console.log(props.pokemon)}
             {props.pokemon.types.map((item) => {
               return <div key={item.type.name} className={`${item.type.name} pokemon-type`}>{item.type.name}</div>
             })}
             <div className="star-wrapper">
-              <i className={`fas fa-star`}></i>
+            <a href="#" onClick={(e) => handleClick(e)}><i className={`fas fa-star`}></i></a>
             </div>
           </div>
 
@@ -100,6 +99,11 @@ const PokemonDetails = (props) => {
       }
     </div>
   );
+}
+
+const handleClick = (e) => {
+  e.preventDefault();
+  console.log('clicked');
 }
 
 const showEvolve = (evolveForms, currentPokemon) => {
