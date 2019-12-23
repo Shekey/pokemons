@@ -9,9 +9,12 @@ export default function(state=initialState, action) {
       return {...state, pokemon: action.payload, status: 'done'}
       case 'CLEAR_POKEMON_DETAILS':
       return {...state,pokemon: action.payload}
+      case 'GET_CURRENT_PAGE':
+      console.log('currentPage');
+      console.log(action.payload);
+      return {...state,currentPage: action.payload}
       case 'TOGGLE_FAVORITES':
-      let isFavorite = state.favorites.find(i => i == action.id);
-      console.log(isFavorite);
+      let isFavorite = state.favorites.find(i => i === action.id);
       if(isFavorite === undefined) {
         let favorites = [...state.favorites, action.id];
         state.favorites = favorites;
@@ -19,7 +22,7 @@ export default function(state=initialState, action) {
 
         return {...state };
       } else {
-        const filteredItems = state.favorites.filter(item => item != action.id);
+        const filteredItems = state.favorites.filter(item => item !== action.id);
         state.favorites = filteredItems;
         console.log(state);
         return {...state };

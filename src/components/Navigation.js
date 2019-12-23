@@ -4,7 +4,7 @@ const Navigation = () => {
   return (
     <aside className="side-nav">
       <div className="logo-wrapper">
-        <img className="logo" src="../images/logo-yellow.png"/>
+        <img className="logo" src="../images/logo-yellow.png" alt="Logo"/>
       </div>
       <ul>
         <li className="pokeball"><a href="/">Pokedex</a></li>

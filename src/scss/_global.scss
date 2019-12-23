@@ -152,6 +152,49 @@
   @include flex-basis(100%);
 }
 
+.pagination {
+  @include flexbox;
+  @include justify-content(center);
+  @include flex-basis(100%);
+  margin-bottom: 50px;
+
+  .item {
+    margin-top: 35px;
+    padding: 10px;
+    font-size: 16px;
+    color: #222;
+    background-color: #fff;
+    border: 1px solid grey;
+    margin-left: 3px;
+    margin-right: 3px;
+    text-decoration: none;
+    user-select: none; 
+    height: 40px;
+    transition: color 0.3s ease-in, border-color 0.3s ease-in-out;
+
+    &.active {
+      text-decoration: none;
+      cursor: pointer;
+      border-color: rgb(247, 217, 50);
+      color: rgb(247, 217, 50)
+    }
+
+    &:hover {
+      text-decoration: none;
+      cursor: pointer;
+      border-color: rgb(247, 217, 50);
+      color: rgb(247, 217, 50)
+    }
+
+    &:active {
+      user-select: none;
+    }
+
+    &:focus {outline:0;}
+  }
+
+}
+
 
 // POKEMON DETAILS 
 
