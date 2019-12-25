@@ -8,7 +8,7 @@ import pokemonReducer from './store/reducers/index';
 import reduxThunk from 'redux-thunk';
 import Navigation from './components/Navigation';
 
-const store = createStore(pokemonReducer, applyMiddleware(reduxThunk));
+export const store = createStore(pokemonReducer, applyMiddleware(reduxThunk));
 
 ReactDOM.render(
   <Provider store={store}>

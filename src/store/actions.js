@@ -1,12 +1,24 @@
+import { store } from '../index';
 import axios from 'axios';
 const GET_POKEMON_URL = 'https://pokeapi.co/api/v2/pokemon/';
 
 export function getAllPokemons(offset = 0, limit = 9) {
-  let GET_POKEMONS_ALL_URL = `https://pokeapi.co/api/v2/pokemon/?offset=${offset}&limit=${limit}`;
   let data = [];
   let counter = 0;
 
   return (dispatch) => {
+    let currentPage = store.getState().pokemonReducer.currentPage;
+    if (currentPage === undefined) {
+      currentPage = 1;
+    }
+    dispatch({
+      type: 'GET_CURRENT_PAGE',
+      payload: currentPage
+    });
+
+    offset = currentPage == 1 ? 0 : limit * currentPage - 1;
+    let GET_POKEMONS_ALL_URL = `https://pokeapi.co/api/v2/pokemon/?offset=${offset}&limit=${limit}`;
+
     axios.get(GET_POKEMONS_ALL_URL)
       .then((res) => {
         data.firstPage = 1;
@@ -14,6 +26,7 @@ export function getAllPokemons(offset = 0, limit = 9) {
         data.lastPage = res.data.count / limit;
         data.lastPage % 1 !== 0 ? data.lastPage = parseInt(data.lastPage) + 1 : parseInt(data.lastPage);
         data.currentPage = offset / 9 === 0 ? 1 : offset / 9 + 1;
+        data.currentPage = parseInt(data.currentPage);
         data.nextNumber = data.currentPage === data.lastPage ? data.currentPage - 1 : data.currentPage + 1;
         data.doubleNextNumber = data.nextNumber + 1;
         data.nextPage = data.currentPage + 1;
@@ -113,7 +126,6 @@ export function getPokemon(id) {
                 }
 
                 if (item.data.effect_entries !== undefined) {
-                  console.log(res.data);
                   res.data.abilities.map(i => {
                     if (i.ability.name === item.data.name) {
                       i.desc = item.data.effect_entries[0].effect;
