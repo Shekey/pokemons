@@ -1,7 +1,6 @@
 import React from 'react';
 
 const PokemonDetails = (props) => {
-  console.log(props.isLoaded);
   let activeSpinnerClass = props.isLoaded ? '' : 'active';
   return (
     <div className={`content row all-content-wrap ${activeSpinnerClass}`}>
@@ -98,6 +97,16 @@ const PokemonDetails = (props) => {
             {
               showEvolve(props.pokemon.evolveForms, props.pokemon)
             }
+          </div>
+
+           <div className="pokemon-buttons-wrapper">
+            <div className="pokemon-button-left">
+              <button onClick={() => props.handlePrevButton()}>&lt;&lt; Previous</button>
+            </div>
+
+            <div className="pokemon-button-right">
+              <button onClick={() => props.handleNextButton()}>Next &gt;&gt;</button>
+              </div>
           </div>
         </div>
         : null

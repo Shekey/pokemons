@@ -14,7 +14,6 @@ export class PokemonContainer extends Component {
     let datasetClicked = e.target.dataset.navigate;
     let offset = (datasetClicked - 1) * 9;
     if (this.props.pokemonContainer.currentPage != datasetClicked) {
-      console.log(datasetClicked);
       this.props.setCurrentPage(datasetClicked);
       this.props.getAllPokemons(offset, 9);
     }

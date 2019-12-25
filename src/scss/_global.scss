@@ -32,8 +32,16 @@
       background-color: orange;
     }
 
+    &.fighting {
+      background-color: orangered;
+    }
+
     &.bug {
       background-color: palevioletred;
+    }
+
+    &.psychic {
+      background-color: firebrick;
     }
 
     &.normal {
@@ -241,6 +249,14 @@
 
     &.fire {
       background-color: orange;
+    }
+
+    &.fighting {
+      background-color: orangered;
+    }
+
+    &.psychic {
+      background-color: firebrick;
     }
 
     &.bug {
@@ -473,6 +489,36 @@
         @include flexbox;
         @include justify-content(center);
       }
+    }
+  }
+
+  .pokemon-buttons-wrapper {
+    @include flex-basis(100%);
+    @include flex-wrap(wrap);
+    @include flexbox;
+
+    margin-bottom: 50px;
+
+    button {
+      padding: 10px;
+      color: #222;
+      font-weight: 700;
+      background-color: #fff;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    .pokemon-button-left {
+      @include flexbox;
+      @include flex-basis(50%);
+    }
+
+    .pokemon-button-right {
+      @include flexbox;
+      @include flex-basis(50%);
+      @include justify-content(flex-end);
     }
   }
 

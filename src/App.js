@@ -15,7 +15,7 @@ class App extends Component {
         <Switch>
           <Route path="/" component={PokeDex} exact />
           <Route path="/typedex" component={TypeDex} exact />
-          <Route path="/pokemon/:id" component={PokemonDetailsContainer} exact />
+          <Route exact path="/pokemon/:id" component={PokemonDetailsContainer} exact />
           <Route path="/fav" component={Favorites} exact />
         </Switch>
       </BrowserRouter>
