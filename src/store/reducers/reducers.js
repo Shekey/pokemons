@@ -10,8 +10,6 @@ export default function(state=initialState, action) {
       case 'CLEAR_POKEMON_DETAILS':
       return {...state,pokemon: action.payload}
       case 'GET_CURRENT_PAGE':
-      console.log('currentPage');
-      console.log(action.payload);
       return {...state,currentPage: action.payload}
       case 'TOGGLE_FAVORITES':
       let isFavorite = state.favorites.find(i => i === action.id);
@@ -24,7 +22,6 @@ export default function(state=initialState, action) {
       } else {
         const filteredItems = state.favorites.filter(item => item !== action.id);
         state.favorites = filteredItems;
-        console.log(state);
         return {...state };
       }
       case 'GET_POKEMONS_ALL_FAILED': 

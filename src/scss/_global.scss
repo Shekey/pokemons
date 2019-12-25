@@ -6,6 +6,7 @@
 
   .content {
     padding-top: 50px;
+    position: relative;
     @include flex-basis(calc(70% - 10px));
   }
 
@@ -150,6 +151,13 @@
   @include flexbox;
   @include flex-wrap(wrap);
   @include flex-basis(100%);
+
+  &.active {
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+    flex-basis: 100% !important;
+  }
 }
 
 .pagination {

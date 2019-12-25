@@ -1,8 +1,13 @@
 import React from 'react';
 
 const PokemonDetails = (props) => {
+  console.log(props.isLoaded);
+  let activeSpinnerClass = props.isLoaded ? '' : 'active';
   return (
-    <div className="content row">
+    <div className={`content row all-content-wrap ${activeSpinnerClass}`}>
+      <div className={`loader-holder ${activeSpinnerClass}`}>
+        <div className="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+      </div>
       {props.pokemon !== null && props.pokemon !== undefined ?
         <div className="pokemon-details-all">
           <div className='pokemon-first-row'>
@@ -12,7 +17,7 @@ const PokemonDetails = (props) => {
               return <div key={item.type.name} className={`${item.type.name} pokemon-type`}>{item.type.name}</div>
             })}
             <div className="star-wrapper">
-            <a href="#" onClick={(e) => props.handleClick(e, props.pokemon.id)}><i className={`fas fa-star`}></i></a>
+              <a href="#" onClick={(e) => props.handleClick(e, props.pokemon.id)}><i className={`fas fa-star`}></i></a>
             </div>
           </div>
 
@@ -90,9 +95,9 @@ const PokemonDetails = (props) => {
             <div className="pokemon-info-f-w">
               <h5>Evolution</h5>
             </div>
-              {
-                showEvolve(props.pokemon.evolveForms, props.pokemon)
-              }
+            {
+              showEvolve(props.pokemon.evolveForms, props.pokemon)
+            }
           </div>
         </div>
         : null
@@ -102,7 +107,7 @@ const PokemonDetails = (props) => {
 }
 
 const showEvolve = (evolveForms, currentPokemon) => {
-  let isFirstItem = evolveForms.find( item => item.name === currentPokemon.name);
+  let isFirstItem = evolveForms.find(item => item.name === currentPokemon.name);
   let evolveFormsJSX = evolveForms.map((item) => (
     <div key={item.name} className={`pokemon-info-evolve-item`}>
       <div className="img-wrapper">
@@ -117,24 +122,24 @@ const showEvolve = (evolveForms, currentPokemon) => {
     </div>
   ));
 
-  if(isFirstItem === undefined) {
+  if (isFirstItem === undefined) {
     return (
-    <div className="pokemon-info-evolve">
-    <div key={currentPokemon.name} className={`pokemon-info-evolve-item`}>
-      <div className="img-wrapper">
-        <img src={currentPokemon.sprites.front_shiny} />
+      <div className="pokemon-info-evolve">
+        <div key={currentPokemon.name} className={`pokemon-info-evolve-item`}>
+          <div className="img-wrapper">
+            <img src={currentPokemon.sprites.front_shiny} />
+          </div>
+          <h5>{currentPokemon.name}</h5>
+          <div className="pokemon-type-wrap">
+            {currentPokemon.types.map((i) => {
+              return <div key={`type-${i.type.name}`} className={`${i.type.name} pokemon-type`}>{i.type.name}</div>
+            })}
+          </div>
+        </div>
+        {evolveFormsJSX}
       </div>
-      <h5>{currentPokemon.name}</h5>
-      <div className="pokemon-type-wrap">
-        {currentPokemon.types.map((i) => {
-          return <div key={`type-${i.type.name}`} className={`${i.type.name} pokemon-type`}>{i.type.name}</div>
-        })}
-      </div>
-    </div>
-    {evolveFormsJSX}
-    </div>
     )
-  } else if (currentPokemon.name === evolveForms[evolveForms.length -1].name){
+  } else if (currentPokemon.name === evolveForms[evolveForms.length - 1].name) {
     return (
       <div className="pokemon-info-evolve">
         <h4>This is final form of evolution</h4>
@@ -142,9 +147,9 @@ const showEvolve = (evolveForms, currentPokemon) => {
     )
   } else {
     return (
-    <div className="pokemon-info-evolve">
-    {evolveFormsJSX}
-    </div>
+      <div className="pokemon-info-evolve">
+        {evolveFormsJSX}
+      </div>
     )
   }
 }
