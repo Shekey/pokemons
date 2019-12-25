@@ -75,16 +75,36 @@ export function setCurrentPage(page) {
   }
 }
 
+export function savedPokemons(pokemon) {
+  return (dispatch) => {
+    return dispatch({
+      type: 'SAVE_POKEMON_DETAILS',
+      payload: pokemon
+    })
+  }
+}
+
 export function getPokemon(id) {
   let getFavorites = store.getState().pokemonReducer.favorites;
+  let allPokemonsSaved = store.getState().pokemonReducer.savedPokemons;
   return (dispatch) => {
+    if (allPokemonsSaved !== undefined) {
+      let exist = allPokemonsSaved.find(i => i.id == id);
+      if (exist !== undefined) {
+        console.log('found');
+        return dispatch({
+          type: 'GET_POKEMON_BY_NAME',
+          payload: exist
+        })
+      }
+    }
 
     axios.get(GET_POKEMON_URL + id)
       .then((res) => {
         let isFavorite = false;
         if (getFavorites !== undefined) {
           let isFavorites = getFavorites.find(i => i == id);
-          if(isFavorites !== undefined) {
+          if (isFavorites !== undefined) {
             isFavorite = true;
           }
         }
@@ -186,6 +206,11 @@ export function getPokemon(id) {
                         if (counterOfFinishedCalls === evolveForms.length) {
                           res.isFinishedAsyncCall = true;
                           res.data.isFavorite = isFavorite;
+                          dispatch({
+                            type: 'SAVE_POKEMON_DETAILS',
+                            payload: res.data
+                          })
+
                           return dispatch({
                             type: 'GET_POKEMON_BY_NAME',
                             payload: res.data
