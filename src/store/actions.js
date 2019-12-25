@@ -76,10 +76,19 @@ export function setCurrentPage(page) {
 }
 
 export function getPokemon(id) {
+  let getFavorites = store.getState().pokemonReducer.favorites;
   return (dispatch) => {
 
     axios.get(GET_POKEMON_URL + id)
       .then((res) => {
+        let isFavorite = false;
+        if (getFavorites !== undefined) {
+          let isFavorites = getFavorites.find(i => i == id);
+          if(isFavorites !== undefined) {
+            isFavorite = true;
+          }
+        }
+
         res.isFinishedAsyncCall = false;
         res.data.evolveForms = [];
         function getSpecies() {
@@ -176,6 +185,7 @@ export function getPokemon(id) {
                         })
                         if (counterOfFinishedCalls === evolveForms.length) {
                           res.isFinishedAsyncCall = true;
+                          res.data.isFavorite = isFavorite;
                           return dispatch({
                             type: 'GET_POKEMON_BY_NAME',
                             payload: res.data
@@ -208,7 +218,6 @@ export function clearPokemonDetails() {
 
 export function toggleFavorites(id) {
   return (dispatch) => {
-    ;
     return dispatch({
       type: 'TOGGLE_FAVORITES',
       id

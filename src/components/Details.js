@@ -2,6 +2,10 @@ import React from 'react';
 
 const PokemonDetails = (props) => {
   let activeSpinnerClass = props.isLoaded ? '' : 'active';
+  let isFavorite = '';
+  if(props.pokemon !== null && props.pokemon !== undefined) {
+    isFavorite = props.pokemon.isFavorite ? 'fav': isFavorite;
+  }
   return (
     <div className={`content row all-content-wrap ${activeSpinnerClass}`}>
       <div className={`loader-holder ${activeSpinnerClass}`}>
@@ -16,7 +20,7 @@ const PokemonDetails = (props) => {
               return <div key={item.type.name} className={`${item.type.name} pokemon-type`}>{item.type.name}</div>
             })}
             <div className="star-wrapper">
-              <a href="#" onClick={(e) => props.handleClick(e, props.pokemon.id)}><i className={`fas fa-star`}></i></a>
+              <a href="#" onClick={(e) => props.handleClick(e, props.pokemon.id)}><i className={`fas fa-star ${isFavorite}`}></i></a>
             </div>
           </div>
 

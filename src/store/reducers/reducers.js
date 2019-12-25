@@ -16,8 +16,6 @@ export default function(state=initialState, action) {
       if(isFavorite === undefined) {
         let favorites = [...state.favorites, action.id];
         state.favorites = favorites;
-        console.log(state.favorites);
-
         return {...state };
       } else {
         const filteredItems = state.favorites.filter(item => item !== action.id);

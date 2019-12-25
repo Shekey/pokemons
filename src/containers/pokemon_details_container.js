@@ -45,8 +45,9 @@ export class PokemonDetailsContainer extends Component {
   render() {
     let isLoaded = this.props.pokemon === undefined || this.props.pokemon === null ? false : true;
     return (
-      <PokeDetails isLoaded={isLoaded} pokemon={this.props.pokemon} handleNextButton={() => this.handleNextButton()} handlePrevButton={() => this.handlePrevButton()}
-       handleClick={(e) => this.handleClick(e, this.props.pokemon.id)} />
+      <PokeDetails isLoaded={isLoaded} pokemon={this.props.pokemon} handleNextButton={() => this.handleNextButton()}
+      handlePrevButton={() => this.handlePrevButton()}
+      handleClick={(e) => this.handleClick(e, this.props.pokemon.id)} />
     )
   }
 }
