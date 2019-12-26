@@ -1,18 +1,23 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux';
-import { getAllFavoritePokemons } from '../store/actions';
+import { getAllTypes } from '../store/actions';
 import PokeTypes from '../components/TypeDex';
 
 export class TypeDexContainer extends Component {
+  constructor(props) {
+    super(props);
+    this.props.getAllTypes();
+    console.log(props)
+  }
   render() {
-    // let activeSpinnerClass = this.props.favoritePokemons === undefined ? 'active' :'';
+    let activeSpinnerClass = this.props.pokeTypes === undefined ? 'active' :'';
       return (
         <div className="all-content-wrap">
-        <div className={`loader-holder`}>
+        <div className={`loader-holder ${activeSpinnerClass}`}>
           <div className="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
         </div>
-        <PokeTypes/>
+        <PokeTypes pokeTypes={this.props.pokeTypes}/>
       </div>
       )
   }
@@ -25,7 +30,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ getAllFavoritePokemons }, dispatch);
+  return bindActionCreators({ getAllTypes }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(TypeDexContainer)

@@ -11,6 +11,8 @@ export default function(state=initialState, action) {
       return {...state,pokemon: action.payload}
       case 'GET_CURRENT_PAGE':
       return {...state,currentPage: action.payload}
+      case 'GET_ALL_TYPES':
+      return {...state,pokeTypes: action.payload}
       case 'SAVE_POKEMON_DETAILS':
       let allPokemonsSaved = [];
       let prevPokemonSaved = {...state.savedPokemonsDetails}[0];

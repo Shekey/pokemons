@@ -1,6 +1,7 @@
 import { store } from '../index';
 import axios from 'axios';
 const GET_POKEMON_URL = 'https://pokeapi.co/api/v2/pokemon/';
+const GET_POKEMON_TYPES = 'https://pokeapi.co/api/v2/type';
 
 export function getAllPokemons(offset = 0, limit = 9) {
   let data = [];
@@ -92,6 +93,21 @@ export function setCurrentPage(page) {
       type: 'GET_CURRENT_PAGE',
       payload: page
     })
+  }
+}
+
+export function getAllTypes() {
+  return (dispatch) => {
+    axios.get(GET_POKEMON_TYPES)
+      .then((res) => {
+        if(res.data.results !== undefined) {
+          console.log('dobroe')
+          return dispatch({
+            type: 'GET_ALL_TYPES',
+            payload: res.data.results
+          })
+        }
+      });
   }
 }
 
@@ -278,7 +294,7 @@ export function clearPokemonDetails() {
   }
 }
 
-export function toggleFavorites(id,name) {
+export function toggleFavorites(id, name) {
   return (dispatch) => {
     return dispatch({
       type: 'TOGGLE_FAVORITES',
