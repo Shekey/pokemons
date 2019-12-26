@@ -1,11 +1,27 @@
-import React, { Component } from 'react'
+import React from 'react'
+import { Link } from 'react-router-dom';
 
-export default class Favorites extends Component {
-  render() {
-    return (
-        <div className="content row">
-          Favorites
-      </div>
-    )
-  }
+const Favorites = (props) => {
+  return (
+    <div className="content row">
+     <h3 className="favorites-title">Favorites</h3>
+      {props.favoritePokemons !== undefined ?
+        props.favoritePokemons.sort((a, b) => (a.id > b.id) ? 1 : -1).map(item => {
+          return (
+            <div key={item.name} className={`pokemon_favorite_item`}>
+              <div className="star-wrapper">
+                <span onClick={(e) => props.handleClick(e, item.id)}><i className={`fas fa-star fav`}></i></span>
+              </div>
+              <p className="pokemon_favorite_item_id">{item.id}</p>
+              <p className="pokemon_favorite_item_name">{item.name}</p>
+              <div className="link-wrapper">
+                <Link className="pokemon_favorite_item_link" to={`pokemon/${item.id}`}>View pokemon</Link>
+              </div>
+            </div>
+          )
+        }) : null
+      }
+    </div>
+  )
 }
+export default Favorites;

@@ -278,11 +278,11 @@ export function clearPokemonDetails() {
   }
 }
 
-export function toggleFavorites(id) {
+export function toggleFavorites(id,name) {
   return (dispatch) => {
     return dispatch({
       type: 'TOGGLE_FAVORITES',
-      id
+      id, name
     })
   }
 }

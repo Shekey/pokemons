@@ -3,8 +3,12 @@ import React from 'react';
 const PokemonDetails = (props) => {
   let activeSpinnerClass = props.isLoaded ? '' : 'active';
   let isFavorite = '';
-  if(props.pokemon !== null && props.pokemon !== undefined) {
-    isFavorite = props.pokemon.isFavorite ? 'fav': isFavorite;
+  let favoritePokemons = JSON.parse(window.localStorage.getItem('favoritePokemons'));
+  if(props.pokemon !== undefined && props.pokemon !== null) {
+    let isFavoritePokemon = favoritePokemons.find(i => i.id === props.pokemon.id);
+    if(isFavoritePokemon !== undefined) {
+      isFavorite = 'fav';
+    }
   }
   return (
     <div className={`content row all-content-wrap ${activeSpinnerClass}`}>

@@ -38,12 +38,20 @@ export default function(state=initialState, action) {
       case 'TOGGLE_FAVORITES':
       let isFavorite = state.favorites.find(i => i === action.id);
       if(isFavorite === undefined) {
-        let favorites = [...state.favorites, action.id];
+        let favorites = [...state.favorites, { id: action.id, name: action.name}];
         state.favorites = favorites;
+        if (typeof(Storage) !== "undefined") {
+          window.localStorage.setItem('favoritePokemons', JSON.stringify(state.favorites));
+        }
+        console.log(state.favorites);
         return {...state };
       } else {
         const filteredItems = state.favorites.filter(item => item !== action.id);
         state.favorites = filteredItems;
+        console.log(state.favorites);
+        if (typeof(Storage) !== "undefined") {
+          window.localStorage.setItem('favoritePokemons', JSON.stringify(state.favorites));
+        }
         return {...state };
       }
       case 'GET_POKEMONS_ALL_FAILED': 

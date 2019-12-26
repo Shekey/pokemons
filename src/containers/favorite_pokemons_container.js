@@ -5,18 +5,17 @@ import { getAllFavoritePokemons } from '../store/actions';
 import Favorites from '../components/Favorites';
 
 export class FavoritePokemonsContainer extends Component {
-  constructor(props) {
-    super(props);
-    console.log(props.favorites);
-  }
   render() {
     let activeSpinnerClass = this.props.favoritePokemons === undefined ? 'active' :'';
+    let favoritePokemons = JSON.parse(window.localStorage.getItem('favoritePokemons'));
       return (
         <div className="all-content-wrap">
         <div className={`loader-holder ${activeSpinnerClass}`}>
           <div className="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
         </div>
-        <Favorites />
+        <div className="favorite-pokemons-wrapper">
+          <Favorites favoritePokemons={favoritePokemons} />
+          </div>
       </div>
       )
   }

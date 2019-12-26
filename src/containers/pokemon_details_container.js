@@ -25,10 +25,10 @@ export class PokemonDetailsContainer extends Component {
     }
   }
 
-  handleClick = (e, id) => {
+  handleClick = (e, id, name) => {
     e.preventDefault();
-    let star = e.target.classList.toggle('fav');
-    this.props.toggleFavorites(id);
+    e.target.classList.toggle('fav');
+    this.props.toggleFavorites(id, name);
   }
 
   handleNextButton = () => {
@@ -47,7 +47,7 @@ export class PokemonDetailsContainer extends Component {
     return (
       <PokeDetails isLoaded={isLoaded} pokemon={this.props.pokemon} handleNextButton={() => this.handleNextButton()}
       handlePrevButton={() => this.handlePrevButton()}
-      handleClick={(e) => this.handleClick(e, this.props.pokemon.id)} />
+      handleClick={(e) => this.handleClick(e, this.props.pokemon.id, this.props.pokemon.name)} />
     )
   }
 }
