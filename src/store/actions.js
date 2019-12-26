@@ -5,7 +5,7 @@ const GET_POKEMON_URL = 'https://pokeapi.co/api/v2/pokemon/';
 export function getAllPokemons(offset = 0, limit = 9) {
   let data = [];
   let counter = 0;
-  
+
   return (dispatch) => {
     let allPokemonItems = store.getState().pokemonReducer.savedPokemonsList;
     let currentPage = store.getState().pokemonReducer.currentPage;
@@ -19,14 +19,10 @@ export function getAllPokemons(offset = 0, limit = 9) {
       payload: currentPage
     });
 
-    console.log(currentPage)
-
     offset = currentPage == 1 ? 0 : limit * currentPage - 1;
     if (allPokemonItems !== undefined) {
       let existItems = allPokemonItems.find(i => i.currentPage == currentPage);
       if (existItems !== undefined) {
-        console.log('found');
-        console.log(existItems);
         return dispatch({
           type: 'GET_POKEMONS_ALL_SUCCESSFUL',
           payload: existItems
@@ -69,7 +65,6 @@ export function getAllPokemons(offset = 0, limit = 9) {
             counter++;
             if (counter === length) {
               data.currentPage = currentPage;
-              console.log('entered here')
               dispatch({
                 type: 'SAVE_POKEMONS_LIST',
                 payload: data
@@ -121,10 +116,19 @@ export function savePokemonItems(pokemons) {
 export function getPokemon(id) {
   let getFavorites = store.getState().pokemonReducer.favorites;
   let allPokemonsSaved = store.getState().pokemonReducer.savedPokemonsDetails;
+
+  let isFavorite = false;
+  if (getFavorites !== undefined) {
+    let isFavorites = getFavorites.find(i => i == id);
+    if (isFavorites !== undefined) {
+      isFavorite = true;
+    }
+  }
   return (dispatch) => {
     if (allPokemonsSaved !== undefined) {
       let exist = allPokemonsSaved.find(i => i.id == id);
       if (exist !== undefined) {
+        exist.isFavorite = isFavorite;
         return dispatch({
           type: 'GET_POKEMON_BY_NAME',
           payload: exist
@@ -134,14 +138,6 @@ export function getPokemon(id) {
 
     axios.get(GET_POKEMON_URL + id)
       .then((res) => {
-        let isFavorite = false;
-        if (getFavorites !== undefined) {
-          let isFavorites = getFavorites.find(i => i == id);
-          if (isFavorites !== undefined) {
-            isFavorite = true;
-          }
-        }
-
         res.isFinishedAsyncCall = false;
         res.data.evolveForms = [];
         function getSpecies() {
@@ -238,6 +234,7 @@ export function getPokemon(id) {
                         })
                         if (counterOfFinishedCalls === evolveForms.length) {
                           res.isFinishedAsyncCall = true;
+                          console.log(isFavorite)
                           res.data.isFavorite = isFavorite;
 
                           dispatch({
@@ -266,6 +263,12 @@ export function getPokemon(id) {
       })
       );
   }
+}
+
+export function getAllFavoritePokemons() {
+  let getAllFavorites = store.getState().pokemonReducer.favorites;
+  console.log(getAllFavorites);
+  return getAllFavorites;
 }
 
 export function clearPokemonDetails() {
