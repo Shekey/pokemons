@@ -1,7 +1,7 @@
 .side-nav {
   @include flexbox;
   @include flex-direction(column);
-  width: 300px;
+  min-width: 300px;
   background: rgb(58, 58, 58);
   color: #fff;
   padding: 50px 20px 80px;

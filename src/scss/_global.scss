@@ -7,7 +7,7 @@
   .content {
     padding-top: 50px;
     position: relative;
-    @include flex-basis(calc(70% - 10px));
+    @include flex-basis(auto);
   }
 
   .pokemon_item {
