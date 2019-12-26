@@ -28,36 +28,76 @@
       font-family: 'Lato-Bold';
     }
 
-    &.fire {
-      background-color: orange;
+    &.bug {
+      background-color: green;
     }
 
-    &.fighting {
+    &.fire {
       background-color: orangered;
     }
 
-    &.bug {
-      background-color: palevioletred;
-    }
-
-    &.psychic {
-      background-color: firebrick;
-    }
-
     &.normal {
-      background-color: rebeccapurple;
+      background-color: darksalmon;
     }
-  
-    &.water {
-      background-color: lightblue;
+
+    &.dark {
+      background-color: purple;
     }
 
     &.flying {
-      background-color: royalblue;
+      background-color: lightblue;
     }
-  
+    
+    &.poison {
+      background-color: violet;
+    }
+
+    &.dragon {
+      background-color: aqua;
+    }
+
+    &.ghost {
+      background-color: rgba(purple, 0.5);
+    }
+
+    &.psyhic {
+      background-color: orchid;
+    }
+
+    &.water {
+      background-color: blueviolet;
+    }
+
+    &.ice {
+      background-color: lightcyan
+    }
+
+    &.fighting {
+      background-color: orange
+    }
+
+    &.steel {
+      background-color: aquamarine
+    }
+
+    &.ground {
+      background-color: brown;
+    }
+
+    &.fairy {
+      background-color: red;
+    }
+
+    &.rock {
+      background-color: burlywood;
+    }
+
     &.grass {
-      background-color: lightseagreen;
+      background-color: greenyellow;
+    }
+
+    &.electric {
+      background-color: yellowgreen;
     }
 
     &:hover {
@@ -227,40 +267,76 @@
     font-size: 17px;
     line-height: 19px;
 
+    &.bug {
+      background-color: green;
+    }
+
+    &.fire {
+      background-color: orangered;
+    }
+
+    &.normal {
+      background-color: darksalmon;
+    }
+
+    &.dark {
+      background-color: purple;
+    }
+
+    &.flying {
+      background-color: lightblue;
+    }
+    
     &.poison {
       background-color: violet;
     }
 
-    &.grass {
-      background-color: green;
+    &.dragon {
+      background-color: aqua;
     }
 
-    &.normal {
-      background-color: rebeccapurple;
+    &.ghost {
+      background-color: rgba(purple, 0.5);
+    }
+
+    &.psyhic {
+      background-color: orchid;
     }
 
     &.water {
-      background-color: lightblue;
+      background-color: blueviolet;
     }
 
-    &.flying {
-      background-color: royalblue;
-    }
-
-    &.fire {
-      background-color: orange;
+    &.ice {
+      background-color: lightcyan
     }
 
     &.fighting {
-      background-color: orangered;
+      background-color: orange
     }
 
-    &.psychic {
-      background-color: firebrick;
+    &.steel {
+      background-color: aquamarine
     }
 
-    &.bug {
-      background-color: palevioletred;
+    &.ground {
+      background-color: brown;
+    }
+
+    &.fairy {
+      background-color: red;
+    }
+
+    &.rock {
+      background-color: burlywood;
+    }
+
+    &.grass {
+      background-color: greenyellow;
+    }
+
+    &.electric {
+      background-color: yellowgreen;
     }
   }
 
