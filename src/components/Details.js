@@ -124,7 +124,7 @@ const showEvolve = (evolveForms, currentPokemon) => {
   let evolveFormsJSX = evolveForms.map((item) => (
     <div key={item.name} className={`pokemon-info-evolve-item`}>
       <div className="img-wrapper">
-        <img src={item.imageUrl} />
+        <img src={item.imageUrl} alt={item.name}/>
       </div>
       <h5>{item.name}</h5>
       <div className="pokemon-type-wrap">
@@ -140,7 +140,7 @@ const showEvolve = (evolveForms, currentPokemon) => {
       <div className="pokemon-info-evolve">
         <div key={currentPokemon.name} className={`pokemon-info-evolve-item`}>
           <div className="img-wrapper">
-            <img src={currentPokemon.sprites.front_shiny} />
+            <img src={currentPokemon.sprites.front_shiny} alt={currentPokemon.name}/>
           </div>
           <h5>{currentPokemon.name}</h5>
           <div className="pokemon-type-wrap">

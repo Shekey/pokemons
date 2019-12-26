@@ -2,6 +2,7 @@ import './scss/_all.scss';
 
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import Navigation from './components/Navigation';
 
 import TypeDex from './components/TypeDex';
 import PokemonDetailsContainer from './containers/pokemon_details_container';
@@ -12,6 +13,7 @@ class App extends Component {
   render() {
     return (
       <BrowserRouter>
+      <Navigation />
         <Switch>
           <Route path="/" component={PokeDex} exact />
           <Route path="/typedex" component={TypeDex} exact />
