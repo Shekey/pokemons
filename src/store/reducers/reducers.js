@@ -13,16 +13,28 @@ export default function(state=initialState, action) {
       return {...state,currentPage: action.payload}
       case 'SAVE_POKEMON_DETAILS':
       let allPokemonsSaved = [];
-      let prevPokemonSaved = {...state.savedPokemons}[0];
+      let prevPokemonSaved = {...state.savedPokemonsDetails}[0];
       if(prevPokemonSaved) {
-        allPokemonsSaved = [...state.savedPokemons]
+        allPokemonsSaved = [...state.savedPokemonsDetails]
       }
       let exist = allPokemonsSaved.find(i=> i.id === action.payload.id);
       if(exist === undefined) {
         allPokemonsSaved.push(action.payload);
         console.log('save pokemons details');
       }
-      return {...state, savedPokemons: allPokemonsSaved}
+      return {...state, savedPokemonsDetails: allPokemonsSaved}
+      case 'SAVE_POKEMONS_LIST':
+      let allPokemonItems = [];
+      let prevPokemonItem = {...state.savedPokemonsList}[0];
+      if(prevPokemonItem) {
+        allPokemonItems = [...state.savedPokemonsList]
+      }
+      let existPokemonItem = allPokemonItems.find(i=> i.currentPage === action.payload[0].currentPage);
+      if(existPokemonItem === undefined) {
+        allPokemonItems.push(action.payload);
+        console.log('saved pokemon item');
+      }
+      return {...state, savedPokemonsList: allPokemonItems}
       case 'TOGGLE_FAVORITES':
       let isFavorite = state.favorites.find(i => i === action.id);
       if(isFavorite === undefined) {

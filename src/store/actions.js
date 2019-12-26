@@ -5,18 +5,35 @@ const GET_POKEMON_URL = 'https://pokeapi.co/api/v2/pokemon/';
 export function getAllPokemons(offset = 0, limit = 9) {
   let data = [];
   let counter = 0;
-
+  
   return (dispatch) => {
+    let allPokemonItems = store.getState().pokemonReducer.savedPokemonsList;
     let currentPage = store.getState().pokemonReducer.currentPage;
+
     if (currentPage === undefined) {
       currentPage = 1;
     }
+
     dispatch({
       type: 'GET_CURRENT_PAGE',
       payload: currentPage
     });
 
+    console.log(currentPage)
+
     offset = currentPage == 1 ? 0 : limit * currentPage - 1;
+    if (allPokemonItems !== undefined) {
+      let existItems = allPokemonItems.find(i => i.currentPage == currentPage);
+      if (existItems !== undefined) {
+        console.log('found');
+        console.log(existItems);
+        return dispatch({
+          type: 'GET_POKEMONS_ALL_SUCCESSFUL',
+          payload: existItems
+        })
+      }
+    }
+
     let GET_POKEMONS_ALL_URL = `https://pokeapi.co/api/v2/pokemon/?offset=${offset}&limit=${limit}`;
 
     axios.get(GET_POKEMONS_ALL_URL)
@@ -47,9 +64,17 @@ export function getAllPokemons(offset = 0, limit = 9) {
         let length = res.results.length;
         res.results.forEach(element => {
           axios.get(element.url).then((res) => {
+            res.data.currentPage = currentPage;
             data.push(res.data);
             counter++;
             if (counter === length) {
+              data.currentPage = currentPage;
+              console.log('entered here')
+              dispatch({
+                type: 'SAVE_POKEMONS_LIST',
+                payload: data
+              })
+
               return dispatch({
                 type: 'GET_POKEMONS_ALL_SUCCESSFUL',
                 payload: data
@@ -84,14 +109,22 @@ export function savedPokemons(pokemon) {
   }
 }
 
+export function savePokemonItems(pokemons) {
+  return (dispatch) => {
+    return dispatch({
+      type: 'SAVE_POKEMONS_LIST',
+      payload: pokemons
+    })
+  }
+}
+
 export function getPokemon(id) {
   let getFavorites = store.getState().pokemonReducer.favorites;
-  let allPokemonsSaved = store.getState().pokemonReducer.savedPokemons;
+  let allPokemonsSaved = store.getState().pokemonReducer.savedPokemonsDetails;
   return (dispatch) => {
     if (allPokemonsSaved !== undefined) {
       let exist = allPokemonsSaved.find(i => i.id == id);
       if (exist !== undefined) {
-        console.log('found');
         return dispatch({
           type: 'GET_POKEMON_BY_NAME',
           payload: exist
@@ -206,6 +239,7 @@ export function getPokemon(id) {
                         if (counterOfFinishedCalls === evolveForms.length) {
                           res.isFinishedAsyncCall = true;
                           res.data.isFavorite = isFavorite;
+
                           dispatch({
                             type: 'SAVE_POKEMON_DETAILS',
                             payload: res.data
