@@ -36,19 +36,19 @@ export default function(state=initialState, action) {
       }
       return {...state, savedPokemonsList: allPokemonItems}
       case 'TOGGLE_FAVORITES':
-      let isFavorite = state.favorites.find(i => i === action.id);
+      let isFavorite = state.favorites.find(i => i.id === action.id);
       if(isFavorite === undefined) {
         let favorites = [...state.favorites, { id: action.id, name: action.name}];
         state.favorites = favorites;
+        console.log('if');
         if (typeof(Storage) !== "undefined") {
           window.localStorage.setItem('favoritePokemons', JSON.stringify(state.favorites));
         }
-        console.log(state.favorites);
         return {...state };
       } else {
-        const filteredItems = state.favorites.filter(item => item !== action.id);
+        const filteredItems = state.favorites.filter(item => item.id !== action.id);
         state.favorites = filteredItems;
-        console.log(state.favorites);
+        console.log('else');
         if (typeof(Storage) !== "undefined") {
           window.localStorage.setItem('favoritePokemons', JSON.stringify(state.favorites));
         }

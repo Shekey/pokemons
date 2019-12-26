@@ -4,7 +4,7 @@ const PokemonDetails = (props) => {
   let activeSpinnerClass = props.isLoaded ? '' : 'active';
   let isFavorite = '';
   let favoritePokemons = JSON.parse(window.localStorage.getItem('favoritePokemons'));
-  if(props.pokemon !== undefined && props.pokemon !== null) {
+  if(props.pokemon !== undefined && props.pokemon !== null && favoritePokemons !== null) {
     let isFavoritePokemon = favoritePokemons.find(i => i.id === props.pokemon.id);
     if(isFavoritePokemon !== undefined) {
       isFavorite = 'fav';
