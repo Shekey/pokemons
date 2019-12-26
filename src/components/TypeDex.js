@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 export default class TypeDex extends Component {
   render() {
     return (
-      <div className="all-content-wrap">
+      <div className="content row">
       TypeDex
       </div>
     )
