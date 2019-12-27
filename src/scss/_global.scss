@@ -49,6 +49,10 @@
     text-decoration: none;
     color: #222;
 
+    &:hover {
+      cursor: pointer;
+    }
+
     .pokemon_type_item {
       position: relative;
 
@@ -61,7 +65,7 @@
         position: absolute;
         right: -10px;
         top: -12px;
-        color: 0;
+        color: #222;
       }
     }
 
