@@ -28,6 +28,7 @@ export class FavoritePokemonsContainer extends Component {
 
   render() {
     let favoritePokemons = JSON.parse(window.localStorage.getItem('favoritePokemons'));
+    favoritePokemons = favoritePokemons === null ? []:favoritePokemons;
       return (
         <div className="all-content-wrap">
         <div className={`loader-holder`}>

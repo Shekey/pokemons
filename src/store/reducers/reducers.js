@@ -22,7 +22,6 @@ export default function(state=initialState, action) {
       let exist = allPokemonsSaved.find(i=> i.id === action.payload.id);
       if(exist === undefined) {
         allPokemonsSaved.push(action.payload);
-        console.log('save pokemons details');
       }
       return {...state, savedPokemonsDetails: allPokemonsSaved}
       case 'SAVE_POKEMONS_LIST':
@@ -34,7 +33,6 @@ export default function(state=initialState, action) {
       let existPokemonItem = allPokemonItems.find(i=> i.currentPage === action.payload[0].currentPage);
       if(existPokemonItem === undefined) {
         allPokemonItems.push(action.payload);
-        console.log('saved pokemon item');
       }
       return {...state, savedPokemonsList: allPokemonItems}
       case 'TOGGLE_FAVORITES':
@@ -43,7 +41,6 @@ export default function(state=initialState, action) {
         let favoritePokemons = JSON.parse(window.localStorage.getItem('favoritePokemons'));
         let favorites = [...favoritePokemons, { id: action.id, name: action.name}];
         state.favorites = favorites;
-        console.log('if');
         if (typeof(Storage) !== "undefined") {
           window.localStorage.setItem('favoritePokemons', JSON.stringify(state.favorites));
         }
@@ -51,7 +48,6 @@ export default function(state=initialState, action) {
       } else {
         const filteredItems = state.favorites.filter(item => item.id !== action.id);
         state.favorites = filteredItems;
-        console.log('else');
         if (typeof(Storage) !== "undefined") {
           window.localStorage.setItem('favoritePokemons', JSON.stringify(state.favorites));
         }

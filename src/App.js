@@ -28,7 +28,6 @@ class App extends Component {
     }
   }
   shouldComponentUpdate(nextProps, nextState) {
-    console.log(nextProps.isLoadedApp);
     if(nextProps.isLoadedApp || nextProps.isLoadedApp == null) {
       this.removeAnimation();
       return true;

@@ -101,7 +101,6 @@ export function getAllTypes() {
     axios.get(GET_POKEMON_TYPES)
       .then((res) => {
         if(res.data.results !== undefined) {
-          console.log('dobroe')
           return dispatch({
             type: 'GET_ALL_TYPES',
             payload: res.data.results
@@ -250,7 +249,6 @@ export function getPokemon(id) {
                         })
                         if (counterOfFinishedCalls === evolveForms.length) {
                           res.isFinishedAsyncCall = true;
-                          console.log(isFavorite)
                           res.data.isFavorite = isFavorite;
 
                           dispatch({
@@ -283,7 +281,6 @@ export function getPokemon(id) {
 
 export function getAllFavoritePokemons() {
   let getAllFavorites = store.getState().pokemonReducer.favorites;
-  console.log(getAllFavorites);
   return getAllFavorites;
 }
 
