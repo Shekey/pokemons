@@ -6,7 +6,7 @@ export default function(state=initialState, action) {
       case 'GET_POKEMONS_ALL_SUCCESSFUL': 
       return {...state, allPokemons: action.payload, isAppStarted: true}
       case 'GET_POKEMON_BY_NAME': 
-      return {...state, pokemon: action.payload, status: 'done'}
+      return {...state, pokemon: action.payload, isAppStarted: true}
       case 'CLEAR_POKEMON_DETAILS':
       return {...state,pokemon: action.payload}
       case 'GET_CURRENT_PAGE':
@@ -40,7 +40,8 @@ export default function(state=initialState, action) {
       case 'TOGGLE_FAVORITES':
       let isFavorite = state.favorites.find(i => i.id === action.id);
       if(isFavorite === undefined) {
-        let favorites = [...state.favorites, { id: action.id, name: action.name}];
+        let favoritePokemons = JSON.parse(window.localStorage.getItem('favoritePokemons'));
+        let favorites = [...favoritePokemons, { id: action.id, name: action.name}];
         state.favorites = favorites;
         console.log('if');
         if (typeof(Storage) !== "undefined") {

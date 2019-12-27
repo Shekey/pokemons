@@ -643,6 +643,10 @@
     }
   }
 }
+.favorite-placeholder-holder {
+  position: relative;
+  width: 100%;
+}
 
 .favorites-title {
   @include flex-basis(100%);

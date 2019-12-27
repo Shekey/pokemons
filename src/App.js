@@ -14,7 +14,6 @@ class App extends Component {
 
   constructor(props) {
     super(props);
-    console.log('construucor')
   }
 
   removeAnimation() {
@@ -22,16 +21,15 @@ class App extends Component {
     let logoOnStart = document.querySelector('.logo-on-start.active');
 
     if(pageWrapper && logoOnStart) {
-      console.log('caled')
       setTimeout(() => {
-        console.log('caled wwww')
         pageWrapper.classList.remove('active');
         logoOnStart.classList.remove('active'); 
       }, 1000);
     }
   }
   shouldComponentUpdate(nextProps, nextState) {
-    if(nextProps.isLoadedApp) {
+    console.log(nextProps.isLoadedApp);
+    if(nextProps.isLoadedApp || nextProps.isLoadedApp == null) {
       this.removeAnimation();
       return true;
     } else {

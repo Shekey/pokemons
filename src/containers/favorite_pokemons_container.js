@@ -5,6 +5,27 @@ import { getAllFavoritePokemons } from '../store/actions';
 import Favorites from '../components/Favorites';
 
 export class FavoritePokemonsContainer extends Component {
+
+  constructor(props) {
+    super(props);
+  }
+
+  componentDidMount() {
+    this.removeAnimation();
+  }
+
+  removeAnimation() {
+    let pageWrapper = document.querySelector('.page-content-wrapper.active');
+    let logoOnStart = document.querySelector('.logo-on-start.active');
+
+    if(pageWrapper && logoOnStart) {
+      setTimeout(() => {
+        pageWrapper.classList.remove('active');
+        logoOnStart.classList.remove('active'); 
+      }, 1000);
+    }
+  }
+
   render() {
     let favoritePokemons = JSON.parse(window.localStorage.getItem('favoritePokemons'));
       return (

@@ -8,6 +8,18 @@ export class PokemonContainer extends Component {
   constructor(props) {
     super(props);
     this.props.getAllPokemons(0, 9);
+    this.removeAnimation();
+  }
+  removeAnimation() {
+    let pageWrapper = document.querySelector('.page-content-wrapper.active');
+    let logoOnStart = document.querySelector('.logo-on-start.active');
+
+    if(pageWrapper && logoOnStart) {
+      setTimeout(() => {
+        pageWrapper.classList.remove('active');
+        logoOnStart.classList.remove('active'); 
+      }, 1000);
+    }
   }
 
   paginate(e) {
@@ -18,6 +30,7 @@ export class PokemonContainer extends Component {
       this.props.getAllPokemons(offset, 9);
     }
   }
+
   render() {
     let activeSpinnerClass = this.props.pokemonContainer === undefined ? 'active' :'';
       return (
