@@ -38,7 +38,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ getAllPokemons, setCurrentPage }, dispatch);
+  return bindActionCreators({ getAllPokemons, setCurrentPage}, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(PokemonContainer)

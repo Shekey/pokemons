@@ -3,6 +3,27 @@
   background-color: whitesmoke;
   min-height: 100vh;
   font-family: 'Lato-Bold';
+  position: relative;
+
+  &.active {
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .logo-on-start {
+    &.active {
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      z-index: 124;
+      background-image: url('../images/pokedex-desktop-01.jpg');
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+  }
 
   .content {
     padding-top: 50px;

@@ -11,9 +11,7 @@ export const store = createStore(pokemonReducer, applyMiddleware(reduxThunk));
 
 ReactDOM.render(
   <Provider store={store}>
-    <div className="page-content-wrapper">
     <App />
-    </div>
   </Provider>
   , document.getElementById('root'));
 
