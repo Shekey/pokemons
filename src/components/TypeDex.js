@@ -3,7 +3,7 @@ import React from 'react'
 const TypeDex = (props) => {
 
   return (
-    <div className="content row">
+    <div className="content row all-types-list">
       {
         props.pokeTypes && props.pokeTypes.length > 0 ?
           props.pokeTypes.sort((a, b) => (a.name > b.name) ? 1 : -1).map(item => {
