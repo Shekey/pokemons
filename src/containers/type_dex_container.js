@@ -26,6 +26,10 @@ export class TypeDexContainer extends Component {
     }
   }
 
+  handleClick = (item) => {
+    console.log(item);
+  }
+
   render() {
     let activeSpinnerClass = this.props.pokeTypes === undefined ? 'active' :'';
       return (
@@ -33,7 +37,7 @@ export class TypeDexContainer extends Component {
         <div className={`loader-holder ${activeSpinnerClass}`}>
           <div className="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
         </div>
-        <PokeTypes pokeTypes={this.props.pokeTypes}/>
+        <PokeTypes />
       </div>
       )
   }
