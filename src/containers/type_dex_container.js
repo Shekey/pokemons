@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux';
-import { getAllTypes } from '../store/actions';
+import { getAllTypes, getPOkemonByTypename } from '../store/actions';
 import PokeTypes from '../components/TypeDex';
 
 export class TypeDexContainer extends Component {
@@ -28,6 +28,8 @@ export class TypeDexContainer extends Component {
 
   handleClick = (item) => {
     console.log(item);
+    this.props.getPOkemonByTypename(item);
+    console.log(this.props);
   }
 
   render() {
@@ -37,7 +39,7 @@ export class TypeDexContainer extends Component {
         <div className={`loader-holder ${activeSpinnerClass}`}>
           <div className="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
         </div>
-        <PokeTypes pokeTypes={this.props.pokeTypes}/>
+        <PokeTypes handleClick={this.handleClick} pokeTypes={this.props.pokeTypes}/>
       </div>
       )
   }
@@ -45,12 +47,13 @@ export class TypeDexContainer extends Component {
 
 function mapStateToProps(state) {
   return {
-    pokeTypes: state.pokemonReducer.pokeTypes
+    pokeTypes: state.pokemonReducer.pokeTypes,
+    pokeTypesByName: state.pokemonReducer.pokemonsByType
   }
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ getAllTypes }, dispatch);
+  return bindActionCreators({ getAllTypes, getPOkemonByTypename }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(TypeDexContainer)
