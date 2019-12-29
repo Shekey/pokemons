@@ -28,6 +28,8 @@ export class PokemonContainer extends Component {
     if (this.props.pokemonContainer.currentPage != datasetClicked) {
       this.props.setCurrentPage(datasetClicked);
       this.props.getAllPokemons(offset, 9);
+      document.querySelector('.lds-spinner').classList.add('active');
+      document.querySelector('.loader-holder').classList.add('active');
     }
   }
 

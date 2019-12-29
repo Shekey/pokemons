@@ -15,6 +15,10 @@ const PokeDex = (props) => {
       } else {
         currentPageActive = 'active';
       }
+
+      document.querySelector('.lds-spinner').classList.remove('active');
+      document.querySelector('.loader-holder').classList.remove('active');
+      
       return (
         <div className="pagination" onClick={(e) => props.paginate(e)}>
           <button data-navigate={props.pokemons.firstPage} className="item">&lt;&lt;</button>
