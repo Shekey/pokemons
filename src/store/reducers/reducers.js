@@ -10,7 +10,9 @@ export default function(state=initialState, action) {
       case 'GET_POKEMON_BY_NAME': 
       return {...state, pokemon: action.payload, isAppStarted: true}
       case 'CLEAR_POKEMON_DETAILS':
-      return {...state,pokemon: action.payload}
+      return {...state,pokemon: action.payload, }
+      case 'CLEAR_POKEMONS_BY_TYPENAME':
+        return {...state,pokemonsByType: action.payload, }
       case 'GET_CURRENT_PAGE':
       return {...state,currentPage: action.payload}
       case 'GET_ALL_TYPES':
@@ -41,6 +43,7 @@ export default function(state=initialState, action) {
       let isFavorite = state.favorites.find(i => i.id === action.id);
       if(isFavorite === undefined) {
         let favoritePokemons = JSON.parse(window.localStorage.getItem('favoritePokemons'));
+        favoritePokemons = favoritePokemons !== null ? favoritePokemons : [];
         let favorites = [...favoritePokemons, { id: action.id, name: action.name}];
         state.favorites = favorites;
         if (typeof(Storage) !== "undefined") {

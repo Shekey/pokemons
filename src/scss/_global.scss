@@ -670,6 +670,7 @@
     }
   }
 }
+
 .favorite-placeholder-holder {
   position: relative;
   width: 100%;
@@ -724,3 +725,152 @@
     }
   }
 }
+
+//typeByName
+.type-name-title {
+  @include flex-basis(100%);
+  color: #fff;
+  padding: 10px 30px;
+  margin-bottom: 30px;
+  @include flexbox;
+  @include align-items(center);
+
+  .image-wrapper {
+    @include flex(1);
+    @include flexbox;
+    @include justify-content(flex-end);
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.pokemon_typebyname_item {
+  @include flexbox;
+  @include flex-basis(100%);
+  @include align-items(center);
+  padding: 15px 0;
+  border-bottom: 1px solid #222;
+
+  .pokemon_typebyname_item_id {
+    font-size: 24px;
+    padding: 0 15px;
+    @include flex-basis(20%);
+  }
+  .pokemon_typebyname_item_name {
+    font-size: 21px;
+    padding: 0 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+    @include flex-basis(60%);
+  }
+
+  .link-wrapper {
+    @include flexbox;
+    @include flex(1);
+    @include justify-content(flex-end);
+  }
+  .pokemon_typebyname_item_link {
+    text-decoration: none;
+    font-size: 18px;
+    color: #222;
+
+    &:hover {
+      color: #222;
+      text-decoration: none;
+    }
+  }
+}
+
+
+.types-by-name-list {
+  display: none;
+}
+
+.back-btn {
+  width: 30px;
+  height: 30px;
+}
+
+.type-by-name-active {
+  .all-types-list {
+    display: none;
+  }
+
+  .types-by-name-list {
+    @include flexbox;
+  }
+}
+
+.bug {
+  background-color: green;
+}
+
+.fire {
+  background-color: orangered;
+}
+
+.normal {
+  background-color: darksalmon;
+}
+
+.dark {
+  background-color: purple;
+}
+
+.flying {
+  background-color: lightblue;
+}
+
+.poison {
+  background-color: violet;
+}
+
+.dragon {
+  background-color: aqua;
+}
+
+.ghost {
+  background-color: rgba(purple, 0.5);
+}
+
+.psyhic {
+  background-color: orchid;
+}
+
+.water {
+  background-color: blueviolet;
+}
+
+.ice {
+  background-color: lightcyan
+}
+
+.fighting {
+  background-color: orange
+}
+
+.steel {
+  background-color: aquamarine
+}
+
+.ground {
+  background-color: brown;
+}
+
+.fairy {
+  background-color: red;
+}
+
+.rock {
+  background-color: burlywood;
+}
+
+.grass {
+  background-color: greenyellow;
+}
+
+.electric {
+  background-color: yellowgreen;
+}
+

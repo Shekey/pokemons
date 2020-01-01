@@ -135,7 +135,7 @@ export function getPOkemonByTypename(name) {
 
     axios.get(GET_POKEMONS_BY_TYPE)
       .then((res) => {
-        console.log(res.data.pokemon);
+        // console.log(res.data.pokemon);
         return dispatch({
           type: 'GET_POKEMONS_BY_TYPENAME',
           payload: res.data.pokemon
@@ -303,6 +303,13 @@ export function getAllFavoritePokemons() {
 export function clearPokemonDetails() {
   return {
     type: 'CLEAR_POKEMON_DETAILS',
+    payload: null
+  }
+}
+
+export function clearPokemonsByName() {
+  return {
+    type: 'CLEAR_POKEMONS_BY_TYPENAME',
     payload: null
   }
 }

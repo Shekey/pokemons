@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux';
 import { getAllPokemons, setCurrentPage } from '../store/actions';
 import PokeList from '../components/PokeDex';
+import { CLIENT_RENEG_LIMIT } from 'tls';
+import { continueStatement } from '@babel/types';
 
 export class PokemonContainer extends Component {
   constructor(props) {
@@ -34,7 +36,8 @@ export class PokemonContainer extends Component {
   }
 
   render() {
-    let activeSpinnerClass = this.props.pokemonContainer === undefined ? 'active' :'';
+    let isAppStarted =  document.querySelector('.logo-on-start.active');
+    let activeSpinnerClass = this.props.pokemonContainer === undefined && isAppStarted !== null ? 'active' :'';
       return (
         <div className="all-content-wrap">
         <div className={`loader-holder ${activeSpinnerClass}`}>

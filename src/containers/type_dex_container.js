@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux';
-import { getAllTypes, getPOkemonByTypename } from '../store/actions';
+import { getAllTypes, getPOkemonByTypename, clearPokemonsByName } from '../store/actions';
 import PokeTypes from '../components/TypeDex';
+import TypesList from '../components/Types';
+
+let typeClicked = '';
 
 export class TypeDexContainer extends Component {
   constructor(props) {
@@ -12,6 +15,11 @@ export class TypeDexContainer extends Component {
 
   componentDidMount() {
     this.removeAnimation();
+  }
+
+  componentWillUnmount(){
+    this.props.clearPokemonsByName();
+    typeClicked = '';
   }
 
   removeAnimation() {
@@ -28,18 +36,31 @@ export class TypeDexContainer extends Component {
 
   handleClick = (item) => {
     console.log(item);
+    typeClicked = item;
     this.props.getPOkemonByTypename(item);
-    console.log(this.props);
+  }
+
+  closeList = () => {
+    console.log('clicked');
+    let hideList = document.querySelector('.type-by-name-active');
+    if(hideList) {
+      hideList.classList.remove('type-by-name-active');
+      typeClicked = '';
+      this.props.clearPokemonsByName();
+    }
   }
 
   render() {
     let activeSpinnerClass = this.props.pokeTypes === undefined ? 'active' :'';
+    console.log(typeClicked);
+    let isPokeTypesByNameVisible = this.props.pokeTypesByName !== undefined && this.props.pokeTypesByName !== null ? 'type-by-name-active':'';
       return (
-        <div className="all-content-wrap">
+        <div className={`all-content-wrap ${isPokeTypesByNameVisible}`}>
         <div className={`loader-holder ${activeSpinnerClass}`}>
           <div className="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
         </div>
         <PokeTypes handleClick={this.handleClick} pokeTypes={this.props.pokeTypes}/>
+        {this.props.pokeTypesByName !== null && <TypesList typeClicked={typeClicked} closeList={this.closeList} pokeTypes={this.props.pokeTypesByName}/> }
       </div>
       )
   }
@@ -53,7 +74,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ getAllTypes, getPOkemonByTypename }, dispatch);
+  return bindActionCreators({ getAllTypes, getPOkemonByTypename, clearPokemonsByName }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(TypeDexContainer)
