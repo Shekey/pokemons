@@ -734,6 +734,7 @@
   margin-bottom: 30px;
   @include flexbox;
   @include align-items(center);
+  border: 2px solid #222;
 
   .image-wrapper {
     @include flex(1);
@@ -742,6 +743,10 @@
     &:hover {
       cursor: pointer;
     }
+  }
+
+  &.unknown {
+    color: #222;
   }
 }
 
@@ -874,3 +879,21 @@
   background-color: yellowgreen;
 }
 
+
+.active-navigation-item {
+  color: gold !important;
+  position: relative;
+
+  &::after {
+    content: '';
+    background-image: url('../images/arrow-left.png');
+    background-position: center;
+    background-size: contain;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+  }
+}
