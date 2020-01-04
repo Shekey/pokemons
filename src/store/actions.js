@@ -2,6 +2,7 @@ import { store } from '../index';
 import axios from 'axios';
 const GET_POKEMON_URL = 'https://pokeapi.co/api/v2/pokemon/';
 const GET_POKEMON_TYPES = 'https://pokeapi.co/api/v2/type';
+const GET_POKEMONS_NAMES = 'https://pokeapi.co/api/v2/pokemon/?offset=0&limit=10000';
 
 export function getAllPokemons(offset = 0, limit = 9) {
   let data = [];
@@ -85,6 +86,30 @@ export function getAllPokemons(offset = 0, limit = 9) {
       })
       );
   }
+}
+
+export function getAllPokemonsNames(){
+  return (dispatch) => {
+  axios.get(GET_POKEMONS_NAMES)
+      .then((res) => {
+        let allPokemonsNames = [];
+        res.data.results.map(item => {
+          let pokemonId = item.url.split("pokemon/")[1];
+          pokemonId = pokemonId.substring(0,pokemonId.length - 1);
+          allPokemonsNames.push({
+            name: item.name,
+            url: item.url,
+            id: pokemonId
+          })
+        });
+
+        dispatch({
+          type: 'GET_POKEMONS_NAMES',
+          payload: allPokemonsNames
+        });
+      })
+    }
+
 }
 
 export function setCurrentPage(page) {

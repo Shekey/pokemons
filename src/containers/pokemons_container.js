@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux';
-import { getAllPokemons, setCurrentPage } from '../store/actions';
+import { getAllPokemons, setCurrentPage,getAllPokemonsNames } from '../store/actions';
 import PokeList from '../components/PokeDex';
-import { CLIENT_RENEG_LIMIT } from 'tls';
-import { continueStatement } from '@babel/types';
+import Autocomplete from '../components/Autocomplete';
 
 export class PokemonContainer extends Component {
   constructor(props) {
@@ -12,6 +11,11 @@ export class PokemonContainer extends Component {
     this.props.getAllPokemons(0, 9);
     this.removeAnimation();
   }
+
+  componentDidMount() {
+    this.props.getAllPokemonsNames();
+  }
+  
   removeAnimation() {
     let pageWrapper = document.querySelector('.page-content-wrapper.active');
     let logoOnStart = document.querySelector('.logo-on-start.active');
@@ -43,6 +47,7 @@ export class PokemonContainer extends Component {
         <div className={`loader-holder ${activeSpinnerClass}`}>
           <div className="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
         </div>
+        <Autocomplete allPokemonsNames={this.props.pokemonsNames}/>
         <PokeList paginate={(e) => this.paginate(e)} pokemons={this.props.pokemonContainer} />
       </div>
       )
@@ -51,12 +56,13 @@ export class PokemonContainer extends Component {
 
 function mapStateToProps(state) {
   return {
-    pokemonContainer: state.pokemonReducer.allPokemons
+    pokemonContainer: state.pokemonReducer.allPokemons,
+    pokemonsNames: state.pokemonReducer.allPokemonsNames
   }
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ getAllPokemons, setCurrentPage}, dispatch);
+  return bindActionCreators({ getAllPokemons, setCurrentPage,getAllPokemonsNames}, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(PokemonContainer)
