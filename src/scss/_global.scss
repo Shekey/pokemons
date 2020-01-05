@@ -18,7 +18,7 @@
       bottom: 0;
       right: 0;
       z-index: 124;
-      background-image: url('../images/pokedex-desktop-01.jpg');
+      background: url(../images/pokedex-desktop-01.jpg);
       background-position: center;
       background-size: cover;
       background-repeat: no-repeat;
@@ -28,18 +28,18 @@
   .content {
     padding-top: 120px;
     position: relative;
-    @include flex-basis(auto);
+    @include flex(1);
+    @include justify-content(space-between);
   }
 
-  .all-types-list {
-  }
+  .all-types-list {}
 
   .pokemon_item {
-    @include flex-basis(calc(33% - 90px));
+    @include flex-basis(calc(33% - 30px));
     position: relative;
+    overflow: hidden;
     padding: 10px;
     margin: 15px;
-    margin-right: 100px;
     background: #fff;
     overflow: hidden;
     font-family: 'Lato-Regular';
@@ -51,7 +51,7 @@
     text-transform: uppercase;
     font-weight: 900;
 
-    &:nth-of-type(3n){
+    &:nth-of-type(3n) {
       margin-right: 15px;
     }
 
@@ -67,7 +67,7 @@
         font-size: 35px;
         position: absolute;
         width: 40px;
-        height: 20px;
+        height: 43px;
         position: absolute;
         right: -10px;
         top: -12px;
@@ -81,75 +81,147 @@
     }
 
     &.bug {
-      background-color: green;
+      background-color: rgba(green, 0.8);
+
+      &::after {
+        background-color: green;
+      }
     }
 
     &.fire {
-      background-color: orangered;
+      background-color: rgba(orangered, 0.8);
+
+      &::after {
+        background-color: orangered;
+      }
     }
 
     &.normal {
-      background-color: darksalmon;
+      background-color: rgba(darksalmon, 0.8);
+
+      &::after {
+        background-color: darksalmon;
+      }
     }
 
     &.dark {
-      background-color: purple;
+      background-color: rgba(purple, 0.8);
+
+      &::after {
+        background-color: purple;
+      }
     }
 
     &.flying {
-      background-color: lightblue;
+      background-color: rgba(lightblue, 0.8);
+
+      &::after {
+        background-color: lightblue;
+      }
     }
-    
+
     &.poison {
-      background-color: violet;
+      background-color: rgba(violet, 0.8);
+
+      &::after {
+        background-color: violet;
+      }
     }
 
     &.dragon {
-      background-color: aqua;
+      background-color: rgba(aqua, 0.8);
+
+      &::after {
+        background-color: aqua;
+      }
     }
 
     &.ghost {
       background-color: rgba(purple, 0.5);
+
+      &::after {
+        background-color: rgba(purple, 0.8);
+      }
     }
 
     &.psyhic {
-      background-color: orchid;
+      background-color: rgba(orchid, 0.8);
+
+      &::after {
+        background-color: orchid;
+      }
     }
 
     &.water {
-      background-color: blueviolet;
+      background-color: rgba(blueviolet, 0.8);
+
+      &::after {
+        background-color: blueviolet;
+      }
     }
 
     &.ice {
-      background-color: lightcyan
+      background-color: rgba(lightcyan, 0.8);
+
+      &::after {
+        background-color: lightcyan;
+      }
     }
 
     &.fighting {
-      background-color: orange
+      background-color: rgba(orange, 0.8);
+
+      &::after {
+        background-color: orange;
+      }
     }
 
     &.steel {
-      background-color: aquamarine
+      background-color: rgba(aquamarine, 0.8);
+
+      &::after {
+        background-color: aquamarine;
+      }
     }
 
     &.ground {
-      background-color: brown;
+      background-color: rgba(brown, 0.8);
+
+      &::after {
+        background-color: brown;
+      }
     }
 
     &.fairy {
-      background-color: red;
+      background-color: rgba(red, 0.8);
+
+      &::after {
+        background-color: red;
+      }
     }
 
     &.rock {
-      background-color: burlywood;
+      background-color: rgba(burlywood, 0.8);
+
+      &::after {
+        background-color: burlywood;
+      }
     }
 
     &.grass {
-      background-color: greenyellow;
+      background-color: rgba(greenyellow, 0.8);
+
+      &::after {
+        background-color: greenyellow;
+      }
     }
 
     &.electric {
-      background-color: yellowgreen;
+      background-color: rgba(yellowgreen, 0.8);
+
+      &::after {
+        background-color: yellowgreen;
+      }
     }
 
     &:hover {
@@ -183,8 +255,8 @@
     .two-columns {
       @include flexbox;
       @include flex-wrap(wrap);
-      
-      & > p {
+
+      &>p {
         @include flex-basis(100%);
         @include flexbox;
         font-size: 20px;
@@ -201,6 +273,7 @@
       &.pokemon-xp {
         @include justify-content(center);
         padding-bottom: 15px;
+
         p {
           display: block;
           text-align: center;
@@ -215,39 +288,13 @@
       margin-bottom: 8px;
       padding-top: 15px;
     }
-    // padding: 60px;
-
-    // > *,
-    // iframe {
-    //   position: absolute;
-    //   top: 0;
-    //   left: 0;
-    //   width: 100%;
-    //   height: 100%;
-    //   bottom: 0;
-    //   right: 0;
-    // }
-
-    // &::after {
-    //   content: '';
-    //   display: block;
-    //   margin: 0 auto; 
-    //   transform: rotate(-45deg);
-    //   background: white;
-    //   padding-bottom: 100%;
-    //   overflow: hidden;
-    // }
   }
 }
-
-// .pokemon_item-content {
- 
-// }
 
 .row {
   margin: 0 auto;
   max-width: 1440px;
-  padding:0 25px;
+  padding: 0 25px;
   @include flexbox;
   @include flex-wrap(wrap);
   @include flex-basis(100%);
@@ -276,7 +323,7 @@
     margin-left: 3px;
     margin-right: 3px;
     text-decoration: none;
-    user-select: none; 
+    user-select: none;
     height: 40px;
     transition: color 0.3s ease-in, border-color 0.3s ease-in-out;
 
@@ -298,7 +345,9 @@
       user-select: none;
     }
 
-    &:focus {outline:0;}
+    &:focus {
+      outline: 0;
+    }
   }
 
 }
@@ -320,75 +369,147 @@
     line-height: 19px;
 
     &.bug {
-      background-color: green;
+      background-color: rgba(green, 0.8);
+
+      &::after {
+        background-color: green;
+      }
     }
 
     &.fire {
-      background-color: orangered;
+      background-color: rgba(orangered, 0.8);
+
+      &::after {
+        background-color: orangered;
+      }
     }
 
     &.normal {
-      background-color: darksalmon;
+      background-color: rgba(darksalmon, 0.8);
+
+      &::after {
+        background-color: darksalmon;
+      }
     }
 
     &.dark {
-      background-color: purple;
+      background-color: rgba(purple, 0.8);
+
+      &::after {
+        background-color: purple;
+      }
     }
 
     &.flying {
-      background-color: lightblue;
+      background-color: rgba(lightblue, 0.8);
+
+      &::after {
+        background-color: lightblue;
+      }
     }
-    
+
     &.poison {
-      background-color: violet;
+      background-color: rgba(violet, 0.8);
+
+      &::after {
+        background-color: violet;
+      }
     }
 
     &.dragon {
-      background-color: aqua;
+      background-color: rgba(aqua, 0.8);
+
+      &::after {
+        background-color: aqua;
+      }
     }
 
     &.ghost {
       background-color: rgba(purple, 0.5);
+
+      &::after {
+        background-color: rgba(purple, 0.8);
+      }
     }
 
     &.psyhic {
-      background-color: orchid;
+      background-color: rgba(orchid, 0.8);
+
+      &::after {
+        background-color: orchid;
+      }
     }
 
     &.water {
-      background-color: blueviolet;
+      background-color: rgba(blueviolet, 0.8);
+
+      &::after {
+        background-color: blueviolet;
+      }
     }
 
     &.ice {
-      background-color: lightcyan
+      background-color: rgba(lightcyan, 0.8);
+
+      &::after {
+        background-color: lightcyan;
+      }
     }
 
     &.fighting {
-      background-color: orange
+      background-color: rgba(orange, 0.8);
+
+      &::after {
+        background-color: orange;
+      }
     }
 
     &.steel {
-      background-color: aquamarine
+      background-color: rgba(aquamarine, 0.8);
+
+      &::after {
+        background-color: aquamarine;
+      }
     }
 
     &.ground {
-      background-color: brown;
+      background-color: rgba(brown, 0.8);
+
+      &::after {
+        background-color: brown;
+      }
     }
 
     &.fairy {
-      background-color: red;
+      background-color: rgba(red, 0.8);
+
+      &::after {
+        background-color: red;
+      }
     }
 
     &.rock {
-      background-color: burlywood;
+      background-color: rgba(burlywood, 0.8);
+
+      &::after {
+        background-color: burlywood;
+      }
     }
 
     &.grass {
-      background-color: greenyellow;
+      background-color: rgba(greenyellow, 0.8);
+
+      &::after {
+        background-color: greenyellow;
+      }
     }
 
     &.electric {
-      background-color: yellowgreen;
+      background-color: rgba(yellowgreen, 0.8);
+
+      &::after {
+        background-color: yellowgreen;
+      }
     }
   }
 
@@ -409,6 +530,7 @@
       @include flexbox;
       @include flex(1);
       @include justify-content(flex-end);
+
       .fa-star {
         color: rgb(194, 195, 196);
         font-size: 32px;
@@ -456,12 +578,14 @@
           @include flexbox;
           @include flex-wrap(wrap);
         }
+
         span {
           @include flex-basis(50%);
           font-size: 16px;
           line-height: 19px;
           padding: 3px 0;
-          & + span {
+
+          &+span {
             color: green;
             text-transform: uppercase;
             font-size: 13px;
@@ -482,22 +606,23 @@
       margin-bottom: 10px;
     }
 
-   .pokemon-info-h-w {
-     p {
-       font-size: 18px;
-       line-height: 21px;
-       text-align: center;
-       color: green;
-       text-transform: capitalize;
-       & + p {
-        font-size: 16px;
-        line-height: 19px;
-        color: black;
-        margin-top: 10px;
-        padding-bottom: 20px;
+    .pokemon-info-h-w {
+      p {
+        font-size: 18px;
+        line-height: 21px;
+        text-align: center;
+        color: green;
+        text-transform: capitalize;
+
+        &+p {
+          font-size: 16px;
+          line-height: 19px;
+          color: black;
+          margin-top: 10px;
+          padding-bottom: 20px;
+        }
       }
     }
-   }
   }
 
   .pokemon-fourth-row {
@@ -510,46 +635,48 @@
       margin-bottom: 10px;
     }
 
-   .pokemon-info-h-w {
-    @include flex-basis(33.33%);
-
-     p {
-       font-size: 19px;
-       line-height: 21px;
-       text-align: center;
-       color: green;
-       text-transform: capitalize;
-       & + p {
-         margin-bottom: 0;
-        font-size: 16px;
-        line-height: 19px;
-        color: black;
-        margin-top: 10px;
-        padding-bottom: 20px;
-      }
-    }
-
-    .move-title {
-      margin-bottom: 10px;
-    }
-
-    .moves-details {
-      @include flexbox;
-      @include flex-wrap(wrap);
+    .pokemon-info-h-w {
+      @include flex-basis(33.33%);
 
       p {
-        @include flex-basis(50%);
+        font-size: 19px;
+        line-height: 21px;
+        text-align: center;
+        color: green;
+        text-transform: capitalize;
+
+        &+p {
+          margin-bottom: 0;
+          font-size: 16px;
+          line-height: 19px;
+          color: black;
+          margin-top: 10px;
+          padding-bottom: 20px;
+        }
       }
 
-      .accuracy-wrap,
-      .power-wrap {
-        @include flex-basis(50%);
+      .move-title {
+        margin-bottom: 10px;
+      }
+
+      .moves-details {
+        @include flexbox;
+        @include flex-wrap(wrap);
+
         p {
-          color: black;
+          @include flex-basis(50%);
+        }
+
+        .accuracy-wrap,
+        .power-wrap {
+          @include flex-basis(50%);
+
+          p {
+            color: black;
+          }
         }
       }
     }
-   }
   }
 
   .pokemon-fifth-row {
@@ -561,6 +688,7 @@
     a {
       text-decoration: none;
       color: #222;
+
       &:hover {
         text-decoration: none;
         color: #222;
@@ -578,7 +706,7 @@
       @include flex-basis(100%);
 
       .pokemon-info-evolve-item {
-        & + .pokemon-info-evolve-item {
+        &+.pokemon-info-evolve-item {
           position: relative;
 
           &::before {
@@ -597,7 +725,7 @@
         }
       }
 
-      & > div {
+      &>div {
         margin: 0 30px;
       }
 
@@ -705,6 +833,7 @@
     padding: 0 15px;
     @include flex-basis(20%);
   }
+
   .pokemon_favorite_item_name {
     font-size: 26px;
     padding: 0 15px;
@@ -718,6 +847,7 @@
     @include flex(1);
     @include justify-content(flex-end);
   }
+
   .pokemon_favorite_item_link {
     text-decoration: none;
     font-size: 18px;
@@ -744,6 +874,7 @@
     @include flex(1);
     @include flexbox;
     @include justify-content(flex-end);
+
     &:hover {
       cursor: pointer;
     }
@@ -766,6 +897,7 @@
     padding: 0 15px;
     @include flex-basis(20%);
   }
+
   .pokemon_typebyname_item_name {
     font-size: 21px;
     padding: 0 15px;
@@ -779,6 +911,7 @@
     @include flex(1);
     @include justify-content(flex-end);
   }
+
   .pokemon_typebyname_item_link {
     text-decoration: none;
     font-size: 18px;
@@ -812,75 +945,201 @@
 }
 
 .bug {
-  background-color: green;
+  background-color: rgba(green, 0.8);
+
+  .pokemon_type_item {
+    &::after {
+      background-color: green;
+    }
+  }
+
 }
 
 .fire {
-  background-color: orangered;
+  background-color: rgba(orangered, 0.8);
+
+  .pokemon_type_item {
+    &::after {
+      background-color: orangered;
+    }
+  }
+
 }
 
 .normal {
-  background-color: darksalmon;
+  background-color: rgba(darksalmon, 0.8);
+
+  .pokemon_type_item {
+    &::after {
+      background-color: darksalmon;
+    }
+  }
+
 }
 
 .dark {
-  background-color: purple;
+  background-color: rgba(purple, 0.8);
+
+  .pokemon_type_item {
+    &::after {
+      background-color: purple;
+    }
+  }
+
 }
 
 .flying {
-  background-color: lightblue;
+  background-color: rgba(lightblue, 0.8);
+
+  .pokemon_type_item {
+    &::after {
+      background-color: lightblue;
+    }
+  }
+
 }
 
 .poison {
-  background-color: violet;
+  background-color: rgba(violet, 0.8);
+
+  .pokemon_type_item {
+    &::after {
+      background-color: violet;
+    }
+  }
+
 }
 
 .dragon {
-  background-color: aqua;
+  background-color: rgba(aqua, 0.8);
+
+  .pokemon_type_item {
+    &::after {
+      background-color: aqua;
+    }
+  }
+
 }
 
 .ghost {
   background-color: rgba(purple, 0.5);
+
+  .pokemon_type_item {
+    &::after {
+      background-color: rgba(purple, 0.8);
+    }
+  }
+
 }
 
 .psyhic {
-  background-color: orchid;
+  background-color: rgba(orchid, 0.8);
+
+  .pokemon_type_item {
+    &::after {
+      background-color: orchid;
+    }
+  }
+
 }
 
 .water {
-  background-color: blueviolet;
+  background-color: rgba(blueviolet, 0.8);
+
+  .pokemon_type_item {
+    &::after {
+      background-color: blueviolet;
+    }
+  }
+
 }
 
 .ice {
-  background-color: lightcyan
+  background-color: rgba(lightcyan, 0.8);
+
+  .pokemon_type_item {
+    &::after {
+      background-color: lightcyan;
+    }
+  }
+
 }
 
 .fighting {
-  background-color: orange
+  background-color: rgba(orange, 0.8);
+
+  .pokemon_type_item {
+    &::after {
+      background-color: orange;
+    }
+  }
+
 }
 
 .steel {
-  background-color: aquamarine
+  background-color: rgba(aquamarine, 0.8);
+
+  .pokemon_type_item {
+    &::after {
+      background-color: aquamarine;
+    }
+  }
+
 }
 
 .ground {
-  background-color: brown;
+  background-color: rgba(brown, 0.8);
+
+  .pokemon_type_item {
+    &::after {
+      background-color: brown;
+    }
+  }
+
 }
 
 .fairy {
-  background-color: red;
+  background-color: rgba(red, 0.8);
+
+  .pokemon_type_item {
+    &::after {
+      background-color: red;
+    }
+  }
+
 }
 
 .rock {
-  background-color: burlywood;
+  background-color: rgba(burlywood, 0.8);
+
+  .pokemon_type_item {   
+    &::after {
+      background-color: burlywood;
+    }
+  }
+
 }
 
 .grass {
-  background-color: greenyellow;
+  background-color: rgba(greenyellow, 0.8);
+
+  .pokemon_type_item {
+    &::after {
+      background-color: greenyellow;
+    }
+  }
+
 }
 
 .electric {
-  background-color: yellowgreen;
+  background-color: rgba(yellowgreen, 0.8);
+
+  .pokemon_type_item {
+    &::after {
+      background-color: yellowgreen;
+    }
+  }
+
 }
 
 
