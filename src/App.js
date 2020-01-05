@@ -1,19 +1,23 @@
 import './scss/_all.scss';
 
 import React, { Component } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch  } from 'react-router-dom';
 import Navigation from './components/Navigation';
 import { connect } from 'react-redux'
-
+import { getAllPokemonsNames } from './store/actions';
+import Autocomplete from './components/Autocomplete';
 import TypeDexContainer from './containers/type_dex_container';
 import PokemonDetailsContainer from './containers/pokemon_details_container';
 import FavoritesContainer from './containers/favorite_pokemons_container';
 import PokeDex from './containers/pokemons_container';
+import { bindActionCreators } from 'redux';
 
 class App extends Component {
 
   constructor(props) {
     super(props);
+    this.props.getAllPokemonsNames();
+    console.log(this.props)
   }
 
   removeAnimation() {
@@ -27,6 +31,7 @@ class App extends Component {
       }, 1000);
     }
   }
+
   shouldComponentUpdate(nextProps, nextState) {
     if(nextProps.isLoadedApp || nextProps.isLoadedApp == null) {
       this.removeAnimation();
@@ -43,6 +48,7 @@ class App extends Component {
         <div className={`logo-on-start ${logoActiveClass}`}></div>
         <BrowserRouter>
           <Navigation />
+          <Autocomplete allPokemonsNames={this.props.pokemonsNames}/>
           <Switch>
             <Route path="/" component={PokeDex} exact />
             <Route path="/typedex" component={TypeDexContainer} exact />
@@ -58,8 +64,14 @@ class App extends Component {
 
 function mapStateToProps(state) {
   return {
-    isLoadedApp: state.pokemonReducer.isAppStarted
+    isLoadedApp: state.pokemonReducer.isAppStarted,
+    pokemonsNames: state.pokemonReducer.allPokemonsNames
   };
 }
 
-export default connect(mapStateToProps)(App);
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({getAllPokemonsNames}, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)

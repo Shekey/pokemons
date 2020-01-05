@@ -3,17 +3,13 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux';
 import { getAllPokemons, setCurrentPage,getAllPokemonsNames } from '../store/actions';
 import PokeList from '../components/PokeDex';
-import Autocomplete from '../components/Autocomplete';
+
 
 export class PokemonContainer extends Component {
   constructor(props) {
     super(props);
     this.props.getAllPokemons(0, 9);
     this.removeAnimation();
-  }
-
-  componentDidMount() {
-    this.props.getAllPokemonsNames();
   }
   
   removeAnimation() {
@@ -47,7 +43,6 @@ export class PokemonContainer extends Component {
         <div className={`loader-holder ${activeSpinnerClass}`}>
           <div className="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
         </div>
-        <Autocomplete allPokemonsNames={this.props.pokemonsNames} history={this.props.history}/>
         <PokeList paginate={(e) => this.paginate(e)} pokemons={this.props.pokemonContainer} />
       </div>
       )

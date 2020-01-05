@@ -1,29 +1,51 @@
-import React from 'react';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
+import {withRouter} from 'react-router'
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
-export default function AutocompleteComponent(props) {
-  console.log(props.allPokemonsNames)
-  return (
-    props.allPokemonsNames !== undefined ?
-      <div className="content row autocomplete">
-        <div className="autocomplete-wrap">
-          <Autocomplete
-            loading={true}
-            options={props.allPokemonsNames}
-            getOptionLabel={option => option.name}
-            renderInput={params => (
-              <TextField {...params} label="Search for your pokemon" margin="normal" variant="outlined" fullWidth />
-            )}
-            onChange={(event, newValue) => {
-              console.log(newValue);
-              if(newValue.name !== null && newValue.name !== '') 
-              props.history.push(`/pokemon/${newValue.id}`);
-              newValue.name = '';
-            }}
-          />
+class AutocompleteComponent extends Component {
+  static propTypes = {
+    match: PropTypes.object.isRequired,
+    location: PropTypes.object.isRequired,
+    history: PropTypes.object.isRequired
+  }
+
+  componentDidUpdate(prevProps) {
+    let input = document.querySelector('.autocomplete-wrap input');
+    if (this.props.location !== prevProps.location && input.value !== "") {
+      let closeIcon = document.querySelector('.autocomplete-wrap .MuiAutocomplete-clearIndicator');
+      closeIcon.click();
+      input.blur();
+    }
+  }
+
+  render() {
+    const { match, location, history } = this.props;
+    return (
+      this.props.allPokemonsNames !== undefined ?
+        <div className="content row autocomplete">
+          <div className="autocomplete-wrap">
+            <Autocomplete
+              loading={true}
+              options={this.props.allPokemonsNames}
+              getOptionLabel={option => option.name}
+              renderInput={params => (
+                <TextField {...params} label="Search for your pokemon" margin="normal" variant="outlined" fullWidth />
+              )}
+              blurOnSelect={true}
+              onChange={(event, newValue) => {
+                console.log(newValue);
+                if(newValue && newValue.name !== null && newValue.name !== '') 
+                this.props.history.push(`/pokemon/${newValue.id}`);
+              }}
+            />
+          </div>
         </div>
-      </div>
-      : null
-  );
+        : null
+    );
+  }
 }
+
+export default withRouter(AutocompleteComponent)
+

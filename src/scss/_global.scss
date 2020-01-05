@@ -26,7 +26,7 @@
   }
 
   .content {
-    padding-top: 50px;
+    padding-top: 120px;
     position: relative;
     @include flex-basis(auto);
   }
@@ -908,6 +908,13 @@
 
 .autocomplete {
   &.row {
-    padding-top: 15px;
+    padding-top: 0;
+    position: absolute;
+    z-index: 120;
+    flex-basis: calc(100% - 330px);
+    top: 15px;
+    right: 0;
+    width: calc(100% - 315px);
+    height: 90px;
   }
 }

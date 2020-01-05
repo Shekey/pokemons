@@ -35,13 +35,11 @@ export class TypeDexContainer extends Component {
   }
 
   handleClick = (item) => {
-    console.log(item);
     typeClicked = item;
     this.props.getPOkemonByTypename(item);
   }
 
   closeList = () => {
-    console.log('clicked');
     let hideList = document.querySelector('.type-by-name-active');
     if(hideList) {
       hideList.classList.remove('type-by-name-active');
@@ -52,7 +50,6 @@ export class TypeDexContainer extends Component {
 
   render() {
     let activeSpinnerClass = this.props.pokeTypes === undefined ? 'active' :'';
-    console.log(typeClicked);
     let isPokeTypesByNameVisible = this.props.pokeTypesByName !== undefined && this.props.pokeTypesByName !== null ? 'type-by-name-active':'';
       return (
         <div className={`all-content-wrap ${isPokeTypesByNameVisible}`}>
