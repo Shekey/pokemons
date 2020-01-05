@@ -909,6 +909,7 @@
 .autocomplete {
   &.row {
     padding-top: 0;
+    padding-left: 10px;
     position: absolute;
     z-index: 120;
     flex-basis: calc(100% - 330px);
