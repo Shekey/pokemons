@@ -7,11 +7,24 @@ import PokeDetails from '../components/Details';
 export class PokemonDetailsContainer extends Component {
   constructor(props) {
     super(props);
+    this.removeAnimation();
     this.props.getPokemon(this.props.match.params.id);
   }
 
   componentWillUnmount(){
     this.props.clearPokemonDetails();
+  }
+
+  removeAnimation() {
+    let pageWrapper = document.querySelector('.page-content-wrapper.active');
+    let logoOnStart = document.querySelector('.logo-on-start.active');
+
+    if(pageWrapper && logoOnStart) {
+      setTimeout(() => {
+        pageWrapper.classList.remove('active');
+        logoOnStart.classList.remove('active'); 
+      }, 1000);
+    }
   }
 
   componentDidUpdate(prevProps) {

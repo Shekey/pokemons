@@ -9,11 +9,18 @@ export default function AutocompleteComponent(props) {
       <div className="content row autocomplete">
         <div className="autocomplete-wrap">
           <Autocomplete
-            loading="true"
-            options={props.allPokemonsNames.map(option => option.name)}
+            loading={true}
+            options={props.allPokemonsNames}
+            getOptionLabel={option => option.name}
             renderInput={params => (
               <TextField {...params} label="Search for your pokemon" margin="normal" variant="outlined" fullWidth />
             )}
+            onChange={(event, newValue) => {
+              console.log(newValue);
+              if(newValue.name !== null && newValue.name !== '') 
+              props.history.push(`/pokemon/${newValue.id}`);
+              newValue.name = '';
+            }}
           />
         </div>
       </div>

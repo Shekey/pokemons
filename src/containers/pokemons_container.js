@@ -24,7 +24,7 @@ export class PokemonContainer extends Component {
       setTimeout(() => {
         pageWrapper.classList.remove('active');
         logoOnStart.classList.remove('active'); 
-      }, 1000);
+      }, 500);
     }
   }
 
@@ -47,7 +47,7 @@ export class PokemonContainer extends Component {
         <div className={`loader-holder ${activeSpinnerClass}`}>
           <div className="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
         </div>
-        <Autocomplete allPokemonsNames={this.props.pokemonsNames}/>
+        <Autocomplete allPokemonsNames={this.props.pokemonsNames} history={this.props.history}/>
         <PokeList paginate={(e) => this.paginate(e)} pokemons={this.props.pokemonContainer} />
       </div>
       )
