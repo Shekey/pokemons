@@ -32,14 +32,16 @@
     @include justify-content(space-between);
   }
 
-  .all-types-list {}
-
   .pokemon_item {
     @include flex-basis(calc(33% - 100px));
+    clip-path:polygon(0 50%, 50% 100%,100% 50%,50% 0);
+    display:inline-block;
     position: relative;
     overflow: hidden;
-    padding: 10px;
+    padding: 0 40px;
     margin: 15px;
+    height: 0;
+    padding-bottom: calc(33% - 100px);
     background: #fff;
     overflow: hidden;
     font-family: 'Lato-Regular';
@@ -50,6 +52,25 @@
     color: #222;
     text-transform: uppercase;
     font-weight: 900;
+    --g:var(--c,transparent) calc(50% - 3px),#000 calc(50% - 2px),#000 450%, transparent 50%;
+  background:
+   linear-gradient(to top right   ,var(--g)) top right,
+   linear-gradient(to top left    ,var(--g)) top left,
+   linear-gradient(to bottom right,var(--g)) bottom right,
+   linear-gradient(to bottom left ,var(--g)) bottom left;
+  background-size:50% 50%;
+  background-repeat:no-repeat;
+
+ .pokemon_item-content {
+   position: absolute;
+   left: 0;
+   top: 0;
+   bottom: 0;
+   right: 0;
+   @include flexbox;
+   @include flex-wrap(wrap);
+   @include justify-content(center);
+  }
 
     @media only screen and (max-width: 1440px)  {
       @include flex-basis(calc(33% - 30px));
@@ -74,10 +95,10 @@
         content: '>';
         font-size: 35px;
         position: absolute;
-        width: 40px;
+        width: 43px;
         height: 43px;
         position: absolute;
-        right: -10px;
+        right: -20px;
         top: -13px;
         color: #222;
         font-weight: 500;
@@ -255,9 +276,25 @@
 
     .specific-details {
       @include flexbox;
-      background: rgb(231, 231, 231);
-      margin: 15px -3px;
-      padding: 0 15px;
+      @include flex-wrap(wrap);
+      background: #fff;
+      padding: 2% 14% 0;
+      margin-left: -10px;
+      margin-right: -10px;
+      flex-basis: calc(100% + 20px);
+      margin-top: 1%;
+      margin-bottom: 10px;
+      z-index: 300;
+      position: relative;
+
+      p {
+        @include flex-basis(100%);
+      }
+
+      .pokemon_item-height,
+      .pokemon_item-weight {
+        height: 60px;
+      }
     }
 
     .two-columns {
@@ -287,14 +324,21 @@
           text-align: center;
         }
       }
+
+      &:last-of-type {
+        p {
+          @include justify-content(flex-end);
+        }
+      }
     }
 
     .pokemon_item-id {
+      width: 100%;
       font-size: 18px;
       line-height: 20px;
       font-family: 'Lato-Bold';
       margin-bottom: 8px;
-      padding-top: 15px;
+      padding-top: 45px;
     }
   }
 }
@@ -330,9 +374,22 @@
       @media only screen and (min-width: 1440px) {
         @include flex-basis(calc(25% - 30px));
         transition: flex-basis 0.1s ease-in;
+        padding-bottom: calc(25% - 30px);
       }
     }
   }
+}
+
+.polygon-clip-rhombus {
+  -webkit-clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  -webkit-clip-path: url("#polygon-clip-rhombus");
+  clip-path: url("#polygon-clip-rhombus");
+}
+
+.clip-svg {
+  width: 0;
+  height: 0;
 }
 
 .pagination {
@@ -949,6 +1006,15 @@
       color: #222;
       text-decoration: none;
     }
+  }
+}
+
+.all-types-list {
+  .pokemon_item {
+    padding: 10px 15px;
+    height: auto;
+    clip-path: initial;
+    background: none;
   }
 }
 
