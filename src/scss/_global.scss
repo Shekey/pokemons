@@ -34,16 +34,14 @@
 
   .pokemon_item {
     @include flex-basis(calc(33% - 100px));
-    clip-path:polygon(0 50%, 50% 100%,100% 50%,50% 0);
+    clip-path:polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
     display:inline-block;
     position: relative;
-    overflow: hidden;
     padding: 0 40px;
     margin: 15px;
     height: 0;
     padding-bottom: calc(33% - 100px);
     background: #fff;
-    overflow: hidden;
     font-family: 'Lato-Regular';
     border: 2px solid black;
     text-align: center;
@@ -350,6 +348,8 @@
   top: 35px;
   left: 15px;
   z-index: 111;
+  opacity: 0;
+  transition: opacity 0.1 ease-in;
 }
 
 .row {
@@ -365,31 +365,6 @@
     margin: 0;
     flex-basis: 100% !important;
   }
-
-  &.close {
-    padding-left: 60px;
-    transition: padding-left 0.3s ease-in;
-
-    .pokemon_item {
-      @media only screen and (min-width: 1440px) {
-        @include flex-basis(calc(25% - 30px));
-        transition: flex-basis 0.1s ease-in;
-        padding-bottom: calc(25% - 30px);
-      }
-    }
-  }
-}
-
-.polygon-clip-rhombus {
-  -webkit-clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-  -webkit-clip-path: url("#polygon-clip-rhombus");
-  clip-path: url("#polygon-clip-rhombus");
-}
-
-.clip-svg {
-  width: 0;
-  height: 0;
 }
 
 .pagination {
@@ -1015,6 +990,7 @@
     height: auto;
     clip-path: initial;
     background: none;
+    overflow: hidden;
 
     @media only screen and (min-width: 1440px)  {
       clip-path: initial;
@@ -1265,6 +1241,8 @@
 }
 
 .autocomplete {
+  transition: padding-left 0.3s ease-in, width 0.3s ease-in;
+
   &.row {
     padding-top: 0;
     padding-left: 10px;

@@ -42,13 +42,11 @@ class App extends Component {
 openNav() {
   let sideNav = document.querySelector(".side-nav");
   let contentWrap = document.querySelector(".all-content-wrap");
-  let autocompleteRow = document.querySelector('.row.autocomplete');
   let row = contentWrap.querySelector('.row');
   let pokemonDetailsAll = contentWrap.querySelector('.pokemon-details-all');
-  autocompleteRow.classList.remove('close');
-  contentWrap.style.marginLeft = null;
-  contentWrap.style.width = null;
+  let root = document.getElementById("root");
   sideNav.classList.remove('close');
+  root.classList.remove('close');
   if(row) {  row.classList.remove('close'); } else {pokemonDetailsAll.classList.remove('close'); }
 }
 
@@ -56,12 +54,10 @@ closeNav() {
   let sideNav = document.querySelector(".side-nav");
   let contentWrap = document.querySelector(".all-content-wrap");
   let row = contentWrap.querySelector('.row');
-  let autocompleteRow = document.querySelector('.row.autocomplete');
   let pokemonDetailsAll = contentWrap.querySelector('.pokemon-details-all');
+  let root = document.getElementById("root");
+  root.classList.add('close');
   sideNav.classList.add('close');
-  contentWrap.style.marginLeft = 0;
-  contentWrap.style.width = "100%";
-  autocompleteRow.classList.add('close');
   if(row) {  row.classList.add('close'); } else {pokemonDetailsAll.classList.add('close'); }
 }
 
