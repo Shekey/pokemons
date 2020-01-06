@@ -11,12 +11,12 @@ const PokemonDetails = (props) => {
     }
   }
   return (
-    <div className={`content row all-content-wrap ${activeSpinnerClass}`}>
+    <div className={`content row all-content-wrap pokemon-details-all ${activeSpinnerClass}`}>
       <div className={`loader-holder ${activeSpinnerClass}`}>
         <div className="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
       </div>
       {props.pokemon !== null && props.pokemon !== undefined ?
-        <div className="pokemon-details-all">
+        <div className="">
           <div className='pokemon-first-row'>
             <span className={`pokemon-id`}># {props.pokemon.id}</span>
             <h5 className={`pokemon-name`}>{props.pokemon.name}</h5>

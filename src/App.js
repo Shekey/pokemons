@@ -40,21 +40,15 @@ class App extends Component {
 
 
 openNav() {
-  let contentWrap = document.querySelector(".all-content-wrap");
-  let row = contentWrap.querySelector('.row');
-  let pokemonDetailsAll = contentWrap.querySelector('.pokemon-details-all');
   let root = document.getElementById("root");
   root.classList.remove('close');
-  if(row) {  row.classList.remove('close'); } else {pokemonDetailsAll.classList.remove('close'); }
 }
 
 closeNav() {
-  let contentWrap = document.querySelector(".all-content-wrap");
-  let row = contentWrap.querySelector('.row');
-  let pokemonDetailsAll = contentWrap.querySelector('.pokemon-details-all');
+  let pokemonDetailsAll = document.querySelector('.pokemon-details-all');
+  if (pokemonDetailsAll) pokemonDetailsAll.classList.add('not-initial')
   let root = document.getElementById("root");
   root.classList.add('close');
-  if(row) {  row.classList.add('close'); } else {pokemonDetailsAll.classList.add('close'); }
 }
 
   removeAnimation() {
