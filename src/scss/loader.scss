@@ -27,6 +27,14 @@
   .burger {
     opacity: 1;
   }
+
+  .side-nav {
+    width: 0;
+    min-width: 0;
+    padding: 0;
+    opacity: 0;
+    transition: width 0.3s ease-in, padding 0s ease-in 0.4s, opacity 0.1s ease-in 0.2s;
+  }
 }
 
 .all-content-wrap {
