@@ -17,8 +17,53 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.props.getAllPokemonsNames();
-    console.log(this.props)
+    console.log(this.props);
   }
+
+  componentDidMount() {
+    let exit = document.querySelector('.exit');
+    let burger = document.querySelector('.burger');
+    if(exit) {
+      exit.addEventListener('click', e => {
+        e.preventDefault();
+        this.closeNav();
+      });
+    }
+
+    if(burger) {
+      burger.addEventListener('click', e => {
+        e.preventDefault();
+        this.openNav();
+      });
+    }
+  }
+
+
+openNav() {
+  let sideNav = document.querySelector(".side-nav");
+  let contentWrap = document.querySelector(".all-content-wrap");
+  let autocompleteRow = document.querySelector('.row.autocomplete');
+  let row = contentWrap.querySelector('.row');
+  sideNav.classList.remove('close');
+  row.classList.remove('close');
+  autocompleteRow.classList.remove('close');
+  contentWrap.style.marginLeft = null;
+  contentWrap.style.width = null;
+
+}
+
+closeNav() {
+  let sideNav = document.querySelector(".side-nav");
+  let contentWrap = document.querySelector(".all-content-wrap");
+  let row = contentWrap.querySelector('.row');
+  let autocompleteRow = document.querySelector('.row.autocomplete');
+  sideNav.classList.add('close');
+  row.classList.add('close');
+  contentWrap.style.marginLeft = 0;
+  contentWrap.style.width = "100%";
+  autocompleteRow.classList.add('close');
+
+}
 
   removeAnimation() {
     let pageWrapper = document.querySelector('.page-content-wrapper.active');
@@ -48,6 +93,7 @@ class App extends Component {
         <div className={`logo-on-start ${logoActiveClass}`}></div>
         <BrowserRouter>
           <Navigation />
+          <span className="burger">&#9776;</span>
           <Autocomplete allPokemonsNames={this.props.pokemonsNames}/>
           <Switch>
             <Route path="/" component={PokeDex} exact />

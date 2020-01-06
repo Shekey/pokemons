@@ -35,7 +35,7 @@
   .all-types-list {}
 
   .pokemon_item {
-    @include flex-basis(calc(33% - 30px));
+    @include flex-basis(calc(33% - 100px));
     position: relative;
     overflow: hidden;
     padding: 10px;
@@ -50,6 +50,14 @@
     color: #222;
     text-transform: uppercase;
     font-weight: 900;
+
+    @media only screen and (max-width: 1440px)  {
+      @include flex-basis(calc(33% - 30px));
+    }
+
+    @media only screen and (max-width: 900px) {
+      @include flex-basis(calc(100%));
+    }
 
     &:nth-of-type(3n) {
       margin-right: 15px;
@@ -70,7 +78,7 @@
         height: 43px;
         position: absolute;
         right: -10px;
-        top: -12px;
+        top: -13px;
         color: #222;
         font-weight: 500;
       }
@@ -291,9 +299,17 @@
   }
 }
 
+.burger {
+  font-size:30px;
+  cursor:pointer;
+  position: absolute;
+  top: 35px;
+  left: 15px;
+  z-index: 111;
+}
+
 .row {
   margin: 0 auto;
-  max-width: 1440px;
   padding: 0 25px;
   @include flexbox;
   @include flex-wrap(wrap);
@@ -304,6 +320,15 @@
     padding: 0;
     margin: 0;
     flex-basis: 100% !important;
+  }
+
+  &.close {
+    padding-left: 60px;
+    .pokemon_item {
+      @media only screen and (min-width: 1440px) {
+        @include flex-basis(calc(25% - 30px));
+      }
+    }
   }
 }
 
@@ -1171,10 +1196,14 @@
     padding-left: 10px;
     position: absolute;
     z-index: 120;
-    flex-basis: calc(100% - 330px);
     top: 15px;
     right: 0;
     width: calc(100% - 315px);
     height: 90px;
+    transition: width 0.3s ease-in;
+  }
+
+  &.close {
+    width: calc(100% - 60px);
   }
 }

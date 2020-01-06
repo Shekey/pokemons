@@ -1,7 +1,9 @@
 .all-content-wrap {
   position: relative;
   min-height: 100vh;
-  width: calc(100% - 300px)
+  width: calc(100% - 300px);
+  margin-left: 300px;
+  transition: margin 0.3s ease-in;
 }
 
 .loader-holder {
