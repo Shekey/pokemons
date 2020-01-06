@@ -5,6 +5,10 @@
   font-family: 'Lato-Bold';
   position: relative;
 
+  @media only screen and (max-width: 999px) {
+    background-color: #fff;
+  }
+
   &.active {
     height: 100vh;
     overflow: hidden;
@@ -30,17 +34,22 @@
     position: relative;
     @include flex(1);
     @include justify-content(space-between);
+
+    @media only screen and (max-width: 999px) {
+      padding-left: 60px;
+      transition: none;
+    }
   }
 
   .pokemon_item {
-    @include flex-basis(calc(33% - 100px));
+    @include flex-basis(calc(33% - 30px));
     clip-path:polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
     display:inline-block;
     position: relative;
     padding: 0 40px;
     margin: 15px;
     height: 0;
-    padding-bottom: calc(33% - 100px);
+    padding-bottom: 33%;
     background: #fff;
     font-family: 'Lato-Regular';
     border: 2px solid black;
@@ -58,6 +67,28 @@
    linear-gradient(to bottom left ,var(--g)) bottom left;
   background-size:50% 50%;
   background-repeat:no-repeat;
+ 
+  
+  @media only screen and (max-width: 1250px) and (min-width: 1000px) {
+    @include flex-basis(calc(50% - 30px));
+    padding-bottom: calc(50% + 50px);
+  }
+
+  @media only screen and (max-width: 999px) {
+    @include flex-basis(calc(100%));
+    background: none;
+    clip-path: initial;
+    height: auto;
+    padding-left: 0;
+    padding-right: 0;
+    display: block;
+    overflow: hidden;
+    background-color: transparent !important;
+    border: none;
+    border-bottom: 1px solid #222;
+    border-radius: 0;
+  }
+  
 
  .pokemon_item-content {
    position: absolute;
@@ -68,14 +99,23 @@
    @include flexbox;
    @include flex-wrap(wrap);
    @include justify-content(center);
+
+   @media only screen and (max-width: 999px) {
+      position: relative;
+      display: block;
+      overflow: hidden;
+    }
   }
 
-    @media only screen and (max-width: 1440px)  {
+    @media only screen and (max-width: 1440px) and (min-width: 1251px)   {
       @include flex-basis(calc(33% - 30px));
     }
 
-    @media only screen and (max-width: 900px) {
+    @media only screen and (max-width: 999px) {
       @include flex-basis(calc(100%));
+      padding-bottom: 0;
+      display: block;
+
     }
 
     &:nth-of-type(3n) {
@@ -282,8 +322,15 @@
       flex-basis: calc(100% + 20px);
       margin-top: 1%;
       margin-bottom: 10px;
-      z-index: 300;
+      z-index: 1;
       position: relative;
+
+      @media only screen and (max-width: 999px) {
+        margin-left: 0;
+        margin-right: 0;
+        @include flex-basis(100%);
+        background: transparent;
+      }
 
       p {
         @include flex-basis(100%);
@@ -317,6 +364,10 @@
         @include justify-content(center);
         padding-bottom: 15px;
 
+        @media only screen and (max-width: 999px) {
+          padding-bottom: 10px;
+        }
+
         p {
           display: block;
           text-align: center;
@@ -337,6 +388,10 @@
       font-family: 'Lato-Bold';
       margin-bottom: 8px;
       padding-top: 45px;
+
+      @media only screen and (max-width: 999px) {
+        padding-top: 10px
+      }
     }
   }
 }
@@ -350,6 +405,10 @@
   z-index: 111;
   opacity: 0;
   transition: opacity 0.1 ease-in;
+
+  @media only screen and (max-width: 999px) {
+    transition: opacity 0.1s ease-in 0.3s;
+  }
 }
 
 .row {
@@ -1262,6 +1321,12 @@
     width: calc(100% - 315px);
     height: 90px;
     transition: width 0.3s ease-in;
+
+    @media only screen and (max-width: 999px) {
+      width: 100%;
+      transition: none;
+      padding-left: 60px;
+    }
   }
 
   &.close {

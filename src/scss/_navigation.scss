@@ -13,6 +13,14 @@
   transition: width 0.3s ease-in, min-width 0.3s ease-in 0.2s, opacity 0.2s ease-in 0.2s;
   overflow: hidden;
 
+  @media only screen and (max-width: 999px) {
+    background: #fff;
+    color: #222;
+    width: 80%;
+    min-width: 80%;
+    transition: width 0.3s ease-in, min-width 0.3s ease-in 0.2s, opacity 0.2s ease-in 0.2s;
+  }
+
   li {
     display: block;
     font-size: 18px;

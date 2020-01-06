@@ -2,6 +2,12 @@
   .all-content-wrap {
     margin-left: 0;
     width: 100%;
+
+  @media only screen and (max-width: 999px) {
+      &::after {
+        content: none;
+      }
+    } 
   }
 
   .row {
@@ -21,6 +27,11 @@
       width: 100%;
       z-index: 110;
       transition: padding-left 0.3s ease-in, width 0.3s ease-in;
+
+      @media only screen and (max-width: 999px) {
+        transition: none;
+        padding-left: 60px;
+      }
     }
   }
 
@@ -43,6 +54,27 @@
   width: calc(100% - 300px);
   margin-left: 300px;
   transition: margin 0.3s ease-in;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 100%;
+    transition: width 0.4s ease-in 0.3s;
+  }
+
+  @media only screen and (max-width: 999px) {
+    transition: none;
+    width: 100%;
+    margin-left: 0;
+
+    &::after {
+      width: 100%;
+      background-color: rgba(#222,0.5);
+    }
+  }
 }
 
 .loader-holder {
