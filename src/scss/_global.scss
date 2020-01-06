@@ -1015,6 +1015,11 @@
     height: auto;
     clip-path: initial;
     background: none;
+
+    @media only screen and (min-width: 1440px)  {
+      clip-path: initial;
+      padding-bottom: 10px !important;
+    }
   }
 }
 
