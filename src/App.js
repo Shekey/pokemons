@@ -44,12 +44,12 @@ openNav() {
   let contentWrap = document.querySelector(".all-content-wrap");
   let autocompleteRow = document.querySelector('.row.autocomplete');
   let row = contentWrap.querySelector('.row');
-  sideNav.classList.remove('close');
-  row.classList.remove('close');
+  let pokemonDetailsAll = contentWrap.querySelector('.pokemon-details-all');
   autocompleteRow.classList.remove('close');
   contentWrap.style.marginLeft = null;
   contentWrap.style.width = null;
-
+  sideNav.classList.remove('close');
+  if(row) {  row.classList.remove('close'); } else {pokemonDetailsAll.classList.remove('close'); }
 }
 
 closeNav() {
@@ -57,12 +57,12 @@ closeNav() {
   let contentWrap = document.querySelector(".all-content-wrap");
   let row = contentWrap.querySelector('.row');
   let autocompleteRow = document.querySelector('.row.autocomplete');
+  let pokemonDetailsAll = contentWrap.querySelector('.pokemon-details-all');
   sideNav.classList.add('close');
-  row.classList.add('close');
   contentWrap.style.marginLeft = 0;
   contentWrap.style.width = "100%";
   autocompleteRow.classList.add('close');
-
+  if(row) {  row.classList.add('close'); } else {pokemonDetailsAll.classList.add('close'); }
 }
 
   removeAnimation() {
