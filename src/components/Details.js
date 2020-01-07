@@ -19,7 +19,7 @@ const PokemonDetails = (props) => {
       {props.pokemon !== null && props.pokemon !== undefined ?
         <div className={`${props.pokemon.types[props.pokemon.types.length - 1].type.name}-item item`}>
           <div className='pokemon-first-row'>
-            <Link className="back-btn-wrapper-mobile" to="/">
+            <Link className="back-btn-wrapper-mobile" to="/" onClick={(e) => props.goBack(e)}>
               <img src="../images/backIcon.png" className={`back-btn mobile`} />
             </Link>
             <span className={`pokemon-id`}># {props.pokemon.id}</span>
