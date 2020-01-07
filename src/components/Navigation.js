@@ -1,13 +1,13 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 
 const Navigation = (props) => {
   return (
     <aside className="side-nav">
-      <div className="logo-wrapper">
+      <Link className="logo-wrapper" to="/" onClick={(e) => props.handleNavigationItemClicked()}>
         <img className="logo" src="../images/logo-yellow.png" alt="Logo" />
         <img className="logo" src="../images/logo-black.png" alt="Logo" />
-      </div>
+      </Link>
       <ul>
         <li onClick={(e) => props.handleNavigationItemClicked()} className="pokeball"><NavLink exact to="/" activeClassName="active-navigation-item">Pokedex</NavLink></li>
         <li onClick={(e) => props.handleNavigationItemClicked()} className="typedex"><NavLink exact to="/typedex" activeClassName="active-navigation-item" >TypeDex</NavLink></li>

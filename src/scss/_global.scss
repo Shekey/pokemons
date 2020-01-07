@@ -39,6 +39,7 @@
       padding-left: 25px;
       transition: none;
       padding-top: 90px;
+      border-bottom: 1px solid #222;
     }
   }
 
@@ -972,6 +973,11 @@
 }
 
 // POKEMON FAVORITES 
+.favorite-pokemons-wrapper {
+  .content {
+    padding-top: 60px;
+  }
+}
 .star-wrapper {
   .fa-star {
     color: rgb(194, 195, 196);
