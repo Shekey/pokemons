@@ -4,10 +4,11 @@ import { Link } from 'react-router-dom';
 const Types = (props) => {
   return (
     <div className="content row types-by-name-list">
-      <div className={`type-name-title ${props.typeClicked}`}>
-      <h3>{props.typeClicked}</h3>
+      <div className={`type-name-title`}>
+      <h3 className={`${props.typeClicked}`}>{props.typeClicked}</h3>
       <div className="image-wrapper" onClick={() => props.closeList()}>
-        <img src="../images/backBtn.png" className={`back-btn`} /></div>
+        <img src="../images/backBtn.png" className={`back-btn`} />
+        <img src="../images/backIcon.png" className={`back-btn mobile`} /></div>
       </div>
       {props.pokeTypes !== undefined ?
         props.pokeTypes.map((item, index) => {

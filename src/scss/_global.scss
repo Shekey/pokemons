@@ -1065,21 +1065,53 @@
 
 //typeByName
 .type-name-title {
-  @include flex-basis(100%);
-  color: #fff;
-  padding: 10px 30px;
   margin-bottom: 30px;
-  @include flexbox;
+  @include flex-basis(100%);
   @include align-items(center);
+  position: relative;
   border: 2px solid #222;
+
+  @media only screen and (max-width: 999px) {
+    @include flexbox;
+    @include flex-wrap(wrap);
+    border: none;
+  }
+
+  h3 {
+    @include flex-basis(100%);
+    color: #fff;
+    padding: 10px 30px;
+
+    @media only screen and (max-width: 999px) {
+      order: 2;
+      border: 2px solid #222;
+    }
+  }
 
   .image-wrapper {
     @include flex(1);
     @include flexbox;
     @include justify-content(flex-end);
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 30px;
 
     &:hover {
       cursor: pointer;
+    }
+
+    @media only screen and (max-width: 999px) {
+      order: 1;
+      position: relative;
+      display: flex;
+      justify-content: flex-start;
+      right: auto;
+      top: auto;
+      transform: none;
+      margin-bottom: 20px;
     }
   }
 
@@ -1252,6 +1284,18 @@
 .back-btn {
   width: 30px;
   height: 30px;
+
+  @media only screen and (max-width: 999px) {
+    display: none;
+  }
+
+  &.mobile {
+    display: none;
+
+    @media only screen and (max-width: 999px) {
+      display: inline-block;
+    }
+  }
 }
 
 .type-by-name-active {
