@@ -156,11 +156,8 @@ export function savePokemonItems(pokemons) {
 export function getPOkemonByTypename(name) {
   return (dispatch) => {
     let GET_POKEMONS_BY_TYPE = `https://pokeapi.co/api/v2/type/${name}`;
-    console.log(GET_POKEMONS_BY_TYPE);
-
     axios.get(GET_POKEMONS_BY_TYPE)
       .then((res) => {
-        // console.log(res.data.pokemon);
         return dispatch({
           type: 'GET_POKEMONS_BY_TYPENAME',
           payload: res.data.pokemon

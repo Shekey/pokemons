@@ -47,7 +47,6 @@ export default function (state = initialState, action) {
       let favorites = [...favoritePokemons];
       state.favorites = favorites;
       let isFavorite = state.favorites.find(i => i.id === action.id);
-      console.log(action.id, state.favorites);
       if (isFavorite === undefined) {
         let favorites = [...favoritePokemons, { id: action.id, name: action.name }];
         state.favorites = favorites;

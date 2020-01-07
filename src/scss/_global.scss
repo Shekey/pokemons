@@ -36,8 +36,9 @@
     @include justify-content(space-between);
 
     @media only screen and (max-width: 999px) {
-      padding-left: 60px;
+      padding-left: 25px;
       transition: none;
+      padding-top: 90px;
     }
   }
 
@@ -450,14 +451,15 @@
   font-size:30px;
   cursor:pointer;
   position: absolute;
-  top: 35px;
+  top: 40px;
   left: 15px;
   z-index: 111;
   opacity: 0;
-  transition: opacity 0.1 ease-in;
+  transition: opacity 0.1s ease-in;
 
   @media only screen and (max-width: 999px) {
     transition: opacity 0.1s ease-in 0.3s;
+    top: 10px;
   }
 }
 
@@ -992,6 +994,12 @@
   color: #fff;
   padding: 10px 30px;
   margin-bottom: 30px;
+
+  @media only screen and (max-width: 999px) {
+    @include flex-basis(calc(100% + 50px));
+    margin-left: -25px;
+    margin-right: -25px;
+  }
 }
 
 .pokemon_favorite_item {
@@ -1093,6 +1101,9 @@
     @media only screen and (max-width: 999px) {
       order: 2;
       border: 2px solid #222;
+      @include flex-basis(calc(100% + 50px));
+      margin-left: -25px;
+      margin-right: -25px;
     }
   }
 
@@ -1533,8 +1544,22 @@
   }
 }
 
+.hide {
+  display: none;
+}
+
 .autocomplete-wrap {
   @include flex-basis(100%);
+
+  @media only screen and (max-width: 999px) {
+    @include flex-basis(0%);
+    transition: flex-basis 0.5s ease-in;
+    overflow: hidden;
+
+    &.active {
+      @include flex-basis(100%);
+    }
+  }
 }
 
 .autocomplete {
@@ -1556,6 +1581,54 @@
       transition: none;
       padding-left: 60px;
       pointer-events: none;
+
+      @include flexbox;
+      @include align-items(center);
+      @include justify-content(flex-end);
+      top: 0;
+      height: 60px;
+
+      .search-icon-mobile {
+
+        width: 32px;
+        height: 35px;
+
+        &:hover {
+          cursor: pointer;
+          position: relative;
+          z-index: 1;
+        }
+        // display: none;
+      }
+
+      .MuiAutocomplete-root {
+        height: 38px;
+        margin: 0;
+      }
+
+      .MuiTextField-root {
+        margin: 0;
+        // display: none;
+      }
+
+      .MuiInputLabel-outlined {
+        transform: translate(12px, 12px);
+        opacity: 1;
+      }
+
+      .Mui-focused .MuiInputLabel-outlined {
+        display: none;
+        z-index: 0;
+      }
+
+      .MuiInputLabel-shrink {
+        transform: none;
+        transform-origin: initial;
+      }
+
+      .MuiAutocomplete-inputRoot {
+        padding: 0px;
+      }
     }
   }
 

@@ -25,6 +25,9 @@ class AutocompleteComponent extends Component {
     return (
       this.props.allPokemonsNames !== undefined ?
         <div className="content row autocomplete">
+          <div className="search-icon-mobile" onClick={(e) => this.props.showAutocomplete(e)}>
+            <img src="./images/loupe.png" />
+          </div>
           <div className="autocomplete-wrap">
             <Autocomplete
               loading={true}
@@ -35,7 +38,6 @@ class AutocompleteComponent extends Component {
               )}
               blurOnSelect={true}
               onChange={(event, newValue) => {
-                console.log(newValue);
                 if(newValue && newValue.name !== null && newValue.name !== '') 
                 this.props.history.push(`/pokemon/${newValue.id}`);
               }}

@@ -104,10 +104,39 @@ class App extends Component {
 
   handleNavigationItemClicked() {
     let isMobile = window.matchMedia("(max-width: 999px)");
-    if (isMobile.matches) {
-      let root = document.querySelector('#root');
+    let root = document.querySelector('#root');
+    if (isMobile.matches && !root.classList.contains('close')) {
       root.classList.add('close');
-      console.log('clicked');
+    }
+
+    let autocompleteInput = document.querySelector('.autocomplete-wrap');
+    if(autocompleteInput.classList.contains('active')) {
+      let searchIconMobile = document.querySelector('.search-icon-mobile');
+      setTimeout( () => {
+        searchIconMobile.classList.remove('hide');
+      }, 500)
+      autocompleteInput.classList.remove('active');
+    }
+  }
+
+  showAutocomplete(e) {
+    e.target.parentNode.classList.add('hide');
+    let autocompleteInput = document.querySelector('.autocomplete-wrap');
+    if(autocompleteInput) {
+      autocompleteInput.classList.add('active');
+
+      let pageWrapper = document.querySelector('.page-content-wrapper');
+      pageWrapper.addEventListener('click', () => {
+        let isFocused = pageWrapper.querySelector('.Mui-focused');
+        if(autocompleteInput.classList.contains('active') && !isFocused) {
+          autocompleteInput.classList.remove('active');
+
+          let searchIconMobile = document.querySelector('.search-icon-mobile');
+          setTimeout( () => {
+            searchIconMobile.classList.remove('hide');
+          }, 350)
+        }
+      })
     }
   }
 
@@ -119,7 +148,7 @@ class App extends Component {
         <BrowserRouter>
           <Navigation handleNavigationItemClicked = {() =>this.handleNavigationItemClicked()}/>
           <span className="burger">&#9776;</span>
-          <Autocomplete allPokemonsNames={this.props.pokemonsNames}/>
+          <Autocomplete showAutocomplete ={(e) => this.showAutocomplete(e)} allPokemonsNames={this.props.pokemonsNames}/>
           <Switch>
             <Route path="/" component={PokeDex} exact />
             <Route path="/typedex" component={TypeDexContainer} exact />

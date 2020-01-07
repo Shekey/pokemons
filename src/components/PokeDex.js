@@ -32,7 +32,6 @@ const PokeDex = (props) => {
     }
   }
 
-  console.log(props)
   return (
     <div className="content row">
       {props.pokemons && props.pokemons.length > 0 ?

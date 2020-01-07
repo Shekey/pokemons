@@ -26,7 +26,6 @@ export class PokemonContainer extends Component {
   handleClick = (e, id, name) => {
     e.preventDefault();
     e.target.classList.toggle('fav');
-    console.log(id, name);
     this.props.toggleFavorites(id, name);
   }
 

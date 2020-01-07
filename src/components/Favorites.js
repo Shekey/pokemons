@@ -2,7 +2,6 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 
 const Favorites = (props) => {
-  console.log(props)
   return (
     <div className="content row">
      <h3 className="favorites-title">Favorites</h3>

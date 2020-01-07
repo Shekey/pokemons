@@ -15,7 +15,7 @@
   }
 
   .row {
-    padding-left: 60px;
+    padding-left: 25px;
     transition: padding-left 0.3s ease-in;
 
     .pokemon_item {
@@ -36,6 +36,8 @@
         transition: none;
         padding-left: 60px;
         pointer-events: all;
+        background-color: gold;
+        margin-top: 0;
       }
     }
   }
@@ -85,6 +87,7 @@
 }
 
 .loader-holder {
+  overflow: hidden;
   &.active {
     position: absolute;
     right: 0;
