@@ -1124,6 +1124,33 @@
       color: #222;
       text-decoration: none;
     }
+
+    span {
+      &:first-of-type {
+        display: inline;
+      }
+
+      &::last-of-type {
+        display: none;
+      }
+    }
+
+    @media only screen and (max-width: 999px) {
+      span {
+        font-size: 30px;
+        padding-left: 10px;
+        padding-bottom: 10px;
+        padding-top: 10px;
+
+        &:first-of-type {
+          display: none;
+        }
+  
+        &::last-of-type {
+          display: inline;
+        }
+      }
+    }
   }
 }
 

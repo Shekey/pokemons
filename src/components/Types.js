@@ -18,7 +18,7 @@ const Types = (props) => {
               <p className="pokemon_typebyname_item_id">{pokemonId}</p>
               <p className="pokemon_typebyname_item_name">{item.pokemon.name}</p>
               <div className="link-wrapper">
-                <Link className="pokemon_typebyname_item_link" to={`pokemon/${pokemonId}`}>View pokemon</Link>
+                <Link className="pokemon_typebyname_item_link" to={`pokemon/${pokemonId}`}><span>View pokemon</span><span>&gt;</span></Link>
               </div>
             </div>
           )
