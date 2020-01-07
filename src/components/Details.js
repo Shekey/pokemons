@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const PokemonDetails = (props) => {
   let activeSpinnerClass = props.isLoaded ? '' : 'active';
@@ -18,9 +19,19 @@ const PokemonDetails = (props) => {
       {props.pokemon !== null && props.pokemon !== undefined ?
         <div className={`${props.pokemon.types[props.pokemon.types.length - 1].type.name}-item item`}>
           <div className='pokemon-first-row'>
-          <img src="../images/backIcon.png" className={`back-btn mobile`} />
+            <Link className="back-btn-wrapper-mobile" to="/">
+              <img src="../images/backIcon.png" className={`back-btn mobile`} />
+            </Link>
             <span className={`pokemon-id`}># {props.pokemon.id}</span>
-            <h5 className={`pokemon-name`}>{props.pokemon.name}</h5>
+            <div className="pokemon-name-row">
+              <div className="pokemon-button-left mobile">
+                <button onClick={() => props.handlePrevButton()}><span>&lt;</span><span>&lt;</span> Previous</button>
+              </div>
+              <h5 className={`pokemon-name`}>{props.pokemon.name}</h5>
+              <div className="pokemon-button-right mobile">
+              <button onClick={() => props.handleNextButton()}>Next <span>&gt;</span><span>&gt;</span></button>
+              </div>
+            </div>
             {props.pokemon.types.map((item) => {
               return <div key={item.type.name} className={`${item.type.name} pokemon-type`}>{item.type.name}</div>
             })}

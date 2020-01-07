@@ -3,6 +3,7 @@ import Autocomplete from '@material-ui/lab/Autocomplete';
 import {withRouter} from 'react-router'
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom';
 
 class AutocompleteComponent extends Component {
   static propTypes = {
@@ -25,8 +26,11 @@ class AutocompleteComponent extends Component {
     return (
       this.props.allPokemonsNames !== undefined ?
         <div className="content row autocomplete">
+         <Link className="logo-wrapper-center" to="/">
+          <img className="logo" src="../images/logo-black.png" alt="Logo" />
+          </Link>
           <div className="search-icon-mobile" onClick={(e) => this.props.showAutocomplete(e)}>
-            <img src="./images/loupe.png" />
+            <img src="images/loupe.png" />
           </div>
           <div className="autocomplete-wrap">
             <Autocomplete

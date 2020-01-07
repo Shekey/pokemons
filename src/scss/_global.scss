@@ -9,6 +9,19 @@
     background-color: #fff;
   }
 
+  .logo-wrapper-center {
+    display: none;
+    @media only screen and (max-width: 999px) {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100px;
+      height: 30px;
+      transform: translate(-50%, -50%);
+      display: inline-block;
+    }
+  }
+
   .row, 
   .side-nav,
   .loader-holder,
@@ -567,6 +580,15 @@
     }
   }
 
+  .pokemon-button-left.mobile,
+  .pokemon-button-right.mobile {
+    display: none;
+
+    @media only screen and (max-width: 999px) {
+      display: inline-block;
+    }
+  }
+
 
   @media only screen and (max-width: 999px) {
     .item {
@@ -607,27 +629,61 @@
           }
         }
 
+        .back-btn-wrapper-mobile {
+          @include flexbox;
+          @include flex-basis(30px);
+        }
+
         .back-btn {
           width: 30px;
           height: 30px;
         
           &.mobile {
-            display: none;
+            display: inline-block;
+            order: 1;
+          }
+        }
+
+        .pokemon-name-row {
+          @include flex-basis(calc(100%));
+          @include flexbox;
+          @include align-items(center);
+          order: 3;
+          margin-top: 15px;
+
+          button {
+            padding: 5px;
+            color: #222;
+            font-weight: 700;
+            background-color: #fff;
+            border: none;
+            -webkit-appearance: none;
+            background: transparent;
+            @include flexbox;
+      
+            span {
+              &:last-of-type {
+                display: inline;
+                margin-left: 4px;
+                margin-right: 4px;
+              }
+      
+              @media only screen and (max-width: 999px) {
+                display: none;
+              }
+            }
         
-            @media only screen and (max-width: 999px) {
-              display: inline-block;
-              order: 1;
+            &:hover {
+              cursor: pointer;
             }
           }
         }
 
         .pokemon-name {
           @include flex-basis(calc(100%));
-          margin-top: 15px;
           margin-left: 0;
           margin-right: 0;
           text-align: center;
-          order: 3;
         }
 
         .pokemon-id {
@@ -639,7 +695,7 @@
 
         .star-wrapper {
           position: absolute;
-          right: 0;
+          right: 20px;
           top: 0;
           width: 32px;
           height: 32px;
@@ -1200,12 +1256,28 @@
     .pokemon-button-left {
       @include flexbox;
       @include flex-basis(50%);
+
+      &.mobile {
+        display: none;
+
+        @media only screen and (max-width: 999px) {
+          @include flexbox;
+        }
+      }
     }
 
     .pokemon-button-right {
       @include flexbox;
       @include flex-basis(50%);
       @include justify-content(flex-end);
+
+      &.mobile {
+        display: none;
+
+        @media only screen and (max-width: 999px) {
+          @include flexbox;
+        }
+      }
     }
   }
 

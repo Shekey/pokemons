@@ -112,8 +112,10 @@ class App extends Component {
     let autocompleteInput = document.querySelector('.autocomplete-wrap');
     if(autocompleteInput.classList.contains('active')) {
       let searchIconMobile = document.querySelector('.search-icon-mobile');
+      let logoCenterMobile = document.querySelector('.logo-wrapper-center');
       setTimeout( () => {
         searchIconMobile.classList.remove('hide');
+        logoCenterMobile.classList.remove('hide');
       }, 500)
       autocompleteInput.classList.remove('active');
     }
@@ -122,8 +124,10 @@ class App extends Component {
   showAutocomplete(e) {
     e.target.parentNode.classList.add('hide');
     let autocompleteInput = document.querySelector('.autocomplete-wrap');
+    let logoCenterMobile = document.querySelector('.logo-wrapper-center');
     if(autocompleteInput) {
       autocompleteInput.classList.add('active');
+      logoCenterMobile.classList.add('hide');
 
       let pageWrapper = document.querySelector('.page-content-wrapper');
       pageWrapper.addEventListener('click', () => {
@@ -134,6 +138,7 @@ class App extends Component {
           let searchIconMobile = document.querySelector('.search-icon-mobile');
           setTimeout( () => {
             searchIconMobile.classList.remove('hide');
+            logoCenterMobile.classList.remove('hide');
           }, 350)
         }
       })
