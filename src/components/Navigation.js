@@ -6,6 +6,7 @@ const Navigation = () => {
     <aside className="side-nav">
       <div className="logo-wrapper">
         <img className="logo" src="../images/logo-yellow.png" alt="Logo" />
+        <img className="logo" src="../images/logo-black.png" alt="Logo" />
       </div>
       <ul>
         <li className="pokeball"><NavLink exact to="/" activeClassName="active-navigation-item">Pokedex</NavLink></li>

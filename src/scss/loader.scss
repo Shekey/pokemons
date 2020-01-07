@@ -2,8 +2,12 @@
   .all-content-wrap {
     margin-left: 0;
     width: 100%;
+    position: relative;
 
   @media only screen and (max-width: 999px) {
+    z-index: 100;
+    pointer-events: all;
+
       &::after {
         content: none;
       }
@@ -31,6 +35,7 @@
       @media only screen and (max-width: 999px) {
         transition: none;
         padding-left: 60px;
+        pointer-events: all;
       }
     }
   }
@@ -69,6 +74,8 @@
     transition: none;
     width: 100%;
     margin-left: 0;
+    z-index: 121;
+    pointer-events: none;
 
     &::after {
       width: 100%;

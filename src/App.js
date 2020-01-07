@@ -18,6 +18,12 @@ class App extends Component {
     super(props);
     this.props.getAllPokemonsNames();
     console.log(this.props);
+    let isMobile = window.matchMedia("(max-width: 999px)");
+
+    if (isMobile.matches) {
+      let root = document.getElementById("root");
+      root.classList.add('close');
+    }
   }
 
   componentDidMount() {
@@ -35,6 +41,17 @@ class App extends Component {
         e.preventDefault();
         this.openNav();
       });
+    }
+
+    let isMobile = window.matchMedia("(max-width: 999px)");
+    if (isMobile.matches) {
+      let allContent = document.querySelector(".page-content-wrapper");
+      let root = document.getElementById("root");
+      allContent.addEventListener('click', e => {
+        if(e.target.classList.contains('page-content-wrapper') && !root.classList.contains('close')) {
+          root.classList.add('close');
+        }
+      })
     }
   }
 

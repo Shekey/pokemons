@@ -15,10 +15,11 @@
 
   @media only screen and (max-width: 999px) {
     background: #fff;
-    color: #222;
+    color: #000;
     width: 80%;
     min-width: 80%;
     transition: width 0.3s ease-in, min-width 0.3s ease-in 0.2s, opacity 0.2s ease-in 0.2s;
+    border-right: 1px solid #000;
   }
 
   li {
@@ -32,9 +33,18 @@
     &:hover {
       border-bottom: 1px solid #fff;
       transition: border 0.15s ease-in-out;
+
+      @media only screen and (max-width: 999px) {
+        border-color: gold;
+      }
+
       a {
         color: #fff;
         transition: color 0.3s ease-in-out;
+
+        @media only screen and (max-width: 999px) {
+          color: gold;
+        }
       }
     }
     
@@ -44,6 +54,9 @@
       color: rgb(228, 226, 226);
       text-decoration: none;
 
+      @media only screen and (max-width: 999px) {
+        color: #000;
+      }
     }
 
     &.active {
@@ -129,10 +142,32 @@
     padding-bottom: 30px;
     border-bottom: 1px solid #fff;
     margin-bottom: 10px;
+
+    @media only screen and (max-width: 999px) {
+      border-bottom: 1px solid black;
+      text-shadow: 2px 2px #2e2d2d;
+    }
+
   }
   .logo {
     display: block;
     width: 140px;
     height: auto;
+
+    &:first-of-type {
+      display: block;
+
+      @media only screen and (max-width: 999px) {
+        display: none;
+      }
+    }
+
+    &:last-of-type {
+      display: none;
+      @media only screen and (max-width: 999px) {
+        display: block;
+
+      }
+    }
   }
 }

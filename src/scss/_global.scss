@@ -303,6 +303,12 @@
       background-position: center;
       background-repeat: no-repeat;
       background-size: contain;
+
+      @media only screen and (max-width: 999px) {
+        border-radius: 100%;
+        border: 1px solid  lightblue;
+        order: 1;
+      }
     }
 
     .pokemon_item-name {
@@ -310,6 +316,11 @@
       font-size: 18px;
       line-height: 20px;
       font-family: 'Lato-Bold';
+
+      @media only screen and (max-width: 999px) {
+        text-align: left;
+        margin-left: 50px;
+      }
     }
 
     .specific-details {
@@ -330,15 +341,28 @@
         margin-right: 0;
         @include flex-basis(100%);
         background: transparent;
+        padding: 0;
+        margin-top: 0;
+        margin-bottom: 15px;
       }
 
       p {
         @include flex-basis(100%);
+
+        @media only screen and (max-width: 999px) {
+          @include flex(1);
+          order: 2;
+          margin-top: 30px;
+        }
       }
 
       .pokemon_item-height,
       .pokemon_item-weight {
         height: 60px;
+
+        @media only screen and (max-width: 999px) {
+          display: none;
+        }
       }
     }
 
@@ -366,6 +390,7 @@
 
         @media only screen and (max-width: 999px) {
           padding-bottom: 10px;
+          display: none;
         }
 
         p {
@@ -390,7 +415,14 @@
       padding-top: 45px;
 
       @media only screen and (max-width: 999px) {
-        padding-top: 10px
+        padding-top: 10px;
+        position: absolute;
+        width: calc(100% - 150px);
+        text-align: left;
+        margin-left: 150px;
+        font-size: 14px;
+        line-height: 16px;
+        color: grey;
       }
     }
   }
@@ -1326,6 +1358,7 @@
       width: 100%;
       transition: none;
       padding-left: 60px;
+      pointer-events: none;
     }
   }
 
