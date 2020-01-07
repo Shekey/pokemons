@@ -1398,8 +1398,12 @@
         display: inline;
       }
 
-      &::last-of-type {
+      &:last-of-type {
         display: none;
+
+        @media only screen and (max-width: 999px) {
+          display: inline;
+        }
       }
     }
 
@@ -1541,8 +1545,12 @@
         display: inline;
       }
 
-      &::last-of-type {
+      &:last-of-type {
         display: none;
+        
+        @media only screen and (max-width: 999px) {
+          display: inline;
+        }
       }
     }
 
