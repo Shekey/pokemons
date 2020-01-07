@@ -9,9 +9,26 @@
     background-color: #fff;
   }
 
+  .row, 
+  .side-nav,
+  .loader-holder,
+  .burger {
+    opacity: 1;
+  }
+
   &.active {
     height: 100vh;
+    background-color: gold;
+    position: relative;
     overflow: hidden;
+
+    .row, 
+    .side-nav,
+    .loader-holder,
+    .burger {
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+    }
   }
 
   img {
@@ -31,6 +48,13 @@
       background-position: center;
       background-size: cover;
       background-repeat: no-repeat;
+
+      @media only screen and (max-width: 999px) {
+        background: url(../images/pokedexapp1-01.jpg);
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
     }
   }
 
