@@ -344,6 +344,7 @@
         padding: 0;
         margin-top: 0;
         margin-bottom: 15px;
+        z-index: 0;
       }
 
       p {
@@ -352,7 +353,7 @@
         @media only screen and (max-width: 999px) {
           @include flex(1);
           order: 2;
-          margin-top: 30px;
+          margin-top: 40px;
         }
       }
 
@@ -362,6 +363,17 @@
 
         @media only screen and (max-width: 999px) {
           display: none;
+        }
+      }
+
+      .star-wrapper {
+        display: none;
+
+        @media only screen and (max-width: 999px) {
+          order: 3;
+          @include flexbox;
+          @include align-items(center);
+          @include justify-content(flex-end);
         }
       }
     }
@@ -415,7 +427,7 @@
       padding-top: 45px;
 
       @media only screen and (max-width: 999px) {
-        padding-top: 10px;
+        padding-top: 20px;
         position: absolute;
         width: calc(100% - 150px);
         text-align: left;

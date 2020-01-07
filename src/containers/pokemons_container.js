@@ -24,6 +24,12 @@ export class PokemonContainer extends Component {
     }
   }
 
+  handleClick = (e, id, name) => {
+    e.preventDefault();
+    e.target.classList.toggle('fav');
+    this.props.toggleFavorites(id, name);
+  }
+
   paginate(e) {
     let datasetClicked = e.target.dataset.navigate;
     let offset = (datasetClicked - 1) * 9;
@@ -43,7 +49,7 @@ export class PokemonContainer extends Component {
         <div className={`loader-holder ${activeSpinnerClass}`}>
           <div className="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
         </div>
-        <PokeList paginate={(e) => this.paginate(e)} pokemons={this.props.pokemonContainer} />
+        <PokeList handleClick={(e) => this.handleClick(e, this.props.pokemon.id, this.props.pokemon.name)} paginate={(e) => this.paginate(e)} pokemons={this.props.pokemonContainer} />
       </div>
       )
   }

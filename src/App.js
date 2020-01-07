@@ -17,7 +17,6 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.props.getAllPokemonsNames();
-    console.log(this.props);
     let isMobile = window.matchMedia("(max-width: 999px)");
 
     if (isMobile.matches) {
@@ -55,18 +54,25 @@ class App extends Component {
     }
   }
 
+  componentDidUpdate(prevProps) {
+    if (this.props.location !== prevProps.location) {
+      let root = document.getElementById("root");
+      root.classList.add('close');
+    }
+  }
 
-openNav() {
-  let root = document.getElementById("root");
-  root.classList.remove('close');
-}
 
-closeNav() {
-  let pokemonDetailsAll = document.querySelector('.pokemon-details-all');
-  if (pokemonDetailsAll) pokemonDetailsAll.classList.add('not-initial')
-  let root = document.getElementById("root");
-  root.classList.add('close');
-}
+  openNav() {
+    let root = document.getElementById("root");
+    root.classList.remove('close');
+  }
+
+  closeNav() {
+    let pokemonDetailsAll = document.querySelector('.pokemon-details-all');
+    if (pokemonDetailsAll) pokemonDetailsAll.classList.add('not-initial')
+    let root = document.getElementById("root");
+    root.classList.add('close');
+  }
 
   removeAnimation() {
     let pageWrapper = document.querySelector('.page-content-wrapper.active');
@@ -89,13 +95,22 @@ closeNav() {
     }
   }
 
+  handleNavigationItemClicked() {
+    let isMobile = window.matchMedia("(max-width: 999px)");
+    if (isMobile.matches) {
+      let root = document.querySelector('#root');
+      root.classList.add('close');
+      console.log('clicked');
+    }
+  }
+
   render() {
     let logoActiveClass = 'active';
     return (
       <div className={`page-content-wrapper ${logoActiveClass}`}>
         <div className={`logo-on-start ${logoActiveClass}`}></div>
         <BrowserRouter>
-          <Navigation />
+          <Navigation handleNavigationItemClicked = {() =>this.handleNavigationItemClicked()}/>
           <span className="burger">&#9776;</span>
           <Autocomplete allPokemonsNames={this.props.pokemonsNames}/>
           <Switch>

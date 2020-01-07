@@ -2,7 +2,6 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 
 const PokeDex = (props) => {
-
   function showPagination(props) {
     if (props.pokemons && props.pokemons.length > 0) {
       let lastPageActive = '',
@@ -35,8 +34,18 @@ const PokeDex = (props) => {
   return (
     <div className="content row">
       {props.pokemons && props.pokemons.length > 0 ?
+      
         props.pokemons.sort((a, b) => (a.id > b.id) ? 1 : -1).map(item => {
           let imageUrl = item.sprites.front_shiny !== null ? item.sprites.front_shiny : '../images/noImage.jpeg';
+          let isFavorite = '';
+          let favoritePokemons = JSON.parse(window.localStorage.getItem('favoritePokemons'));
+          if(favoritePokemons !== null) {
+            let isFavoritePokemon = favoritePokemons.find(i => i.id === item.id);
+            if(isFavoritePokemon !== undefined) {
+              isFavorite = 'fav';
+            }
+          }
+
           return (
             <Link key={item.name} className={`pokemon_item ${item.types[item.types.length - 1].type.name}`} to={`pokemon/${item.id}`}>
               <div className={`pokemon_item-content`}>
@@ -51,6 +60,9 @@ const PokeDex = (props) => {
                   <div className="pokemon_item-weight two-columns">
                     <p>W</p>
                     <p>{item.weight}</p>
+                  </div>
+                  <div className="star-wrapper">
+                    <div href="#" onClick={(e) => props.handleClick(e, item.id)}><i className={`fas fa-star ${isFavorite}`}></i></div>
                   </div>
                 </div>
                 <div className="two-columns pokemon-xp">
