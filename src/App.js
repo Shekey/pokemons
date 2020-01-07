@@ -23,6 +23,13 @@ class App extends Component {
       let root = document.getElementById("root");
       root.classList.add('close');
     }
+
+    window.addEventListener('resize', () => {
+      let root = document.getElementById("root");
+      if (isMobile.matches && !root.classList.contains('close')) {
+        root.classList.add('close');
+      }
+    })
   }
 
   componentDidMount() {
