@@ -83,7 +83,7 @@
     padding-right: 0;
     display: block;
     overflow: hidden;
-    background-color: transparent !important;
+    background-color: transparent;
     border: none;
     border-bottom: 1px solid #222;
     border-radius: 0;
@@ -140,6 +140,10 @@
         top: -13px;
         color: #222;
         font-weight: 500;
+        
+        @media only screen and (max-width: 999px) {
+          border: 1px solid black;
+        }
       }
     }
 
@@ -150,144 +154,144 @@
     &.bug {
       background-color: rgba(green, 0.8);
 
-      &::after {
-        background-color: green;
+      @media only screen and (max-width: 999px) {
+        background-color: transparent;
       }
     }
 
     &.fire {
       background-color: rgba(orangered, 0.8);
 
-      &::after {
-        background-color: orangered;
+      @media only screen and (max-width: 999px) {
+        background-color: transparent;
       }
     }
 
     &.normal {
       background-color: rgba(darksalmon, 0.8);
 
-      &::after {
-        background-color: darksalmon;
+      @media only screen and (max-width: 999px) {
+        background-color: transparent;
       }
     }
 
     &.dark {
       background-color: rgba(purple, 0.8);
 
-      &::after {
-        background-color: purple;
+      @media only screen and (max-width: 999px) {
+        background-color: transparent;
       }
     }
 
     &.flying {
       background-color: rgba(lightblue, 0.8);
 
-      &::after {
-        background-color: lightblue;
+      @media only screen and (max-width: 999px) {
+        background-color: transparent;
       }
     }
 
     &.poison {
       background-color: rgba(violet, 0.8);
 
-      &::after {
-        background-color: violet;
+      @media only screen and (max-width: 999px) {
+        background-color: transparent;
       }
     }
 
     &.dragon {
       background-color: rgba(aqua, 0.8);
 
-      &::after {
-        background-color: aqua;
+      @media only screen and (max-width: 999px) {
+        background-color: transparent;
       }
     }
 
     &.ghost {
       background-color: rgba(purple, 0.5);
 
-      &::after {
-        background-color: rgba(purple, 0.8);
+      @media only screen and (max-width: 999px) {
+        background-color: transparent;
       }
     }
 
     &.psyhic {
       background-color: rgba(orchid, 0.8);
 
-      &::after {
-        background-color: orchid;
+      @media only screen and (max-width: 999px) {
+        background-color: transparent;
       }
     }
 
     &.water {
       background-color: rgba(blueviolet, 0.8);
 
-      &::after {
-        background-color: blueviolet;
+      @media only screen and (max-width: 999px) {
+        background-color: transparent;
       }
     }
 
     &.ice {
       background-color: rgba(lightcyan, 0.8);
 
-      &::after {
-        background-color: lightcyan;
+      @media only screen and (max-width: 999px) {
+        background-color: transparent;
       }
     }
 
     &.fighting {
       background-color: rgba(orange, 0.8);
 
-      &::after {
-        background-color: orange;
+      @media only screen and (max-width: 999px) {
+        background-color: transparent;
       }
     }
 
     &.steel {
       background-color: rgba(aquamarine, 0.8);
 
-      &::after {
-        background-color: aquamarine;
+      @media only screen and (max-width: 999px) {
+        background-color: transparent;
       }
     }
 
     &.ground {
       background-color: rgba(brown, 0.8);
 
-      &::after {
-        background-color: brown;
+      @media only screen and (max-width: 999px) {
+        background-color: transparent;
       }
     }
 
     &.fairy {
       background-color: rgba(red, 0.8);
 
-      &::after {
-        background-color: red;
+      @media only screen and (max-width: 999px) {
+        background-color: transparent;
       }
     }
 
     &.rock {
       background-color: rgba(burlywood, 0.8);
 
-      &::after {
-        background-color: burlywood;
+      @media only screen and (max-width: 999px) {
+        background-color: transparent;
       }
     }
 
     &.grass {
       background-color: rgba(greenyellow, 0.8);
 
-      &::after {
-        background-color: greenyellow;
+      @media only screen and (max-width: 999px) {
+        background-color: transparent;
       }
     }
 
     &.electric {
       background-color: rgba(yellowgreen, 0.8);
 
-      &::after {
-        background-color: yellowgreen;
+      @media only screen and (max-width: 999px) {
+        background-color: transparent;
       }
     }
 
@@ -1029,6 +1033,33 @@
       color: #222;
       text-decoration: none;
     }
+
+    span {
+      &:first-of-type {
+        display: inline;
+      }
+
+      &::last-of-type {
+        display: none;
+      }
+    }
+
+    @media only screen and (max-width: 999px) {
+      font-size: 30px;
+      padding-left: 10px;
+      padding-bottom: 10px;
+      padding-top: 10px;
+
+      span {
+        &:first-of-type {
+          display: none;
+        }
+
+        &::last-of-type {
+          display: inline;
+        }
+      }
+    }
   }
 }
 
@@ -1107,6 +1138,81 @@
     @media only screen and (min-width: 1440px)  {
       clip-path: initial;
       padding-bottom: 10px !important;
+    }
+
+    @media only screen and (max-width: 999px) {
+      border: 1px solid #222;
+      &.bug {
+        background-color: rgba(green, 0.8);
+      }
+  
+      &.fire {
+        background-color: rgba(orangered, 0.8);
+      }
+  
+      &.normal {
+        background-color: rgba(darksalmon, 0.8);
+      }
+  
+      &.dark {
+        background-color: rgba(purple, 0.8);
+      }
+  
+      &.flying {
+        background-color: rgba(lightblue, 0.8);
+      }
+  
+      &.poison {
+        background-color: rgba(violet, 0.8);
+      }
+  
+      &.dragon {
+        background-color: rgba(aqua, 0.8);
+      }
+  
+      &.ghost {
+        background-color: rgba(purple, 0.5);
+      }
+  
+      &.psyhic {
+        background-color: rgba(orchid, 0.8);
+      }
+  
+      &.water {
+        background-color: rgba(blueviolet, 0.8);
+      }
+  
+      &.ice {
+        background-color: rgba(lightcyan, 0.8);
+      }
+  
+      &.fighting {
+        background-color: rgba(orange, 0.8);
+      }
+  
+      &.steel {
+        background-color: rgba(aquamarine, 0.8);
+      }
+  
+      &.ground {
+        background-color: rgba(brown, 0.8);
+      }
+  
+      &.fairy {
+        background-color: rgba(red, 0.8);
+      }
+  
+      &.rock {
+        background-color: rgba(burlywood, 0.8);
+      }
+  
+      &.grass {
+        background-color: rgba(greenyellow, 0.8);
+      }
+  
+      &.electric {
+        background-color: rgba(yellowgreen, 0.8);
+      }
     }
   }
 }

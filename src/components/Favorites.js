@@ -15,7 +15,7 @@ const Favorites = (props) => {
               <p className="pokemon_favorite_item_id">{item.id}</p>
               <p className="pokemon_favorite_item_name">{item.name}</p>
               <div className="link-wrapper">
-                <Link className="pokemon_favorite_item_link" to={`pokemon/${item.id}`}>View pokemon</Link>
+                <Link className="pokemon_favorite_item_link" to={`pokemon/${item.id}`}><span>View pokemon</span><span>&gt;</span></Link>
               </div>
             </div>
           )
