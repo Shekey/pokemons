@@ -375,6 +375,8 @@
 
         @media only screen and (max-width: 999px) {
           order: 3;
+          z-index: 10;
+          position: relative;
           @include flexbox;
           @include align-items(center);
           @include justify-content(flex-end);
@@ -1002,6 +1004,12 @@
   .star-wrapper {
     font-size: 32px;
     margin-right: 30px;
+
+    &:hover {
+      cursor: pointer;
+      position: relative;
+      z-index: 10;
+    }
   }
 
   .pokemon_favorite_item_id {

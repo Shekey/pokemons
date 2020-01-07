@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux';
-import { getAllPokemons, setCurrentPage,getAllPokemonsNames } from '../store/actions';
+import { getAllPokemons, setCurrentPage,getAllPokemonsNames, toggleFavorites } from '../store/actions';
 import PokeList from '../components/PokeDex';
 
 
@@ -11,7 +11,6 @@ export class PokemonContainer extends Component {
     this.props.getAllPokemons(0, 9);
     this.removeAnimation();
   }
-  
   removeAnimation() {
     let pageWrapper = document.querySelector('.page-content-wrapper.active');
     let logoOnStart = document.querySelector('.logo-on-start.active');
@@ -27,6 +26,7 @@ export class PokemonContainer extends Component {
   handleClick = (e, id, name) => {
     e.preventDefault();
     e.target.classList.toggle('fav');
+    console.log(id, name);
     this.props.toggleFavorites(id, name);
   }
 
@@ -49,7 +49,7 @@ export class PokemonContainer extends Component {
         <div className={`loader-holder ${activeSpinnerClass}`}>
           <div className="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
         </div>
-        <PokeList handleClick={(e) => this.handleClick(e, this.props.pokemon.id, this.props.pokemon.name)} paginate={(e) => this.paginate(e)} pokemons={this.props.pokemonContainer} />
+        <PokeList handleClick={(e, id, name) => this.handleClick(e, id, name)} paginate={(e) => this.paginate(e)} pokemons={this.props.pokemonContainer} />
       </div>
       )
   }
@@ -63,7 +63,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ getAllPokemons, setCurrentPage,getAllPokemonsNames}, dispatch);
+  return bindActionCreators({ getAllPokemons, setCurrentPage,getAllPokemonsNames, toggleFavorites}, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(PokemonContainer)

@@ -31,10 +31,12 @@ const PokeDex = (props) => {
       )
     }
   }
+
+  console.log(props)
   return (
     <div className="content row">
       {props.pokemons && props.pokemons.length > 0 ?
-      
+
         props.pokemons.sort((a, b) => (a.id > b.id) ? 1 : -1).map(item => {
           let imageUrl = item.sprites.front_shiny !== null ? item.sprites.front_shiny : '../images/noImage.jpeg';
           let isFavorite = '';
@@ -62,7 +64,7 @@ const PokeDex = (props) => {
                     <p>{item.weight}</p>
                   </div>
                   <div className="star-wrapper">
-                    <div href="#" onClick={(e) => props.handleClick(e, item.id)}><i className={`fas fa-star ${isFavorite}`}></i></div>
+                    <div href="#" onClick={(e,id,name) => props.handleClick(e, item.id, item.name)}><i className={`fas fa-star ${isFavorite}`}></i></div>
                   </div>
                 </div>
                 <div className="two-columns pokemon-xp">

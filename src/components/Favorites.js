@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 
 const Favorites = (props) => {
+  console.log(props)
   return (
     <div className="content row">
      <h3 className="favorites-title">Favorites</h3>
@@ -10,7 +11,7 @@ const Favorites = (props) => {
           return (
             <div key={item.name} className={`pokemon_favorite_item`}>
               <div className="star-wrapper">
-                <span onClick={(e) => props.handleClick(e, item.id)}><i className={`fas fa-star fav`}></i></span>
+                <span onClick={(e, id, name) => props.handleClick(e, item.id, item.id)}><i className={`fas fa-star fav`}></i></span>
               </div>
               <p className="pokemon_favorite_item_id">{item.id}</p>
               <p className="pokemon_favorite_item_name">{item.name}</p>

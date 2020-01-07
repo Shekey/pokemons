@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux';
-import { getAllFavoritePokemons } from '../store/actions';
+import { getAllFavoritePokemons, toggleFavorites } from '../store/actions';
 import Favorites from '../components/Favorites';
 
 export class FavoritePokemonsContainer extends Component {
@@ -26,6 +26,13 @@ export class FavoritePokemonsContainer extends Component {
     }
   }
 
+  handleClick = (e, id, name) => {
+    e.preventDefault();
+    e.target.classList.toggle('fav');
+    console.log(id, name);
+    this.props.toggleFavorites(id, name);
+  }
+
   render() {
     let favoritePokemons = JSON.parse(window.localStorage.getItem('favoritePokemons'));
     favoritePokemons = favoritePokemons === null ? []:favoritePokemons;
@@ -35,7 +42,7 @@ export class FavoritePokemonsContainer extends Component {
           <div className="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
         </div>
         <div className="favorite-pokemons-wrapper">
-          <Favorites favoritePokemons={favoritePokemons} />
+          <Favorites handleClick={(e, id, name) => this.handleClick(e, id, name)} favoritePokemons={favoritePokemons} />
           </div>
       </div>
       )
@@ -49,7 +56,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ getAllFavoritePokemons }, dispatch);
+  return bindActionCreators({ getAllFavoritePokemons,toggleFavorites }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(FavoritePokemonsContainer)
