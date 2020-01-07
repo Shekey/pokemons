@@ -1296,6 +1296,7 @@
 
 // POKEMON FAVORITES 
 .favorite-pokemons-wrapper {
+  padding-bottom: 50px;
   @media only screen and (max-width: 999px) {
     .content {
       padding-top: 60px;
@@ -1574,6 +1575,7 @@
 }
 
 .all-types-list {
+  padding-bottom: 50px;
   .pokemon_item {
     padding: 10px 15px;
     height: auto;
