@@ -16,8 +16,9 @@ const PokemonDetails = (props) => {
         <div className="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
       </div>
       {props.pokemon !== null && props.pokemon !== undefined ?
-        <div className="">
+        <div className={`${props.pokemon.types[props.pokemon.types.length - 1].type.name}-item item`}>
           <div className='pokemon-first-row'>
+          <img src="../images/backIcon.png" className={`back-btn mobile`} />
             <span className={`pokemon-id`}># {props.pokemon.id}</span>
             <h5 className={`pokemon-name`}>{props.pokemon.name}</h5>
             {props.pokemon.types.map((item) => {
@@ -26,6 +27,9 @@ const PokemonDetails = (props) => {
             <div className="star-wrapper">
               <a href="#" onClick={(e) => props.handleClick(e, props.pokemon.id)}><i className={`fas fa-star ${isFavorite}`}></i></a>
             </div>
+            <div className="img-wrapper">
+            <img src={props.pokemon.sprites.front_shiny} alt={props.pokemon.name}/>
+          </div>
           </div>
 
           <div className="pokemon-second-row">
@@ -109,11 +113,11 @@ const PokemonDetails = (props) => {
 
            <div className="pokemon-buttons-wrapper">
             <div className="pokemon-button-left">
-              <button onClick={() => props.handlePrevButton()}>&lt;&lt; Previous</button>
+              <button onClick={() => props.handlePrevButton()}><span>&lt;</span><span>&lt;</span> Previous</button>
             </div>
 
             <div className="pokemon-button-right">
-              <button onClick={() => props.handleNextButton()}>Next &gt;&gt;</button>
+              <button onClick={() => props.handleNextButton()}>Next <span>&gt;</span><span>&gt;</span></button>
               </div>
           </div>
         </div>
