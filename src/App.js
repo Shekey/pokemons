@@ -90,7 +90,7 @@ class App extends Component {
       setTimeout(() => {
         pageWrapper.classList.remove('active');
         logoOnStart.classList.remove('active'); 
-      }, 1000);
+      }, 1700);
     }
   }
 
