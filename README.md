@@ -10,7 +10,7 @@ In the project directory, you can run:
 
 <img src="https://lh5.googleusercontent.com/XAYUJASokoFsDIfKcBr_qMRCsUEOUrkZ5ho_-_QWSAGlDwiW9bPT-aLmGXUxhHGeLCg3dw" />
 
-![Homepage](https://lh3.googleusercontent.com/vSkJICT2OPcIWpmYA5fYNbDxXwnL2bpDjTu8N4N6Iyjl3klL54Qr2qra_FAaidnRcPDdVw)
+[![Multiple Top-Level VIs Demo Link](https://lh3.googleusercontent.com/vSkJICT2OPcIWpmYA5fYNbDxXwnL2bpDjTu8N4N6Iyjl3klL54Qr2qra_FAaidnRcPDdVw)
 
 ![Homepage with closed side navigation](https://lh3.googleusercontent.com/30s8Ckh-WhWNysV1MMh1WXEsUi1ciwq-ISJawV0XfiB9ogL3DIn-iHafRJZuxr9j79rk1w)
 
