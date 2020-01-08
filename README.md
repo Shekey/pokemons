@@ -8,7 +8,7 @@ In the project directory, you can run:
 
 ## Images from project
 
-![Homepage with pagination shown](https://lh4.googleusercontent.com/ix_QYIaqHFKACYrtmS_Zc1kAV4rpvIeO9GI7tpnyauBPf8Byb6LNF1TZRurbx7KQOM3DcQ)
+![Homepage with pagination shown](https://user-images.githubusercontent.com/11068759/71975113-795b1080-3213-11ea-9a01-a6d08d666588.png)
 
 ![Multiple Top-Level VIs Demo Link](https://lh3.googleusercontent.com/vSkJICT2OPcIWpmYA5fYNbDxXwnL2bpDjTu8N4N6Iyjl3klL54Qr2qra_FAaidnRcPDdVw)
 
