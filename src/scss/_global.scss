@@ -718,41 +718,86 @@
           margin-left: 0;
 
           .pokemon-info-f-w {
-            @include flex-basis(80%);
+            @include flex-basis(67%);
             @include flexbox;
             @include justify-content(center);
             padding-right: 30px;
             border-top-right-radius: 30px;
             border-bottom-right-radius: 30px;
           }
+
+          .pokemon-info-h-w {
+            @include flex-basis(100%);
+            @include flexbox;
+
+            p {
+              @include flex-basis(33.33%);
+              color: #222;
+            }
+
+            span {
+              @include flex-basis(100%);
+              @include flexbox;
+              @include justify-content(center);
+              color: #222;
+            }
+          }
+
+          .pokemon-info-wrap-mobile {
+            margin: 15px;
+            margin-bottom: 0;
+            margin-top: 35px;
+            border-radius: 25px;
+            background-color: gold;
+          }
         }
       }
 
       .pokemon-third-row {
         .pokemon-info-f-w {
-          @include flex-basis(80%);
+          @include flex-basis(67%);
           @include flexbox;
           @include justify-content(center);
           padding-right: 30px;
           border-top-right-radius: 30px;
           border-bottom-right-radius: 30px;
+        }
+
+        .pokemon-info-h-w {
+          @include flex-basis(100%);
+          position: relative;
+
+          &::after {
+            content: '';
+            position: absolute;
+            background-color: #222;
+            width: calc(100% - 30px);
+            height: 1px;
+            left: 15px;
+            right: 15px;
+            bottom: 0;
+          }
         }
       }
 
       .pokemon-fourth-row {
         .pokemon-info-f-w {
-          @include flex-basis(80%);
+          @include flex-basis(67%);
           @include flexbox;
           @include justify-content(center);
           padding-right: 30px;
           border-top-right-radius: 30px;
           border-bottom-right-radius: 30px;
         }
+
+        .pokemon-info-h-w  {
+          @include flex-basis(50%);
+        }
       }
 
       .pokemon-fifth-row {
         .pokemon-info-f-w {
-          @include flex-basis(80%);
+          @include flex-basis(67%);
           @include flexbox;
           @include justify-content(center);
           padding-right: 30px;
@@ -813,8 +858,24 @@
           }
         }
 
+        .pokemon-info-h-w {
+          p {
+            &:first-of-type {
+              color: rgba(greenyellow, 0.8);
+            }
+          }
+        }
+
         .pokemon-info-f-w {
           background-color:  rgba(greenyellow, 0.8);
+        }
+
+        .pokemon-third-row {
+          .pokemon-info-h-w {
+            &::after {
+              background-color:  rgba(greenyellow, 0.8);
+            }
+          }
         }
 
         .pokemon-info {
@@ -828,6 +889,22 @@
         .pokemon-first-row {
           .img-wrapper {
             background-color: rgba(green, 0.8);
+          }
+        }
+
+        .pokemon-info-h-w {
+          p {
+            &:first-of-type {
+              color: rgba(green, 0.8);
+            }
+          }
+        }
+
+        .pokemon-third-row {
+          .pokemon-info-h-w {
+            &::after {
+              background-color:  rgba(green, 0.8);
+            }
           }
         }
 
@@ -849,6 +926,22 @@
           }
         }
 
+        .pokemon-info-h-w {
+          p {
+            &:first-of-type {
+              color: rgba(orangered, 0.8);
+            }
+          }
+        }
+
+        .pokemon-third-row {
+          .pokemon-info-h-w {
+            &::after {
+              background-color:  rgba(orangered, 0.8);
+            }
+          }
+        }
+
         .pokemon-info-f-w {
           background-color:  rgba(orangered, 0.8);
         }
@@ -864,6 +957,22 @@
         .pokemon-first-row {
           .img-wrapper {
             background-color:  rgba(darksalmon, 0.8);
+          }
+        }
+
+        .pokemon-info-h-w {
+          p {
+            &:first-of-type {
+              color: rgba(darksalmon, 0.8);
+            }
+          }
+        }
+
+        .pokemon-third-row {
+          .pokemon-info-h-w {
+            &::after {
+              background-color:  rgba(darksalmon, 0.8);
+            }
           }
         }
 
@@ -885,6 +994,22 @@
           }
         }
 
+        .pokemon-info-h-w {
+          p {
+            &:first-of-type {
+              color: rgba(purple, 0.8);
+            }
+          }
+        }
+
+        .pokemon-third-row {
+          .pokemon-info-h-w {
+            &::after {
+              background-color:  rgba(purple, 0.8);
+            }
+          }
+        }
+
         .pokemon-info-f-w {
           background-color:  rgba(purple, 0.8);
         }
@@ -900,6 +1025,22 @@
         .pokemon-first-row {
           .img-wrapper {
             background-color:  rgba(lightblue, 0.8);
+          }
+        }
+
+        .pokemon-info-h-w {
+          p {
+            &:first-of-type {
+              color: rgba(lightblue, 0.8);
+            }
+          }
+        }
+
+        .pokemon-third-row {
+          .pokemon-info-h-w {
+            &::after {
+              background-color:  rgba(lightblue, 0.8);
+            }
           }
         }
 
@@ -921,6 +1062,22 @@
           }
         }
 
+        .pokemon-info-h-w {
+          p {
+            &:first-of-type {
+              color: rgba(violet, 0.8);
+            }
+          }
+        }
+
+        .pokemon-third-row {
+          .pokemon-info-h-w {
+            &::after {
+              background-color:  rgba(violet, 0.8);
+            }
+          }
+        }
+
         .pokemon-info-f-w {
           background-color: rgba(violet, 0.8);
         }
@@ -936,6 +1093,22 @@
         .pokemon-first-row {
           .img-wrapper {
             background-color: rgba(aqua, 0.8);
+          }
+        }
+
+        .pokemon-info-h-w {
+          p {
+            &:first-of-type {
+              color: rgba(aqua, 0.8);
+            }
+          }
+        }
+
+        .pokemon-third-row {
+          .pokemon-info-h-w {
+            &::after {
+              background-color:  rgba(aqua, 0.8);
+            }
           }
         }
 
@@ -957,6 +1130,22 @@
           }
         }
 
+        .pokemon-info-h-w {
+          p {
+            &:first-of-type {
+              color: rgba(purple, 0.5);
+            }
+          }
+        }
+
+        .pokemon-third-row {
+          .pokemon-info-h-w {
+            &::after {
+              background-color:  rgba(purple, 0.5);
+            }
+          }
+        }
+
         .pokemon-info-f-w {
           background-color:  rgba(purple, 0.5);
         }
@@ -972,6 +1161,22 @@
         .pokemon-first-row {
           .img-wrapper {
             background-color:  rgba(orchid, 0.8);
+          }
+        }
+
+        .pokemon-info-h-w {
+          p {
+            &:first-of-type {
+              color: rgba(orchid, 0.8);
+            }
+          }
+        }
+
+        .pokemon-third-row {
+          .pokemon-info-h-w {
+            &::after {
+              background-color:  rgba(orchid, 0.8);
+            }
           }
         }
 
@@ -993,6 +1198,22 @@
           }
         }
 
+        .pokemon-info-h-w {
+          p {
+            &:first-of-type {
+              color: rgba(blueviolet, 0.8);
+            }
+          }
+        }
+
+        .pokemon-third-row {
+          .pokemon-info-h-w {
+            &::after {
+              background-color:  rgba(blueviolet, 0.8);
+            }
+          }
+        }
+
         .pokemon-info-f-w {
           background-color:   rgba(blueviolet, 0.8);
         }
@@ -1008,6 +1229,22 @@
         .pokemon-first-row {
           .img-wrapper {
             background-color: rgba(lightcyan, 0.8);
+          }
+        }
+
+        .pokemon-info-h-w {
+          p {
+            &:first-of-type {
+              color: rgba(lightcyan, 0.8);
+            }
+          }
+        }
+
+        .pokemon-third-row {
+          .pokemon-info-h-w {
+            &::after {
+              background-color:  rgba(lightcyan, 0.8);
+            }
           }
         }
 
@@ -1029,6 +1266,22 @@
           }
         }
 
+        .pokemon-info-h-w {
+          p {
+            &:first-of-type {
+              color: rgba(orange, 0.8);
+            }
+          }
+        }
+
+        .pokemon-third-row {
+          .pokemon-info-h-w {
+            &::after {
+              background-color:  rgba(orange, 0.8);
+            }
+          }
+        }
+
         .pokemon-info-f-w {
           background-color:   rgba(orange, 0.8);
         }
@@ -1044,6 +1297,22 @@
         .pokemon-first-row {
           .img-wrapper {
             background-color:rgba(aquamarine, 0.8);
+          }
+        }
+
+        .pokemon-info-h-w {
+          p {
+            &:first-of-type {
+              color: rgba(aquamarine, 0.8);
+            }
+          }
+        }
+
+        .pokemon-third-row {
+          .pokemon-info-h-w {
+            &::after {
+              background-color:  rgba(aquamarine, 0.8);
+            }
           }
         }
 
@@ -1065,6 +1334,22 @@
           }
         }
 
+        .pokemon-info-h-w {
+          p {
+            &:first-of-type {
+              color: rgba(brown, 0.8);
+            }
+          }
+        }
+
+        .pokemon-third-row {
+          .pokemon-info-h-w {
+            &::after {
+              background-color:  rgba(brown, 0.8);
+            }
+          }
+        }
+
         .pokemon-info-f-w {
           background-color:   rgba(brown, 0.8);
         }
@@ -1080,6 +1365,22 @@
         .pokemon-first-row {
           .img-wrapper {
             background-color: rgba(red, 0.8);
+          }
+        }
+
+        .pokemon-info-h-w {
+          p {
+            &:first-of-type {
+              color: rgba(red, 0.8);
+            }
+          }
+        }
+
+        .pokemon-third-row {
+          .pokemon-info-h-w {
+            &::after {
+              background-color:  rgba(red, 0.8);
+            }
           }
         }
 
@@ -1101,6 +1402,22 @@
           }
         }
 
+        .pokemon-info-h-w {
+          p {
+            &:first-of-type {
+              color: rgba(burlywood, 0.8);
+            }
+          }
+        }
+
+        .pokemon-third-row {
+          .pokemon-info-h-w {
+            &::after {
+              background-color:  rgba(burlywood, 0.8);
+            }
+          }
+        }
+
         .pokemon-info-f-w {
           background-color:  rgba(burlywood, 0.8);
         }
@@ -1116,6 +1433,22 @@
         .pokemon-first-row {
           .img-wrapper {
             background-color: rgba(yellowgreen, 0.8);
+          }
+        }
+
+        .pokemon-info-h-w {
+          p {
+            &:first-of-type {
+              color: rgba(yellowgreen, 0.8);
+            }
+          }
+        }
+
+        .pokemon-third-row {
+          .pokemon-info-h-w {
+            &::after {
+              background-color:  rgba(yellowgreen, 0.8);
+            }
           }
         }
 
@@ -1360,6 +1693,10 @@
       @include flexbox;
       @include flex(1);
       @include flex-wrap(wrap);
+
+      .pokemon-info-wrap-mobile {
+        @extend .pokemon-info;
+      }
 
       .pokemon-info-h-w {
         p {

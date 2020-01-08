@@ -55,19 +55,20 @@ const PokemonDetails = (props) => {
               <div className="pokemon-info-f-w">
                 <h5>Info</h5>
               </div>
+              <div className="pokemon-info-wrap-mobile">
+                <div className="pokemon-info-h-w">
+                  <p><span>Basic XP</span><span>{props.pokemon.base_experience}</span></p>
+                  <p><span>Height</span><span>{props.pokemon.height}</span></p>
+                  <p><span>Weight</span><span>{props.pokemon.weight}</span></p>
+                </div>
 
-              <div className="pokemon-info-h-w">
-                <p><span>Basic XP</span><span>{props.pokemon.base_experience}</span></p>
-                <p><span>Height</span><span>{props.pokemon.height}</span></p>
-                <p><span>Weight</span><span>{props.pokemon.weight}</span></p>
+                <div className="pokemon-info-h-w">
+                  <p><span>Color</span><span>{props.pokemon.color}</span></p>
+                  <p><span>Capture rate</span><span>{props.pokemon.capture_rate}</span></p>
+                  <p><span>Habitat</span><span>{props.pokemon.habitat}</span></p>
+                </div>
               </div>
-
-              <div className="pokemon-info-h-w">
-                <p><span>Color</span><span>{props.pokemon.color}</span></p>
-                <p><span>Capture rate</span><span>{props.pokemon.capture_rate}</span></p>
-                <p><span>Habitat</span><span>{props.pokemon.habitat}</span></p>
               </div>
-            </div>
           </div>
 
           <div className="pokemon-third-row">
