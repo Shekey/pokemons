@@ -7,6 +7,14 @@
 
   @media only screen and (max-width: 999px) {
     background-color: #fff;
+
+    input,
+    textarea,
+    button,
+    select,
+    a {
+      -webkit-tap-highlight-color: rgba(0,0,0,0);
+    }
   }
 
   .logo-wrapper-center {
@@ -2046,6 +2054,10 @@
     font-weight: 700;
     text-transform: uppercase;
     @include flex-basis(60%);
+
+    @media only screen and (max-width: 999px) {
+      font-size: 17px;
+    }
   }
 
   .link-wrapper {
