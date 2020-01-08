@@ -8,7 +8,7 @@ In the project directory, you can run:
 
 ## Images from project
 
-![Logo image](https://lh5.googleusercontent.com/XAYUJASokoFsDIfKcBr_qMRCsUEOUrkZ5ho_-_QWSAGlDwiW9bPT-aLmGXUxhHGeLCg3dw)
+<img src="https://lh5.googleusercontent.com/XAYUJASokoFsDIfKcBr_qMRCsUEOUrkZ5ho_-_QWSAGlDwiW9bPT-aLmGXUxhHGeLCg3dw" />
 
 ![Homepage](https://lh3.googleusercontent.com/vSkJICT2OPcIWpmYA5fYNbDxXwnL2bpDjTu8N4N6Iyjl3klL54Qr2qra_FAaidnRcPDdVw)
 
