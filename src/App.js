@@ -9,6 +9,7 @@ import Autocomplete from './components/Autocomplete';
 import TypeDexContainer from './containers/type_dex_container';
 import PokemonDetailsContainer from './containers/pokemon_details_container';
 import FavoritesContainer from './containers/favorite_pokemons_container';
+import TypeDexByTypeContainer from './containers/type_dex_by_type_cointainer';
 import PokeDex from './containers/pokemons_container';
 import { bindActionCreators } from 'redux';
 
@@ -158,6 +159,7 @@ class App extends Component {
             <Route path="/" component={PokeDex} exact />
             <Route path="/typedex" component={TypeDexContainer} exact />
             <Route exact path="/pokemon/:id" component={PokemonDetailsContainer} exact />
+            <Route exact path="/typedex/:type" component={TypeDexByTypeContainer} exact />
             <Route path="/fav" component={FavoritesContainer} exact />
           </Switch>
         </BrowserRouter>

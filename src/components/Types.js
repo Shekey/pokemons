@@ -6,7 +6,7 @@ const Types = (props) => {
     <div className="content row types-by-name-list">
       <div className={`type-name-title`}>
       <h3 className={`${props.typeClicked}`}>{props.typeClicked}</h3>
-      <div className="image-wrapper" onClick={() => props.closeList()}>
+      <div className="image-wrapper" onClick={(e) => props.goBack(e)}>
         <img src="../images/backBtn.png" className={`back-btn`} />
         <img src="../images/backIcon.png" className={`back-btn mobile`} /></div>
       </div>

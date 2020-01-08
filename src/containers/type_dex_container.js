@@ -37,6 +37,7 @@ export class TypeDexContainer extends Component {
   handleClick = (item) => {
     typeClicked = item;
     this.props.getPOkemonByTypename(item);
+    this.props.history.push(`/typedex/${item}`);
   }
 
   closeList = () => {

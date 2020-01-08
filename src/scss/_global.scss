@@ -720,7 +720,7 @@
           .pokemon-info-f-w {
             @include flex-basis(80%);
             @include flexbox;
-            @include justify-content(flex-end);
+            @include justify-content(center);
             padding-right: 30px;
             border-top-right-radius: 30px;
             border-bottom-right-radius: 30px;
@@ -732,7 +732,7 @@
         .pokemon-info-f-w {
           @include flex-basis(80%);
           @include flexbox;
-          @include justify-content(flex-end);
+          @include justify-content(center);
           padding-right: 30px;
           border-top-right-radius: 30px;
           border-bottom-right-radius: 30px;
@@ -743,7 +743,7 @@
         .pokemon-info-f-w {
           @include flex-basis(80%);
           @include flexbox;
-          @include justify-content(flex-end);
+          @include justify-content(center);
           padding-right: 30px;
           border-top-right-radius: 30px;
           border-bottom-right-radius: 30px;
@@ -754,7 +754,7 @@
         .pokemon-info-f-w {
           @include flex-basis(80%);
           @include flexbox;
-          @include justify-content(flex-end);
+          @include justify-content(center);
           padding-right: 30px;
           border-top-right-radius: 30px;
           border-bottom-right-radius: 30px;
@@ -802,6 +802,330 @@
 
           & > div {
            margin: 0 10px;
+          }
+        }
+      }
+
+      &.grass-item {
+        .pokemon-first-row {
+          .img-wrapper {
+            background-color: rgba(greenyellow, 0.8);
+          }
+        }
+
+        .pokemon-info-f-w {
+          background-color:  rgba(greenyellow, 0.8);
+        }
+
+        .pokemon-info {
+          .pokemon-info-f-w {
+            background-color:  rgba(greenyellow, 0.8);
+          }
+        }
+      }
+
+      &.bug-item {
+        .pokemon-first-row {
+          .img-wrapper {
+            background-color: rgba(green, 0.8);
+          }
+        }
+
+        .pokemon-info-f-w {
+          background-color:  rgba(green, 0.8);
+        }
+
+        .pokemon-info {
+          .pokemon-info-f-w {
+            background-color:  rgba(green, 0.8);
+          }
+        }
+      }
+  
+      &.fire-item {
+        .pokemon-first-row {
+          .img-wrapper {
+            background-color: rgba(orangered, 0.8);
+          }
+        }
+
+        .pokemon-info-f-w {
+          background-color:  rgba(orangered, 0.8);
+        }
+
+        .pokemon-info {
+          .pokemon-info-f-w {
+            background-color:  rgba(orangered, 0.8);
+          }
+        }
+      }
+  
+      &.normal-item {
+        .pokemon-first-row {
+          .img-wrapper {
+            background-color:  rgba(darksalmon, 0.8);
+          }
+        }
+
+        .pokemon-info-f-w {
+          background-color:   rgba(darksalmon, 0.8);
+        }
+
+        .pokemon-info {
+          .pokemon-info-f-w {
+            background-color:   rgba(darksalmon, 0.8);
+          }
+        }
+      }
+  
+      &.dark-item {
+        .pokemon-first-row {
+          .img-wrapper {
+            background-color: rgba(purple, 0.8);
+          }
+        }
+
+        .pokemon-info-f-w {
+          background-color:  rgba(purple, 0.8);
+        }
+
+        .pokemon-info {
+          .pokemon-info-f-w {
+            background-color:  rgba(purple, 0.8);
+          }
+        }
+      }
+  
+      &.flying-item {
+        .pokemon-first-row {
+          .img-wrapper {
+            background-color:  rgba(lightblue, 0.8);
+          }
+        }
+
+        .pokemon-info-f-w {
+          background-color:  rgba(lightblue, 0.8);
+        }
+
+        .pokemon-info {
+          .pokemon-info-f-w {
+            background-color:   rgba(lightblue, 0.8);
+          }
+        }
+      }
+  
+      &.poison-item {
+        .pokemon-first-row {
+          .img-wrapper {
+            background-color: rgba(violet, 0.8);
+          }
+        }
+
+        .pokemon-info-f-w {
+          background-color: rgba(violet, 0.8);
+        }
+
+        .pokemon-info {
+          .pokemon-info-f-w {
+            background-color: rgba(violet, 0.8);
+          }
+        }
+      }
+  
+      &.dragon-item {
+        .pokemon-first-row {
+          .img-wrapper {
+            background-color: rgba(aqua, 0.8);
+          }
+        }
+
+        .pokemon-info-f-w {
+          background-color:  rgba(aqua, 0.8);
+        }
+
+        .pokemon-info {
+          .pokemon-info-f-w {
+            background-color:  rgba(aqua, 0.8);
+          }
+        }
+      }
+  
+      &.ghost-item {
+        .pokemon-first-row {
+          .img-wrapper {
+            background-color:rgba(purple, 0.5);
+          }
+        }
+
+        .pokemon-info-f-w {
+          background-color:  rgba(purple, 0.5);
+        }
+
+        .pokemon-info {
+          .pokemon-info-f-w {
+            background-color:  rgba(purple, 0.5);
+          }
+        }
+      }
+  
+      &.psyhic-item {
+        .pokemon-first-row {
+          .img-wrapper {
+            background-color:  rgba(orchid, 0.8);
+          }
+        }
+
+        .pokemon-info-f-w {
+          background-color:   rgba(orchid, 0.8);
+        }
+
+        .pokemon-info {
+          .pokemon-info-f-w {
+            background-color:  rgba(orchid, 0.8);
+          }
+        }
+      }
+  
+      &.water-item {
+        .pokemon-first-row {
+          .img-wrapper {
+            background-color:  rgba(blueviolet, 0.8);
+          }
+        }
+
+        .pokemon-info-f-w {
+          background-color:   rgba(blueviolet, 0.8);
+        }
+
+        .pokemon-info {
+          .pokemon-info-f-w {
+            background-color:   rgba(blueviolet, 0.8);
+          }
+        }
+      }
+  
+      &.ice-item {
+        .pokemon-first-row {
+          .img-wrapper {
+            background-color: rgba(lightcyan, 0.8);
+          }
+        }
+
+        .pokemon-info-f-w {
+          background-color:  rgba(lightcyan, 0.8);
+        }
+
+        .pokemon-info {
+          .pokemon-info-f-w {
+            background-color:  rgba(lightcyan, 0.8);
+          }
+        }
+      }
+  
+      &.fighting-item {
+        .pokemon-first-row {
+          .img-wrapper {
+            background-color:  rgba(orange, 0.8);
+          }
+        }
+
+        .pokemon-info-f-w {
+          background-color:   rgba(orange, 0.8);
+        }
+
+        .pokemon-info {
+          .pokemon-info-f-w {
+            background-color:   rgba(orange, 0.8);
+          }
+        }
+      }
+  
+      &.steel-item {
+        .pokemon-first-row {
+          .img-wrapper {
+            background-color:rgba(aquamarine, 0.8);
+          }
+        }
+
+        .pokemon-info-f-w {
+          background-color:  rgba(aquamarine, 0.8);
+        }
+
+        .pokemon-info {
+          .pokemon-info-f-w {
+            background-color:  rgba(aquamarine, 0.8);
+          }
+        }
+      }
+  
+      &.ground-item {
+        .pokemon-first-row {
+          .img-wrapper {
+            background-color:  rgba(brown, 0.8);
+          }
+        }
+
+        .pokemon-info-f-w {
+          background-color:   rgba(brown, 0.8);
+        }
+
+        .pokemon-info {
+          .pokemon-info-f-w {
+            background-color:   rgba(brown, 0.8);
+          }
+        }
+      }
+  
+      &.fairy-item {
+        .pokemon-first-row {
+          .img-wrapper {
+            background-color: rgba(red, 0.8);
+          }
+        }
+
+        .pokemon-info-f-w {
+          background-color:  rgba(red, 0.8);
+        }
+
+        .pokemon-info {
+          .pokemon-info-f-w {
+            background-color:  rgba(red, 0.8);
+          }
+        }
+      }
+  
+      &.rock-item {
+        .pokemon-first-row {
+          .img-wrapper {
+            background-color: rgba(burlywood, 0.8);
+          }
+        }
+
+        .pokemon-info-f-w {
+          background-color:  rgba(burlywood, 0.8);
+        }
+
+        .pokemon-info {
+          .pokemon-info-f-w {
+            background-color: rgba(burlywood, 0.8);;
+          }
+        }
+      }
+  
+      &.electric-item {
+        .pokemon-first-row {
+          .img-wrapper {
+            background-color: rgba(yellowgreen, 0.8);
+          }
+        }
+
+        .pokemon-info-f-w {
+          background-color:   rgba(yellowgreen, 0.8);
+        }
+
+        .pokemon-info {
+          .pokemon-info-f-w {
+            background-color:   rgba(yellowgreen, 0.8);
           }
         }
       }
