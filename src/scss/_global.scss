@@ -716,6 +716,7 @@
 
         .pokemon-info {
           margin-left: 0;
+          @include flex-wrap(wrap);
 
           .pokemon-info-f-w {
             @include flex-basis(67%);
@@ -744,6 +745,7 @@
           }
 
           .pokemon-info-wrap-mobile {
+            @include flex-basis(100%);
             margin: 15px;
             margin-bottom: 0;
             margin-top: 35px;
