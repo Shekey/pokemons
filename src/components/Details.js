@@ -20,7 +20,7 @@ const PokemonDetails = (props) => {
         <div className={`${props.pokemon.types[props.pokemon.types.length - 1].type.name}-item item`}>
           <div className='pokemon-first-row'>
             <Link className="back-btn-wrapper-mobile" to="/" onClick={(e) => props.goBack(e)}>
-              <img src="../images/backIcon.png" className={`back-btn mobile`} />
+              <img src="../images/backIcon.png" className={`back-btn mobile`} alt="Back button mobile" />
             </Link>
             <span className={`pokemon-id`}># {props.pokemon.id}</span>
             <div className="pokemon-name-row">

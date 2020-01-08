@@ -1,0 +1,198 @@
+
+.bug {
+    background-color: rgba(green, 0.8);
+  
+    .pokemon_type_item {
+      &::after {
+        background-color: green;
+      }
+    }
+  
+  }
+  
+  .fire {
+    background-color: rgba(orangered, 0.8);
+  
+    .pokemon_type_item {
+      &::after {
+        background-color: orangered;
+      }
+    }
+  
+  }
+  
+  .normal {
+    background-color: rgba(darksalmon, 0.8);
+  
+    .pokemon_type_item {
+      &::after {
+        background-color: darksalmon;
+      }
+    }
+  
+  }
+  
+  .dark {
+      background-color: rgba(#5a5979, 0.8);
+      
+      .pokemon_type_item {
+          &::after {
+            background-color: #5a5979;
+      }
+    }
+  
+  }
+  
+  .flying {
+      background-color: rgba(#93b2c7, 0.8);
+      
+      .pokemon_type_item {
+          &::after {
+            background-color: #93b2c7;
+      }
+    }
+  
+  }
+  
+  .poison {
+      background-color: rgba(#9c69da, 0.8);
+      
+      .pokemon_type_item {
+          &::after {
+            background-color: #9c69da;
+      }
+    }
+  
+  }
+  
+  .dragon {
+      background-color: rgba(#60cad8, 0.8);
+      
+      .pokemon_type_item {
+          &::after {
+            background-color: #60cad8;
+      }
+    }
+  
+  }
+  
+  .ghost {
+      background-color: rgba(#906791, 0.8);
+      
+      .pokemon_type_item {
+          &::after {
+            background-color: #906791;
+      }
+    }
+  
+  }
+  
+  .psychic {
+      background-color: rgba(#f91c8e, 0.8);
+      
+      .pokemon_type_item {
+          &::after {
+            background-color: #f91c8e;
+      }
+    }
+  
+  }
+  
+  .water {
+    background-color: rgba(blueviolet, 0.8);
+  
+    .pokemon_type_item {
+      &::after {
+        background-color: blueviolet;
+      }
+    }
+  
+  }
+  
+  .ice {
+    background-color: rgba(lightcyan, 0.8);
+  
+    .pokemon_type_item {
+      &::after {
+        background-color: lightcyan;
+      }
+    }
+  
+  }
+  
+  .fighting {
+      background-color: rgba(#ef6139, 0.8);
+      
+      .pokemon_type_item {
+          &::after {
+            background-color: #ef6139;
+      }
+    }
+  
+  }
+  
+  .steel {
+      background-color: rgba(#43bd94, 0.8);
+      
+      .pokemon_type_item {
+          &::after {
+            background-color: #43bd94;
+      }
+    }
+  
+  }
+  
+  .ground {
+      background-color:rgba(#694922, 0.8);
+      
+      .pokemon_type_item {
+          &::after {
+            background-color: #694922;
+      }
+    }
+  
+  }
+  
+  .fairy {
+      background-color: rgba(#eb1269, 0.8);
+      
+      .pokemon_type_item {
+          &::after {
+            background-color: #eb1269;
+      }
+    }
+  
+  }
+  
+  .rock {
+      background-color: rgba(#8b3e22, 0.8);
+      
+      .pokemon_type_item {   
+          &::after {
+            background-color: #8b3e22;
+      }
+    }
+  
+  }
+  
+  .grass {
+      background-color: rgba(#27cb50, 0.8);
+      
+      .pokemon_type_item {
+          &::after {
+            background-color: #27cb50;
+      }
+    }
+  
+  }
+  
+  .electric {
+      background-color: rgba(#e2de59, 0.8);
+      
+      .pokemon_type_item {
+          &::after {
+            background-color: #e2de59;
+      }
+    }
+  
+  }

@@ -1,0 +1,92 @@
+
+.autocomplete-wrap {
+    @include flex-basis(100%);
+  
+    @media only screen and (max-width: 999px) {
+      @include flex-basis(0%);
+      transition: flex-basis 0.5s ease-in;
+      overflow: hidden;
+  
+      &.active {
+        @include flex-basis(100%);
+      }
+    }
+  }
+  
+  .autocomplete {
+    transition: padding-left 0.3s ease-in, width 0.3s ease-in;
+  
+    &.row {
+      padding-top: 0;
+      padding-left: 10px;
+      position: absolute;
+      z-index: 120;
+      top: 15px;
+      right: 0;
+      width: calc(100% - 315px);
+      height: 90px;
+      transition: width 0.3s ease-in;
+  
+      .search-icon-mobile {
+        display: none;
+      }
+  
+      @media only screen and (max-width: 999px) {
+        width: 100%;
+        transition: none;
+        padding-left: 60px;
+        pointer-events: none;
+  
+        @include flexbox;
+        @include align-items(center);
+        @include justify-content(flex-end);
+        top: 0;
+        height: 60px;
+  
+        .search-icon-mobile {
+          display: inline-block;
+          width: 28px;
+          height: 27px;
+  
+          &:hover {
+            cursor: pointer;
+            position: relative;
+            z-index: 1;
+          }
+        }
+  
+        .MuiAutocomplete-root {
+          height: 38px;
+          margin: 0;
+        }
+  
+        .MuiTextField-root {
+          margin: 0;
+          // display: none;
+        }
+  
+        .MuiInputLabel-outlined {
+          transform: translate(12px, 12px);
+          opacity: 1;
+        }
+  
+        .Mui-focused .MuiInputLabel-outlined {
+          display: none;
+          z-index: 0;
+        }
+  
+        .MuiInputLabel-shrink {
+          transform: none;
+          transform-origin: initial;
+        }
+  
+        .MuiAutocomplete-inputRoot {
+          padding: 0px;
+        }
+      }
+    }
+  
+    &.close {
+      width: calc(100% - 60px);
+    }
+  }

@@ -23,7 +23,7 @@ export function getAllPokemons(offset = 0, limit = 9) {
 
     offset = currentPage == 1 ? 0 : limit * currentPage - 1;
     if (allPokemonItems !== undefined) {
-      let existItems = allPokemonItems.find(i => i.currentPage == currentPage);
+      let existItems = allPokemonItems.find(i => i.currentPage === currentPage);
       if (existItems !== undefined) {
         return dispatch({
           type: 'GET_POKEMONS_ALL_SUCCESSFUL',
@@ -93,7 +93,7 @@ export function getAllPokemonsNames(){
   axios.get(GET_POKEMONS_NAMES)
       .then((res) => {
         let allPokemonsNames = [];
-        res.data.results.map(item => {
+        res.data.results.forEach(item => {
           let pokemonId = item.url.split("pokemon/")[1];
           pokemonId = pokemonId.substring(0,pokemonId.length - 1);
           allPokemonsNames.push({
@@ -172,7 +172,7 @@ export function getPokemon(id) {
 
   let isFavorite = false;
   if (getFavorites !== undefined) {
-    let isFavorites = getFavorites.find(i => i == id);
+    let isFavorites = getFavorites.find(i => i === id);
     if (isFavorites !== undefined) {
       isFavorite = true;
     }

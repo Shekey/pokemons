@@ -158,8 +158,8 @@ class App extends Component {
           <Switch>
             <Route path="/" component={PokeDex} exact />
             <Route path="/typedex" component={TypeDexContainer} exact />
-            <Route exact path="/pokemon/:id" component={PokemonDetailsContainer} exact />
-            <Route exact path="/typedex/:type" component={TypeDexByTypeContainer} exact />
+            <Route path="/pokemon/:id" component={PokemonDetailsContainer} exact />
+            <Route path="/typedex/:type" component={TypeDexByTypeContainer} exact />
             <Route path="/fav" component={FavoritesContainer} exact />
           </Switch>
         </BrowserRouter>

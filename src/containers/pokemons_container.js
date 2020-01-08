@@ -32,7 +32,7 @@ export class PokemonContainer extends Component {
   paginate(e) {
     let datasetClicked = e.target.dataset.navigate;
     let offset = (datasetClicked - 1) * 9;
-    if (this.props.pokemonContainer.currentPage != datasetClicked) {
+    if (this.props.pokemonContainer.currentPage !== datasetClicked) {
       this.props.setCurrentPage(datasetClicked);
       this.props.getAllPokemons(offset, 9);
       document.querySelector('.lds-spinner').classList.add('active');

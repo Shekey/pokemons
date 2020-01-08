@@ -5,11 +5,6 @@ import { getAllFavoritePokemons, toggleFavorites } from '../store/actions';
 import Favorites from '../components/Favorites';
 
 export class FavoritePokemonsContainer extends Component {
-
-  constructor(props) {
-    super(props);
-  }
-
   componentDidMount() {
     this.removeAnimation();
   }

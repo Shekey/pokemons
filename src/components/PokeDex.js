@@ -77,7 +77,7 @@ const PokeDex = (props) => {
       }
 
       {showPagination(props)}
-      <p>© Author: Ajdin Sahinbegovic👍ツ</p>
+      <p>© Author: Ajdin Sahinbegovic</p>
     </div>
   )
 }

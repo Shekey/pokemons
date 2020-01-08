@@ -34,7 +34,6 @@ export class PokemonDetailsContainer extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    // Typical usage (don't forget to compare props):
     if (prevProps.pokemon !== undefined && prevProps.pokemon !== null) {
       if (this.props.match.params.id != prevProps.pokemon.id) {
         this.props.clearPokemonDetails();

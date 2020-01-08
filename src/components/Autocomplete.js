@@ -22,7 +22,6 @@ class AutocompleteComponent extends Component {
   }
 
   render() {
-    const { match, location, history } = this.props;
     return (
       this.props.allPokemonsNames !== undefined ?
         <div className="content row autocomplete">
@@ -30,7 +29,7 @@ class AutocompleteComponent extends Component {
           <img className="logo" src="../images/logo-black.png" alt="Logo" />
           </Link>
           <div className="search-icon-mobile" onClick={(e) => this.props.showAutocomplete(e)}>
-            <img src="images/loupe.png" />
+            <img src="images/loupe.png" alt="search loupe" />
           </div>
           <div className="autocomplete-wrap">
             <Autocomplete

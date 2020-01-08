@@ -7,8 +7,8 @@ const Types = (props) => {
       <div className={`type-name-title`}>
       <h3 className={`${props.typeClicked}`}>{props.typeClicked}</h3>
       <div className="image-wrapper" onClick={(e) => props.goBack(e)}>
-        <img src="../images/backBtn.png" className={`back-btn`} />
-        <img src="../images/backIcon.png" className={`back-btn mobile`} /></div>
+        <img src="../images/backBtn.png" className={`back-btn`} alt="Back button desktop" />
+        <img src="../images/backIcon.png" className={`back-btn mobile`} alt="Back button mobile" /></div>
       </div>
       {props.pokeTypes !== undefined ?
         props.pokeTypes.map((item, index) => {

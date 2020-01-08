@@ -1,6 +1,12 @@
-@import "./_mixins.scss";
-@import "./_resets.scss";
-@import "./typography.scss";
-@import "./navigation.scss";
+@import "./_mixins";
+@import "./_resets";
+@import "./typography";
+@import "./navigation";
 @import "./global.scss";
+@import "./global-classes";
 @import "./loader.scss";
+@import "./_pagination";
+@import "./_typdex";
+@import "./_favorites";
+@import "./_autocomplete";
+@import "./pokemons-details";
