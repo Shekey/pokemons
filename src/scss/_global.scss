@@ -220,7 +220,7 @@
     }
 
     &.dark {
-      background-color: rgba(purple, 0.8);
+      background-color: #5a5979;
 
       @media only screen and (max-width: 999px) {
         background-color: transparent;
@@ -228,7 +228,7 @@
     }
 
     &.flying {
-      background-color: rgba(lightblue, 0.8);
+      background-color: #93b2c7;
 
       @media only screen and (max-width: 999px) {
         background-color: transparent;
@@ -236,7 +236,7 @@
     }
 
     &.poison {
-      background-color: rgba(violet, 0.8);
+      background-color: #9c69da;
 
       @media only screen and (max-width: 999px) {
         background-color: transparent;
@@ -244,7 +244,7 @@
     }
 
     &.dragon {
-      background-color: rgba(aqua, 0.8);
+      background-color: #60cad8;
 
       @media only screen and (max-width: 999px) {
         background-color: transparent;
@@ -252,15 +252,15 @@
     }
 
     &.ghost {
-      background-color: rgba(purple, 0.5);
+      background-color: #906791;
 
       @media only screen and (max-width: 999px) {
         background-color: transparent;
       }
     }
 
-    &.psyhic {
-      background-color: rgba(orchid, 0.8);
+    &.psychic {
+      background-color: #f91c8e;
 
       @media only screen and (max-width: 999px) {
         background-color: transparent;
@@ -284,7 +284,7 @@
     }
 
     &.fighting {
-      background-color: rgba(orange, 0.8);
+      background-color: #ef6139;
 
       @media only screen and (max-width: 999px) {
         background-color: transparent;
@@ -292,7 +292,7 @@
     }
 
     &.steel {
-      background-color: rgba(aquamarine, 0.8);
+      background-color: #43bd94;
 
       @media only screen and (max-width: 999px) {
         background-color: transparent;
@@ -300,7 +300,7 @@
     }
 
     &.ground {
-      background-color: rgba(brown, 0.8);
+      background-color: #694922;
 
       @media only screen and (max-width: 999px) {
         background-color: transparent;
@@ -308,7 +308,7 @@
     }
 
     &.fairy {
-      background-color: rgba(red, 0.8);
+      background-color: #eb1269;
 
       @media only screen and (max-width: 999px) {
         background-color: transparent;
@@ -316,7 +316,7 @@
     }
 
     &.rock {
-      background-color: rgba(burlywood, 0.8);
+      background-color: #8b3e22;
 
       @media only screen and (max-width: 999px) {
         background-color: transparent;
@@ -324,7 +324,7 @@
     }
 
     &.grass {
-      background-color: rgba(greenyellow, 0.8);
+      background-color: #27cb50;
 
       @media only screen and (max-width: 999px) {
         background-color: transparent;
@@ -332,7 +332,7 @@
     }
 
     &.electric {
-      background-color: rgba(yellowgreen, 0.8);
+      background-color: #e2de59;
 
       @media only screen and (max-width: 999px) {
         background-color: transparent;
@@ -856,33 +856,33 @@
       &.grass-item {
         .pokemon-first-row {
           .img-wrapper {
-            background-color: rgba(greenyellow, 0.8);
+            background-color: #27cb50;
           }
         }
 
         .pokemon-info-h-w {
           p {
             &:first-of-type {
-              color: rgba(greenyellow, 0.8);
+              color: #27cb50;
             }
           }
         }
 
         .pokemon-info-f-w {
-          background-color:  rgba(greenyellow, 0.8);
+          background-color:  #27cb50;
         }
 
         .pokemon-third-row {
           .pokemon-info-h-w {
             &::after {
-              background-color:  rgba(greenyellow, 0.8);
+              background-color:  #27cb50;
             }
           }
         }
 
         .pokemon-info {
           .pokemon-info-f-w {
-            background-color:  rgba(greenyellow, 0.8);
+            background-color:  #27cb50;
           }
         }
       }
@@ -992,14 +992,14 @@
       &.dark-item {
         .pokemon-first-row {
           .img-wrapper {
-            background-color: rgba(purple, 0.8);
+            background-color: #5a5979;
           }
         }
 
         .pokemon-info-h-w {
           p {
             &:first-of-type {
-              color: rgba(purple, 0.8);
+              color: #5a5979;
             }
           }
         }
@@ -1007,18 +1007,18 @@
         .pokemon-third-row {
           .pokemon-info-h-w {
             &::after {
-              background-color:  rgba(purple, 0.8);
+              background-color:  #5a5979;
             }
           }
         }
 
         .pokemon-info-f-w {
-          background-color:  rgba(purple, 0.8);
+          background-color:  #5a5979;
         }
 
         .pokemon-info {
           .pokemon-info-f-w {
-            background-color:  rgba(purple, 0.8);
+            background-color:  #5a5979;
           }
         }
       }
@@ -1026,14 +1026,14 @@
       &.flying-item {
         .pokemon-first-row {
           .img-wrapper {
-            background-color:  rgba(lightblue, 0.8);
+            background-color:  #93b2c7;
           }
         }
 
         .pokemon-info-h-w {
           p {
             &:first-of-type {
-              color: rgba(lightblue, 0.8);
+              color: #93b2c7;
             }
           }
         }
@@ -1041,18 +1041,18 @@
         .pokemon-third-row {
           .pokemon-info-h-w {
             &::after {
-              background-color:  rgba(lightblue, 0.8);
+              background-color:  #93b2c7;
             }
           }
         }
 
         .pokemon-info-f-w {
-          background-color:  rgba(lightblue, 0.8);
+          background-color:  #93b2c7;
         }
 
         .pokemon-info {
           .pokemon-info-f-w {
-            background-color:   rgba(lightblue, 0.8);
+            background-color:   #93b2c7;
           }
         }
       }
@@ -1060,14 +1060,14 @@
       &.poison-item {
         .pokemon-first-row {
           .img-wrapper {
-            background-color: rgba(violet, 0.8);
+            background-color: #9c69da;
           }
         }
 
         .pokemon-info-h-w {
           p {
             &:first-of-type {
-              color: rgba(violet, 0.8);
+              color: #9c69da;
             }
           }
         }
@@ -1075,18 +1075,18 @@
         .pokemon-third-row {
           .pokemon-info-h-w {
             &::after {
-              background-color:  rgba(violet, 0.8);
+              background-color:  #9c69da;
             }
           }
         }
 
         .pokemon-info-f-w {
-          background-color: rgba(violet, 0.8);
+          background-color: #9c69da;
         }
 
         .pokemon-info {
           .pokemon-info-f-w {
-            background-color: rgba(violet, 0.8);
+            background-color: #9c69da;
           }
         }
       }
@@ -1094,14 +1094,14 @@
       &.dragon-item {
         .pokemon-first-row {
           .img-wrapper {
-            background-color: rgba(aqua, 0.8);
+            background-color: #60cad8;
           }
         }
 
         .pokemon-info-h-w {
           p {
             &:first-of-type {
-              color: rgba(aqua, 0.8);
+              color: #60cad8;
             }
           }
         }
@@ -1109,18 +1109,18 @@
         .pokemon-third-row {
           .pokemon-info-h-w {
             &::after {
-              background-color:  rgba(aqua, 0.8);
+              background-color:  #60cad8;
             }
           }
         }
 
         .pokemon-info-f-w {
-          background-color:  rgba(aqua, 0.8);
+          background-color:  #60cad8;
         }
 
         .pokemon-info {
           .pokemon-info-f-w {
-            background-color:  rgba(aqua, 0.8);
+            background-color:  #60cad8;
           }
         }
       }
@@ -1128,14 +1128,14 @@
       &.ghost-item {
         .pokemon-first-row {
           .img-wrapper {
-            background-color:rgba(purple, 0.5);
+            background-color:#906791;
           }
         }
 
         .pokemon-info-h-w {
           p {
             &:first-of-type {
-              color: rgba(purple, 0.5);
+              color: #906791;
             }
           }
         }
@@ -1143,33 +1143,33 @@
         .pokemon-third-row {
           .pokemon-info-h-w {
             &::after {
-              background-color:  rgba(purple, 0.5);
+              background-color:  #906791;
             }
           }
         }
 
         .pokemon-info-f-w {
-          background-color:  rgba(purple, 0.5);
+          background-color:  #906791;
         }
 
         .pokemon-info {
           .pokemon-info-f-w {
-            background-color:  rgba(purple, 0.5);
+            background-color:  #906791;
           }
         }
       }
   
-      &.psyhic-item {
+      &.psychic-item {
         .pokemon-first-row {
           .img-wrapper {
-            background-color:  rgba(orchid, 0.8);
+            background-color:  #f91c8e;
           }
         }
 
         .pokemon-info-h-w {
           p {
             &:first-of-type {
-              color: rgba(orchid, 0.8);
+              color: #f91c8e;
             }
           }
         }
@@ -1177,18 +1177,18 @@
         .pokemon-third-row {
           .pokemon-info-h-w {
             &::after {
-              background-color:  rgba(orchid, 0.8);
+              background-color:  #f91c8e;
             }
           }
         }
 
         .pokemon-info-f-w {
-          background-color:   rgba(orchid, 0.8);
+          background-color:   #f91c8e;
         }
 
         .pokemon-info {
           .pokemon-info-f-w {
-            background-color:  rgba(orchid, 0.8);
+            background-color:  #f91c8e;
           }
         }
       }
@@ -1264,14 +1264,14 @@
       &.fighting-item {
         .pokemon-first-row {
           .img-wrapper {
-            background-color:  rgba(orange, 0.8);
+            background-color:  #ef6139;
           }
         }
 
         .pokemon-info-h-w {
           p {
             &:first-of-type {
-              color: rgba(orange, 0.8);
+              color: #ef6139;
             }
           }
         }
@@ -1279,18 +1279,18 @@
         .pokemon-third-row {
           .pokemon-info-h-w {
             &::after {
-              background-color:  rgba(orange, 0.8);
+              background-color:  #ef6139;
             }
           }
         }
 
         .pokemon-info-f-w {
-          background-color:   rgba(orange, 0.8);
+          background-color:   #ef6139;
         }
 
         .pokemon-info {
           .pokemon-info-f-w {
-            background-color:   rgba(orange, 0.8);
+            background-color:   #ef6139;
           }
         }
       }
@@ -1298,14 +1298,14 @@
       &.steel-item {
         .pokemon-first-row {
           .img-wrapper {
-            background-color:rgba(aquamarine, 0.8);
+            background-color:#43bd94;
           }
         }
 
         .pokemon-info-h-w {
           p {
             &:first-of-type {
-              color: rgba(aquamarine, 0.8);
+              color: #43bd94;
             }
           }
         }
@@ -1313,18 +1313,18 @@
         .pokemon-third-row {
           .pokemon-info-h-w {
             &::after {
-              background-color:  rgba(aquamarine, 0.8);
+              background-color:  #43bd94;
             }
           }
         }
 
         .pokemon-info-f-w {
-          background-color:  rgba(aquamarine, 0.8);
+          background-color:  #43bd94;
         }
 
         .pokemon-info {
           .pokemon-info-f-w {
-            background-color:  rgba(aquamarine, 0.8);
+            background-color:  #43bd94;
           }
         }
       }
@@ -1332,14 +1332,14 @@
       &.ground-item {
         .pokemon-first-row {
           .img-wrapper {
-            background-color:  rgba(brown, 0.8);
+            background-color:  #694922;
           }
         }
 
         .pokemon-info-h-w {
           p {
             &:first-of-type {
-              color: rgba(brown, 0.8);
+              color: #694922;
             }
           }
         }
@@ -1347,18 +1347,18 @@
         .pokemon-third-row {
           .pokemon-info-h-w {
             &::after {
-              background-color:  rgba(brown, 0.8);
+              background-color:  #694922;
             }
           }
         }
 
         .pokemon-info-f-w {
-          background-color:   rgba(brown, 0.8);
+          background-color:   #694922;
         }
 
         .pokemon-info {
           .pokemon-info-f-w {
-            background-color:   rgba(brown, 0.8);
+            background-color:   #694922;
           }
         }
       }
@@ -1366,14 +1366,14 @@
       &.fairy-item {
         .pokemon-first-row {
           .img-wrapper {
-            background-color: rgba(red, 0.8);
+            background-color: #eb1269;
           }
         }
 
         .pokemon-info-h-w {
           p {
             &:first-of-type {
-              color: rgba(red, 0.8);
+              color: #eb1269;
             }
           }
         }
@@ -1381,18 +1381,18 @@
         .pokemon-third-row {
           .pokemon-info-h-w {
             &::after {
-              background-color:  rgba(red, 0.8);
+              background-color:  #eb1269;
             }
           }
         }
 
         .pokemon-info-f-w {
-          background-color:  rgba(red, 0.8);
+          background-color:  #eb1269;
         }
 
         .pokemon-info {
           .pokemon-info-f-w {
-            background-color:  rgba(red, 0.8);
+            background-color:  #eb1269;
           }
         }
       }
@@ -1400,14 +1400,14 @@
       &.rock-item {
         .pokemon-first-row {
           .img-wrapper {
-            background-color: rgba(burlywood, 0.8);
+            background-color: #8b3e22;
           }
         }
 
         .pokemon-info-h-w {
           p {
             &:first-of-type {
-              color: rgba(burlywood, 0.8);
+              color: #8b3e22;
             }
           }
         }
@@ -1415,18 +1415,18 @@
         .pokemon-third-row {
           .pokemon-info-h-w {
             &::after {
-              background-color:  rgba(burlywood, 0.8);
+              background-color:  #8b3e22;
             }
           }
         }
 
         .pokemon-info-f-w {
-          background-color:  rgba(burlywood, 0.8);
+          background-color:  #8b3e22;
         }
 
         .pokemon-info {
           .pokemon-info-f-w {
-            background-color: rgba(burlywood, 0.8);;
+            background-color: #8b3e22;;
           }
         }
       }
@@ -1434,14 +1434,14 @@
       &.electric-item {
         .pokemon-first-row {
           .img-wrapper {
-            background-color: rgba(yellowgreen, 0.8);
+            background-color: #e2de59;
           }
         }
 
         .pokemon-info-h-w {
           p {
             &:first-of-type {
-              color: rgba(yellowgreen, 0.8);
+              color: #e2de59;
             }
           }
         }
@@ -1449,18 +1449,18 @@
         .pokemon-third-row {
           .pokemon-info-h-w {
             &::after {
-              background-color:  rgba(yellowgreen, 0.8);
+              background-color:  #e2de59;
             }
           }
         }
 
         .pokemon-info-f-w {
-          background-color:   rgba(yellowgreen, 0.8);
+          background-color:   #e2de59;
         }
 
         .pokemon-info {
           .pokemon-info-f-w {
-            background-color:   rgba(yellowgreen, 0.8);
+            background-color:   #e2de59;
           }
         }
       }
@@ -1480,74 +1480,74 @@
     line-height: 19px;
 
     &.bug {
-      background-color: rgba(green, 0.8);
-
+      background-color: green;
+      
       &::after {
-        background-color: green;
+        background-color: rgba(green, 0.8);
       }
     }
 
     &.fire {
-      background-color: rgba(orangered, 0.8);
-
+      background-color: orangered;
+      
       &::after {
-        background-color: orangered;
+        background-color: rgba(orangered, 0.8);
       }
     }
 
     &.normal {
-      background-color: rgba(darksalmon, 0.8);
+      background-color: darksalmon;
 
       &::after {
-        background-color: darksalmon;
+        background-color: rgba(darksalmon, 0.8);
       }
     }
 
     &.dark {
-      background-color: rgba(purple, 0.8);
+      background-color: #5a5979;
 
       &::after {
-        background-color: purple;
+        background-color: rgba(#5a5979, 0.8);
       }
     }
 
     &.flying {
-      background-color: rgba(lightblue, 0.8);
+      background-color: #93b2c7;
 
       &::after {
-        background-color: lightblue;
+        background-color: rgba(#93b2c7, 0.8);
       }
     }
 
     &.poison {
-      background-color: rgba(violet, 0.8);
+      background-color: #9c69da;
 
       &::after {
-        background-color: violet;
+        background-color: rgba(#9c69da, 0.8);
       }
     }
 
     &.dragon {
-      background-color: rgba(aqua, 0.8);
+      background-color: #60cad8;
 
       &::after {
-        background-color: aqua;
+        background-color: rgba(#60cad8, 0.8);
       }
     }
 
     &.ghost {
-      background-color: rgba(purple, 0.5);
+      background-color: #906791;
 
       &::after {
-        background-color: rgba(purple, 0.8);
+        background-color: rgba(#906791, 0.8);
       }
     }
 
-    &.psyhic {
-      background-color: rgba(orchid, 0.8);
+    &.psychic {
+      background-color: #f91c8e;
 
       &::after {
-        background-color: orchid;
+        background-color: rgba(#f91c8e, 0.8);
       }
     }
 
@@ -1568,58 +1568,58 @@
     }
 
     &.fighting {
-      background-color: rgba(orange, 0.8);
+      background-color: #ef6139;
 
       &::after {
-        background-color: orange;
+        background-color: rgba(#ef6139, 0.8);
       }
     }
 
     &.steel {
-      background-color: rgba(aquamarine, 0.8);
+      background-color: #43bd94;
 
       &::after {
-        background-color: aquamarine;
+        background-color: rgba(#43bd94, 0.8);
       }
     }
 
     &.ground {
-      background-color: rgba(brown, 0.8);
+      background-color: #694922;
 
       &::after {
-        background-color: brown;
+        background-color: rgba(#694922, 0.8);
       }
     }
 
     &.fairy {
-      background-color: rgba(red, 0.8);
+      background-color: #eb1269;
 
       &::after {
-        background-color: red;
+        background-color: rgba(#eb1269, 0.8);
       }
     }
 
     &.rock {
-      background-color: rgba(burlywood, 0.8);
+      background-color: #8b3e22;
 
       &::after {
-        background-color: burlywood;
+        background-color: rgba(#8b3e22, 0.8);
       }
     }
 
     &.grass {
-      background-color: rgba(greenyellow, 0.8);
+      background-color: #27cb50;
 
       &::after {
-        background-color: greenyellow;
+        background-color: rgba(#27cb50, 0.8);
       }
     }
 
     &.electric {
-      background-color: rgba(yellowgreen, 0.8);
+      background-color: #e2de59;
 
       &::after {
-        background-color: yellowgreen;
+        background-color: rgba(#e2de59, 0.8);
       }
     }
   }
@@ -2273,27 +2273,27 @@
       }
   
       &.dark {
-        background-color: rgba(purple, 0.8);
+        background-color: #5a5979;
       }
   
       &.flying {
-        background-color: rgba(lightblue, 0.8);
+        background-color: #93b2c7;
       }
   
       &.poison {
-        background-color: rgba(violet, 0.8);
+        background-color: #9c69da;
       }
   
       &.dragon {
-        background-color: rgba(aqua, 0.8);
+        background-color: #60cad8;
       }
   
       &.ghost {
-        background-color: rgba(purple, 0.5);
+        background-color: #906791;
       }
   
-      &.psyhic {
-        background-color: rgba(orchid, 0.8);
+      &.psychic {
+        background-color: #f91c8e;
       }
   
       &.water {
@@ -2305,31 +2305,31 @@
       }
   
       &.fighting {
-        background-color: rgba(orange, 0.8);
+        background-color: #ef6139;
       }
   
       &.steel {
-        background-color: rgba(aquamarine, 0.8);
+        background-color: #43bd94;
       }
   
       &.ground {
-        background-color: rgba(brown, 0.8);
+        background-color: #694922;
       }
   
       &.fairy {
-        background-color: rgba(red, 0.8);
+        background-color: #eb1269;
       }
   
       &.rock {
-        background-color: rgba(burlywood, 0.8);
+        background-color: #8b3e22;
       }
   
       &.grass {
-        background-color: rgba(greenyellow, 0.8);
+        background-color: #27cb50;
       }
   
       &.electric {
-        background-color: rgba(yellowgreen, 0.8);
+        background-color: #e2de59;
       }
     }
   }
@@ -2384,7 +2384,7 @@
 }
 
 .dark {
-  background-color: rgba(purple, 0.8);
+  background-color: #5a5979;
 
   .pokemon_type_item {
     &::after {
@@ -2395,7 +2395,7 @@
 }
 
 .flying {
-  background-color: rgba(lightblue, 0.8);
+  background-color: #93b2c7;
 
   .pokemon_type_item {
     &::after {
@@ -2406,7 +2406,7 @@
 }
 
 .poison {
-  background-color: rgba(violet, 0.8);
+  background-color: #9c69da;
 
   .pokemon_type_item {
     &::after {
@@ -2417,7 +2417,7 @@
 }
 
 .dragon {
-  background-color: rgba(aqua, 0.8);
+  background-color: #60cad8;
 
   .pokemon_type_item {
     &::after {
@@ -2428,18 +2428,18 @@
 }
 
 .ghost {
-  background-color: rgba(purple, 0.5);
+  background-color: #906791;
 
   .pokemon_type_item {
     &::after {
-      background-color: rgba(purple, 0.8);
+      background-color: #5a5979;
     }
   }
 
 }
 
-.psyhic {
-  background-color: rgba(orchid, 0.8);
+.psychic {
+  background-color: #f91c8e;
 
   .pokemon_type_item {
     &::after {
@@ -2472,7 +2472,7 @@
 }
 
 .fighting {
-  background-color: rgba(orange, 0.8);
+  background-color: #ef6139;
 
   .pokemon_type_item {
     &::after {
@@ -2483,7 +2483,7 @@
 }
 
 .steel {
-  background-color: rgba(aquamarine, 0.8);
+  background-color: #43bd94;
 
   .pokemon_type_item {
     &::after {
@@ -2494,7 +2494,7 @@
 }
 
 .ground {
-  background-color: rgba(brown, 0.8);
+  background-color: #694922;
 
   .pokemon_type_item {
     &::after {
@@ -2505,7 +2505,7 @@
 }
 
 .fairy {
-  background-color: rgba(red, 0.8);
+  background-color: #eb1269;
 
   .pokemon_type_item {
     &::after {
@@ -2516,7 +2516,7 @@
 }
 
 .rock {
-  background-color: rgba(burlywood, 0.8);
+  background-color: #8b3e22;
 
   .pokemon_type_item {   
     &::after {
@@ -2527,7 +2527,7 @@
 }
 
 .grass {
-  background-color: rgba(greenyellow, 0.8);
+  background-color: #27cb50;
 
   .pokemon_type_item {
     &::after {
@@ -2538,7 +2538,7 @@
 }
 
 .electric {
-  background-color: rgba(yellowgreen, 0.8);
+  background-color: #e2de59;
 
   .pokemon_type_item {
     &::after {
