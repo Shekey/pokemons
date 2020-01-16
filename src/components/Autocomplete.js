@@ -4,6 +4,7 @@ import {withRouter} from 'react-router'
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom';
+import LazyLoad from 'react-lazyload';
 
 class AutocompleteComponent extends Component {
   static propTypes = {
@@ -26,10 +27,14 @@ class AutocompleteComponent extends Component {
       this.props.allPokemonsNames !== undefined ?
         <div className="content row autocomplete">
          <Link className="logo-wrapper-center" to="/">
+         <LazyLoad height={200}>
           <img className="logo" src="../images/logo-black.png" alt="Logo" />
+          </LazyLoad>
           </Link>
           <div className="search-icon-mobile" onClick={(e) => this.props.showAutocomplete(e)}>
+          <LazyLoad height={200}>
             <img src="images/loupe.png" alt="search loupe" />
+          </LazyLoad>
           </div>
           <div className="autocomplete-wrap">
             <Autocomplete

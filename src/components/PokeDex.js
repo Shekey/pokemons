@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-
+import LazyLoad from 'react-lazyload';
 const PokeDex = (props) => {
   function showPagination(props) {
     if (props.pokemons && props.pokemons.length > 0) {
@@ -57,7 +57,9 @@ const PokeDex = (props) => {
                     <p>H</p>
                     <p>{item.height}</p>
                   </div>
+                <LazyLoad height={200}>
                   <div className="img-wrapper" style={{ backgroundImage: 'url(' + imageUrl + ')' }}></div>
+                </LazyLoad>
                   <div className="pokemon_item-weight two-columns">
                     <p>W</p>
                     <p>{item.weight}</p>

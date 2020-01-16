@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import LazyLoad from 'react-lazyload';
 const PokemonDetails = (props) => {
   let activeSpinnerClass = props.isLoaded ? '' : 'active';
   let isFavorite = '';
@@ -39,15 +39,19 @@ const PokemonDetails = (props) => {
               <a href="#" onClick={(e) => props.handleClick(e, props.pokemon.id)}><i className={`fas fa-star ${isFavorite}`}></i></a>
             </div>
             <div className="img-wrapper">
+          <LazyLoad height={200}>
             <img src={props.pokemon.sprites.front_shiny} alt={props.pokemon.name}/>
+          </LazyLoad>
           </div>
           </div>
 
           <div className="pokemon-second-row">
             <div className="pokemon-image">
               <figure>
+              <LazyLoad height={200}>
                 <img src={props.pokemon.sprites.front_shiny}
                   alt={props.pokemon.name} />
+              </LazyLoad>
               </figure>
             </div>
 
@@ -144,7 +148,9 @@ const showEvolve = (evolveForms, currentPokemon) => {
   let evolveFormsJSX = evolveForms.map((item) => (
     <div key={item.name} className={`pokemon-info-evolve-item`}>
       <div className="img-wrapper">
+        <LazyLoad height={200}>
         <img src={item.imageUrl} alt={item.name}/>
+        </LazyLoad>
       </div>
       <h5>{item.name}</h5>
       <div className="pokemon-type-wrap">
@@ -160,7 +166,9 @@ const showEvolve = (evolveForms, currentPokemon) => {
       <div className="pokemon-info-evolve">
         <div key={currentPokemon.name} className={`pokemon-info-evolve-item`}>
           <div className="img-wrapper">
+            <LazyLoad height={200}>
             <img src={currentPokemon.sprites.front_shiny} alt={currentPokemon.name}/>
+          </LazyLoad>
           </div>
           <h5>{currentPokemon.name}</h5>
           <div className="pokemon-type-wrap">
