@@ -1,12 +1,12 @@
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import {withRouter} from 'react-router'
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom';
 import LazyLoad from 'react-lazyload';
 
-class AutocompleteComponent extends Component {
+class AutocompleteComponent extends PureComponent {
   static propTypes = {
     match: PropTypes.object.isRequired,
     location: PropTypes.object.isRequired,

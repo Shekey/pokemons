@@ -1,6 +1,6 @@
 import './scss/_all.scss';
 
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { BrowserRouter, Route, Switch  } from 'react-router-dom';
 import Navigation from './components/Navigation';
 import { connect } from 'react-redux'
@@ -13,7 +13,7 @@ import TypeDexByTypeContainer from './containers/type_dex_by_type_cointainer';
 import PokeDex from './containers/pokemons_container';
 import { bindActionCreators } from 'redux';
 
-class App extends Component {
+class App extends PureComponent {
 
   constructor(props) {
     super(props);

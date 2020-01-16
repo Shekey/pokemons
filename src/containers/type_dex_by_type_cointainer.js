@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux';
 import { getPOkemonByTypename, clearPokemonsByName } from '../store/actions';
@@ -6,7 +6,7 @@ import TypesList from '../components/Types';
 
 let typeClicked = '';
 
-export class TypeDexByTypeContainer extends Component {
+export class TypeDexByTypeContainer extends PureComponent {
   constructor(props) {
     super(props);
     let type = this.props.match.params.type;

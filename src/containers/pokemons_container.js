@@ -1,11 +1,11 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux';
 import { getAllPokemons, setCurrentPage,getAllPokemonsNames, toggleFavorites } from '../store/actions';
 import PokeList from '../components/PokeDex';
 
 
-export class PokemonContainer extends Component {
+export class PokemonContainer extends PureComponent {
   constructor(props) {
     super(props);
     this.props.getAllPokemons(0, 9);

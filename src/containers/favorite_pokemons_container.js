@@ -1,10 +1,10 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux';
 import { getAllFavoritePokemons, toggleFavorites } from '../store/actions';
 import Favorites from '../components/Favorites';
 
-export class FavoritePokemonsContainer extends Component {
+export class FavoritePokemonsContainer extends PureComponent {
   componentDidMount() {
     this.removeAnimation();
   }

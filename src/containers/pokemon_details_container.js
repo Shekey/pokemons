@@ -1,10 +1,10 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { getPokemon, clearPokemonDetails, toggleFavorites } from '../store/actions';
 import PokeDetails from '../components/Details';
 
-export class PokemonDetailsContainer extends Component {
+export class PokemonDetailsContainer extends PureComponent {
   constructor(props) {
     super(props);
     this.removeAnimation();

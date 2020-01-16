@@ -1,6 +1,5 @@
 import React from 'react'
 import { NavLink, Link } from 'react-router-dom';
-import LazyLoad from 'react-lazyload';
 const Navigation = (props) => {
   return (
     <aside className="side-nav">
