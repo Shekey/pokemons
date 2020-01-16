@@ -154,11 +154,12 @@ class App extends Component {
         <BrowserRouter>
           <Navigation handleNavigationItemClicked = {() =>this.handleNavigationItemClicked()}/>
           <span className="burger">&#9776;</span>
+          <Autocomplete showAutocomplete ={(e) => this.showAutocomplete(e)} allPokemonsNames={this.props.pokemonsNames}/>
           <Switch>
             <Route path="/" component={PokeDex} exact />
             <Route path="/typedex" component={TypeDexContainer} exact />
-            <Route exact path="/pokemon/:id" component={PokemonDetailsContainer} exact />
-            <Route exact path="/typedex/:type" component={TypeDexByTypeContainer} exact />
+            <Route path="/pokemon/:id" component={PokemonDetailsContainer} exact />
+            <Route path="/typedex/:type" component={TypeDexByTypeContainer} exact />
             <Route path="/fav" component={FavoritesContainer} exact />
           </Switch>
         </BrowserRouter>
