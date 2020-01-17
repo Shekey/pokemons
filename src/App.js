@@ -94,15 +94,6 @@ class App extends PureComponent {
     }
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    if(nextProps.isLoadedApp || nextProps.isLoadedApp == null) {
-      this.removeAnimation();
-      return true;
-    } else {
-      return false;
-    }
-  }
-
   handleNavigationItemClicked() {
     let isMobile = window.matchMedia("(max-width: 999px)");
     let root = document.querySelector('#root');
