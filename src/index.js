@@ -9,8 +9,8 @@ import reduxThunk from 'redux-thunk';
 import * as serviceWorker from './serviceWorker';
 export const store = createStore(pokemonReducer, applyMiddleware(reduxThunk));
 
-let rootElement = document.getElementById('root');
-  if (rootElement.hasChildNodes()) {
+  let rootElement = document.getElementById('root');
+  if (window.hasRestoredState) {
     ReactDOM.hydrate(<Provider store={store}>
       <App />
     </Provider>, rootElement);
