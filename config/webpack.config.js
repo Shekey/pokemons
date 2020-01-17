@@ -204,6 +204,8 @@ module.exports = function(webpackEnv) {
       minimizer: [
         // This is only used in production mode
         new TerserPlugin({
+          cache: true,
+          parallel: true,
           terserOptions: {
             parse: {
               // We want terser to parse ecma 8 code. However, we don't want it
@@ -215,7 +217,7 @@ module.exports = function(webpackEnv) {
             },
             compress: {
               ecma: 5,
-              warnings: false,
+              warnings: true,
               // Disabled because of an issue with Uglify breaking seemingly valid code:
               // https://github.com/facebook/create-react-app/issues/2376
               // Pending further investigation:

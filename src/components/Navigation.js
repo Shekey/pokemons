@@ -4,12 +4,8 @@ const Navigation = (props) => {
   return (
     <aside className="side-nav">
       <Link className="logo-wrapper" to="/" onClick={(e) => props.handleNavigationItemClicked()}>
-        <LazyLoad height={200}>
           <img className="logo" src="../images/logo-yellow.png" alt="Logo" />
-        </LazyLoad>
-        <LazyLoad height={200}>
           <img className="logo" src="../images/logo-black.png" alt="Logo" />
-        </LazyLoad>
       </Link>
       <ul>
         <li onClick={(e) => props.handleNavigationItemClicked()} className="pokeball"><NavLink exact to="/" activeClassName="active-navigation-item">Pokedex</NavLink></li>
