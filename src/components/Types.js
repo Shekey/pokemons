@@ -15,7 +15,7 @@ const Types = (props) => {
         let pokemonId = item.pokemon.url.split("pokemon/")[1];
         pokemonId = pokemonId.substring(0,pokemonId.length - 1);
           return (
-            <div key={index} className={`pokemon_typebyname_item`}>
+            <div key={item.pokemon.name} className={`pokemon_typebyname_item`}>
               <p className="pokemon_typebyname_item_id">{pokemonId}</p>
               <p className="pokemon_typebyname_item_name">{item.pokemon.name}</p>
               <div className="link-wrapper">

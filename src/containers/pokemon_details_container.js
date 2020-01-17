@@ -5,8 +5,7 @@ import { getPokemon, clearPokemonDetails, toggleFavorites } from '../store/actio
 import PokeDetails from '../components/Details';
 
 export class PokemonDetailsContainer extends PureComponent {
-  constructor(props) {
-    super(props);
+  componentDidMount() {
     this.removeAnimation();
     this.props.getPokemon(this.props.match.params.id);
   }

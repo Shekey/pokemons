@@ -8,12 +8,8 @@ import TypesList from '../components/Types';
 let typeClicked = '';
 
 export class TypeDexContainer extends PureComponent {
-  constructor(props) {
-    super(props);
-    this.props.getAllTypes();
-  }
-
   componentDidMount() {
+    this.props.getAllTypes();
     this.removeAnimation();
   }
 

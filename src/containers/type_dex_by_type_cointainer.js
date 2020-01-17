@@ -7,14 +7,10 @@ import TypesList from '../components/Types';
 let typeClicked = '';
 
 export class TypeDexByTypeContainer extends PureComponent {
-  constructor(props) {
-    super(props);
+  componentDidMount() {
     let type = this.props.match.params.type;
     typeClicked = type;
     if(type !=='') this.props.getPOkemonByTypename(type);
-  }
-
-  componentDidMount() {
     this.removeAnimation();
   }
 
