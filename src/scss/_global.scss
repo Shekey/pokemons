@@ -57,31 +57,6 @@
     height: auto;
   }
 
-  .logo-on-start {
-    position: absolute;
-    transition: width 0.3s, height 0.3s ease-in-out;
-
-    &.active {
-      left: 0;
-      top: 0;
-      bottom: 0;
-      right: 0;
-      z-index: 124;
-      background: url(../images/pokedex-desktop-01.png);
-      background-position: center;
-      background-size: cover;
-      background-repeat: no-repeat;
-      transition: opacity 1s ease-in-out;
-
-      @media only screen and (max-width: 999px) {
-        background: url(../images/pokedexapp1-01.png);
-        background-position: center;
-        background-size: cover;
-        background-repeat: no-repeat;
-      }
-    }
-  }
-
   .content {
     padding-top: 120px;
     position: relative;

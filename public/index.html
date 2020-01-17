@@ -14,22 +14,81 @@
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
+    <style>
+     .logo-on-start {
+      position: absolute;
+      transition: width 0.3s, height 0.3s ease-in-out;
+    }
+    .logo-on-start.active {
+      left: 0;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      z-index: 124;
+      background: url(../images/pokedex-desktop-01.png);
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      transition: opacity 1s ease-in-out;
+    }
+    @media only screen and (max-width: 999px) {
+      .logo-on-start.active {
+        background: url(../images/pokedexapp1-01.png);
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+    }
+
+    .page-content-wrapper {
+      display: flex;
+      background-color: whitesmoke;
+      min-height: 100vh;
+      font-family: 'Lato-Bold';
+      position: relative;
+    }
+    @media only screen and (max-width: 999px) {
+      .page-content-wrapper {
+        background-color: #fff;
+      }
+      .page-content-wrapper input, .page-content-wrapper textarea, .page-content-wrapper button, .page-content-wrapper select, .page-content-wrapper a {
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+      }
+    }
+    .page-content-wrapper .logo-wrapper-center {
+      display: none;
+    }
+    @media only screen and (max-width: 999px) {
+      .page-content-wrapper .logo-wrapper-center {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100px;
+        height: 30px;
+        transform: translate(-50%, -50%);
+        display: inline-block;
+      }
+    }
+    .page-content-wrapper .row, .page-content-wrapper .side-nav, .page-content-wrapper .loader-holder, .page-content-wrapper .burger {
+      opacity: 1;
+    }
+    .page-content-wrapper.active {
+      height: 100vh;
+      background-color: gold;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-content-wrapper.active .row, .page-content-wrapper.active .side-nav, .page-content-wrapper.active .loader-holder, .page-content-wrapper.active .burger {
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+    }
+  </style>
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet">
     <!-- for autocomplete  -->
     <link rel="preload" rel="preload" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
     <lin  rel="preload" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
-
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
-    <title>React App</title>
+    <title>Find your pokemon</title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
