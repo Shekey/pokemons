@@ -38,7 +38,7 @@ export function getAllPokemons(offset = 0, limit = 9) {
       .then((res) => {
         data.firstPage = 1;
         data.countResults = res.data.count;
-        data.lastPage = res.data.count / limit;
+        data.lastPage = res.data.count / limit - 1;
         data.lastPage % 1 !== 0 ? data.lastPage = parseInt(data.lastPage) + 1 : parseInt(data.lastPage);
         data.currentPage = offset / 9 === 0 ? 1 : offset / 9 + 1;
         data.currentPage = parseInt(data.currentPage);

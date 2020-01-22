@@ -27,7 +27,6 @@ export class PokemonDetailsContainer extends PureComponent {
   }
 
   goBack(e) {
-    console.log("clicked");
     e.preventDefault();
     this.props.history.goBack();
   }

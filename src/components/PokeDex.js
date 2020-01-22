@@ -46,35 +46,36 @@ const PokeDex = (props) => {
               isFavorite = 'fav';
             }
           }
-
-          return (
-            <Link key={item.name} className={`pokemon_item ${item.types[item.types.length - 1].type.name}`} to={`pokemon/${item.id}`}>
-              <div className={`pokemon_item-content`}>
-                <p className="pokemon_item-id">#{item.id}</p>
-                <div className="specific-details">
-                <p className="pokemon_item-name">{item.name}</p>
-                  <div className="pokemon_item-height two-columns">
-                    <p>H</p>
-                    <p>{item.height}</p>
+          if(item.name !== null) {
+            return (
+              <Link key={item.name} className={`pokemon_item ${item.types[item.types.length - 1].type.name}`} to={`pokemon/${item.id}`}>
+                <div className={`pokemon_item-content`}>
+                  <p className="pokemon_item-id">#{item.id}</p>
+                  <div className="specific-details">
+                  <p className="pokemon_item-name">{item.name}</p>
+                    <div className="pokemon_item-height two-columns">
+                      <p>H</p>
+                      <p>{item.height}</p>
+                    </div>
+                  <LazyLoad height={200}>
+                    <div className="img-wrapper" style={{ backgroundImage: 'url(' + imageUrl + ')' }}></div>
+                  </LazyLoad>
+                    <div className="pokemon_item-weight two-columns">
+                      <p>W</p>
+                      <p>{item.weight}</p>
+                    </div>
+                    <div className="star-wrapper">
+                      <div href="#" onClick={(e,id,name) => props.handleClick(e, item.id, item.name)}><i className={`fas fa-star ${isFavorite}`}></i></div>
+                    </div>
                   </div>
-                <LazyLoad height={200}>
-                  <div className="img-wrapper" style={{ backgroundImage: 'url(' + imageUrl + ')' }}></div>
-                </LazyLoad>
-                  <div className="pokemon_item-weight two-columns">
-                    <p>W</p>
-                    <p>{item.weight}</p>
-                  </div>
-                  <div className="star-wrapper">
-                    <div href="#" onClick={(e,id,name) => props.handleClick(e, item.id, item.name)}><i className={`fas fa-star ${isFavorite}`}></i></div>
+                  <div className="two-columns pokemon-xp">
+                    <p>XP</p>
+                    <p className="pokemon_item-xp">{item.base_experience}</p>
                   </div>
                 </div>
-                <div className="two-columns pokemon-xp">
-                  <p>XP</p>
-                  <p className="pokemon_item-xp">{item.base_experience}</p>
-                </div>
-              </div>
-            </Link>
-          )
+              </Link>
+            )
+          }
         }) : null
       }
 

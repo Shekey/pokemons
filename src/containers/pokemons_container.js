@@ -6,7 +6,6 @@ import PokeList from '../components/PokeDex';
 
 
 export class PokemonContainer extends PureComponent {
-  
   componentDidMount() {
     this.props.getAllPokemons(0, 9);
     this.removeAnimation();
