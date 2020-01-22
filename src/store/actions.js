@@ -229,11 +229,11 @@ export function getPokemon(id) {
                 }
 
                 if (item.data.capture_rate !== undefined) {
-                  res.data.capture_rate = item.data.capture_rate;
+                  res.data.capture_rate = item.data.capture_rate !== null ? item.data.capture_rate : 'No data, sorry.';
                 }
 
                 if (item.data.habitat !== undefined) {
-                  res.data.habitat = item.data.habitat.name;
+                  res.data.habitat = item.data.habitat !== null ? item.data.habitat.name : 'No data, sorry.';
                 }
 
                 if (item.data.effect_entries !== undefined) {
@@ -262,17 +262,39 @@ export function getPokemon(id) {
                 let counterOfFinishedCalls = 0;
                 axios.get(res.data.evolutionUrl).then(respon => {
                   let startObject = respon.data.chain['evolves_to'][0];
-                  while (chain) {
-                    if (startObject !== undefined) {
-                      evolveForms.push({
-                        name: startObject.species.name,
-                        url: startObject.species.url
-                      })
-                      startObject = startObject['evolves_to'][0];
-                    } else {
-                      chain = false;
+                  if(startObject !== undefined) {
+                    console.log(startObject);
+                    while (chain) {
+                      if (startObject !== undefined) {
+                        evolveForms.push({
+                          name: startObject.species.name,
+                          url: startObject.species.url
+                        })
+                        startObject = startObject['evolves_to'][0];
+                      } else {
+                        chain = false;
+                      }
                     }
                   }
+
+                  console.log(evolveForms)
+
+                  if(evolveForms.length == 0) {
+                    res.isFinishedAsyncCall = true;
+                    res.data.isFavorite = isFavorite;
+
+                    console.log(res.data);
+                    dispatch({
+                      type: 'SAVE_POKEMON_DETAILS',
+                      payload: res.data
+                    })
+
+                    return dispatch({
+                      type: 'GET_POKEMON_BY_NAME',
+                      payload: res.data
+                    })
+                  }
+
                   evolveForms.forEach(i => {
                     if (!res.isFinishedAsyncCall) {
                       axios.get(`https://pokeapi.co/api/v2/pokemon/${i.name}`).then(res => {
@@ -282,7 +304,7 @@ export function getPokemon(id) {
                         res.data.evolveForms.push({
                           types: response.types,
                           name: response.name,
-                          imageUrl: response.sprites.front_shiny,
+                          imageUrl: response.sprites.front_shiny !== null ? response.sprites.front_shiny : '../images/noImage.jpeg',
                           id: response.id
                         })
                         if (counterOfFinishedCalls === evolveForms.length) {
