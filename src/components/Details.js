@@ -27,7 +27,7 @@ const PokemonDetails = (props) => {
               <div className="pokemon-button-left mobile">
                 <button onClick={() => props.handlePrevButton()}><span>&lt;</span><span>&lt;</span> Previous</button>
               </div>
-              <h5 className={`pokemon-name`}>{props.pokemon.name}</h5>
+              <h5 className={`pokemon-name`}>{props.pokemon.name !==null ? props.pokemon.name: 'No Name'}</h5>
               <div className="pokemon-button-right mobile">
               <button onClick={() => props.handleNextButton()}>Next <span>&gt;</span><span>&gt;</span></button>
               </div>
@@ -40,7 +40,7 @@ const PokemonDetails = (props) => {
             </div>
             <div className="img-wrapper">
           <LazyLoad height={200}>
-            <img src={props.pokemon.sprites.front_shiny} alt={props.pokemon.name}/>
+            <img src={props.pokemon.sprites.front_shiny !== null ? props.pokemon.sprites.front_shiny : '../images/noImage.jpeg'} alt={props.pokemon.name}/>
           </LazyLoad>
           </div>
           </div>
@@ -49,7 +49,7 @@ const PokemonDetails = (props) => {
             <div className="pokemon-image">
               <figure>
               <LazyLoad height={200}>
-                <img src={props.pokemon.sprites.front_shiny}
+                <img src={props.pokemon.sprites.front_shiny !== null ? props.pokemon.sprites.front_shiny : '../images/noImage.jpeg'}
                   alt={props.pokemon.name} />
               </LazyLoad>
               </figure>
@@ -167,7 +167,7 @@ const showEvolve = (evolveForms, currentPokemon) => {
         <div key={currentPokemon.name} className={`pokemon-info-evolve-item`}>
           <div className="img-wrapper">
             <LazyLoad height={200}>
-            <img src={currentPokemon.sprites.front_shiny} alt={currentPokemon.name}/>
+            <img src={currentPokemon.sprites.front_shiny !== null ? currentPokemon.sprites.front_shiny : '../images/noImage.jpeg'} alt={currentPokemon.name}/>
           </LazyLoad>
           </div>
           <h5>{currentPokemon.name}</h5>
