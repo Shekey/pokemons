@@ -7,10 +7,21 @@ const PokeDex = (props) => {
       let lastPageActive = '',
         nextPageActive = '',
         currentPageActive = '';
-      if (props.pokemons.lastPage === props.pokemons.nextPage) {
-        lastPageActive = 'active'
-      } else if (props.pokemons.nextPage === props.pokemons.lastPage) {
+      if (props.pokemons.currentPage === props.pokemons.lastPage - 1) {
+        console.log(props.pokemons.currentPage);
+        props.pokemons.nextNumber = props.pokemons.lastPage - 1;
+        props.pokemons.currentPage -= 1;
+        props.pokemons.doubleNextNumber = props.pokemons.lastPage;
         nextPageActive = 'active'
+      } else if ( props.pokemons.lastPage === props.pokemons.currentPage) {
+        lastPageActive = 'active'
+        props.pokemons.currentPage -= 2;
+        props.pokemons.nextPage = 'disabled';
+        props.pokemons.lastPage = 'disabled';
+      } else if(props.pokemons.currentPage === props.pokemons.firstPage) {
+        currentPageActive = 'active';
+        props.pokemons.prevPage = 'disabled';
+        props.pokemons.firstPage = 'disabled';
       } else {
         currentPageActive = 'active';
       }

@@ -17,6 +17,12 @@
     }
   }
 
+  button[data-navigate="disabled"] {
+    pointer-events: none;
+    color: lightgray;
+    border-color: lightgray;
+  }
+
   .logo-wrapper-center {
     display: none;
     @media only screen and (max-width: 999px) {

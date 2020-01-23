@@ -46,17 +46,6 @@ export function getAllPokemons(offset = 0, limit = 9) {
         data.doubleNextNumber = data.nextNumber + 1;
         data.nextPage = data.currentPage + 1;
         data.prevPage = data.currentPage > 1 ? data.currentPage - 1 : 1;
-        if (data.nextPage > data.lastPage) {
-          data.nextPage = data.lastPage;
-          data.nextNumber = data.lastPage - 1;
-          data.doubleNextNumber = data.currentPage;
-          data.currentPage = data.prevPage - 1;
-        } else if (data.nextPage === data.lastPage) {
-          data.currentPage = data.prevPage - 1;
-          data.nextPage = data.lastPage;
-          data.nextNumber = data.lastPage - 2;
-          data.doubleNextNumber = data.currentPage + 2;
-        }
         return res.data;
       }).then((res) => {
         let length = res.results.length;
@@ -66,12 +55,11 @@ export function getAllPokemons(offset = 0, limit = 9) {
             data.push(res.data);
             counter++;
             if (counter === length) {
-              data.currentPage = currentPage;
+              // data.currentPage = currentPage;
               dispatch({
                 type: 'SAVE_POKEMONS_LIST',
                 payload: data
               })
-
               return dispatch({
                 type: 'GET_POKEMONS_ALL_SUCCESSFUL',
                 payload: data
