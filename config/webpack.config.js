@@ -200,7 +200,7 @@ module.exports = function(webpackEnv) {
       globalObject: 'this',
     },
     optimization: {
-      minimize: isEnvProduction,
+      minimize: true,
       minimizer: [
         // This is only used in production mode
         new TerserPlugin({
@@ -267,11 +267,11 @@ module.exports = function(webpackEnv) {
       // https://medium.com/webpack/webpack-4-code-splitting-chunk-graph-and-the-splitchunks-optimization-be739a861366
       splitChunks: {
         chunks: 'async',
-        minSize: 10000,
+        minSize: 7000,
         maxSize: 0,
         minChunks: 1,
         maxAsyncRequests: 6,
-        maxInitialRequests: 4,
+        maxInitialRequests: 2,
         automaticNameDelimiter: '~',
         automaticNameMaxLength: 30,
         cacheGroups: {
